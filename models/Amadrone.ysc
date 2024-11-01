@@ -5,7 +5,7 @@
       <vertices xsi:type="sgraph:Entry" xmi:id="_8gBalJLaEe-sVtXFkbEeiA">
         <outgoingTransitions xmi:id="_8gBalZLaEe-sVtXFkbEeiA" target="_8gBalpLaEe-sVtXFkbEeiA"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_8gBalpLaEe-sVtXFkbEeiA" name="StateA" incomingTransitions="_8gBalZLaEe-sVtXFkbEeiA _8gBao5LaEe-sVtXFkbEeiA">
+      <vertices xsi:type="sgraph:State" xmi:id="_8gBalpLaEe-sVtXFkbEeiA" name="Arshdeep" incomingTransitions="_8gBalZLaEe-sVtXFkbEeiA _8gBao5LaEe-sVtXFkbEeiA">
         <outgoingTransitions xmi:id="_8gBamZLaEe-sVtXFkbEeiA" specification="myEvent" target="_8gBaoJLaEe-sVtXFkbEeiA"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_8gBaoJLaEe-sVtXFkbEeiA" name="StateB" incomingTransitions="_8gBamZLaEe-sVtXFkbEeiA">
