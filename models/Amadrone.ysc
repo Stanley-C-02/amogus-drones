@@ -9,9 +9,6 @@
         <outgoingTransitions xmi:id="_8gBamZLaEe-sVtXFkbEeiA" specification="myEvent" target="_8gBaoJLaEe-sVtXFkbEeiA"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_8gBaoJLaEe-sVtXFkbEeiA" name="StateB2" incomingTransitions="_8gBamZLaEe-sVtXFkbEeiA">
-=======
-      <vertices xsi:type="sgraph:State" xmi:id="_8gBaoJLaEe-sVtXFkbEeiA" name="StateB1" incomingTransitions="_8gBamZLaEe-sVtXFkbEeiA">
->>>>>>> 4950736141fc4a6a59f01e18e95db2e0266eeb74
         <outgoingTransitions xmi:id="_8gBao5LaEe-sVtXFkbEeiA" specification="myEvent" target="_8gBalpLaEe-sVtXFkbEeiA"/>
       </vertices>
     </regions>
