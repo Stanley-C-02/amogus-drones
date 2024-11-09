@@ -1,0 +1,33 @@
+GeneratorModel for create::java {
+
+	const PROJECT : string = "amogus-drones"
+
+	const FOLDER : string = "src-gen"
+
+	statechart Amadrone {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src"
+		}
+	}
+
+	statechart Battery {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src"
+		}
+	}
+
+	statechart Motor {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src"
+		}
+	}
+}
