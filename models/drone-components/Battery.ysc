@@ -7,7 +7,7 @@
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_SeQUcJ64Ee-Q_sfPrdmAZA" name="Discharging" incomingTransitions="_SeOfRZ64Ee-Q_sfPrdmAZA _SeSJoZ64Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_SeQ7gp64Ee-Q_sfPrdmAZA" specification="start_charging" target="_SeRilZ64Ee-Q_sfPrdmAZA"/>
-        <regions xmi:id="_dWUqMJ64Ee-Q_sfPrdmAZA">
+        <regions xmi:id="_dWUqMJ64Ee-Q_sfPrdmAZA" name="r">
           <vertices xsi:type="sgraph:State" xmi:id="_fH1EEJ64Ee-Q_sfPrdmAZA" name="Charged" incomingTransitions="_i3Nf4J64Ee-Q_sfPrdmAZA">
             <outgoingTransitions xmi:id="_oJnNoJ64Ee-Q_sfPrdmAZA" specification="[charge &lt; 10]/raise low_battery" target="_fZ2BIJ64Ee-Q_sfPrdmAZA"/>
           </vertices>
