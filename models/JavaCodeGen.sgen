@@ -1,6 +1,6 @@
 GeneratorModel for create::java {
 
-	const PROJECT : string = "amogus-drones"
+	const PROJECT : string = "amogus_drones"
 
 	const FOLDER : string = "src-gen"
 
@@ -14,6 +14,15 @@ GeneratorModel for create::java {
 	}
 
 	statechart Battery {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src"
+		}
+	}
+
+	statechart Gps {
 
 		feature Outlet {
 			targetProject = PROJECT

@@ -25,3 +25,6 @@ replay_pid*
 
 # Auto-generated code
 src-gen/
+
+# Compiled .class files
+bin/
