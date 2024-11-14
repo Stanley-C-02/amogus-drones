@@ -13,9 +13,6 @@ public class AmogusUI {
 		window.setSize(1000, 1000);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		window.setLayout(null);
-		window.setVisible(true);
-
 		// Map Panel
         JPanel mapPanel = new JPanel();
         mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
@@ -85,6 +82,7 @@ public class AmogusUI {
         mainSplitPane.setResizeWeight(0.7); 
 
         window.add(mainSplitPane);
+		window.setVisible(true);
 //		JFrame doorFrame = new JFrame ("SmartDoorCtrl.ysc - USER INTERFACE");
 //		doorFrame.setSize(2000,2000);
 //		doorFrame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
