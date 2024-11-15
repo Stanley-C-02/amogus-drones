@@ -5,10 +5,10 @@
       <vertices xsi:type="sgraph:Entry" xmi:id="_SZssRKI0Ee-TH_vN7xDzYQ">
         <outgoingTransitions xmi:id="_SZssRaI0Ee-TH_vN7xDzYQ" target="_SZssRqI0Ee-TH_vN7xDzYQ"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_SZssRqI0Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;disabled&quot;" name="Offline" incomingTransitions="_SZssRaI0Ee-TH_vN7xDzYQ _EhBvcKI4Ee-TH_vN7xDzYQ">
+      <vertices xsi:type="sgraph:State" xmi:id="_SZssRqI0Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;disabled&quot;" name="Off" incomingTransitions="_SZssRaI0Ee-TH_vN7xDzYQ _EhBvcKI4Ee-TH_vN7xDzYQ">
         <outgoingTransitions xmi:id="_NJ4REKI3Ee-TH_vN7xDzYQ" specification="on" target="_JgmdQKI3Ee-TH_vN7xDzYQ"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_JgmdQKI3Ee-TH_vN7xDzYQ" name="Online" incomingTransitions="_NJ4REKI3Ee-TH_vN7xDzYQ">
+      <vertices xsi:type="sgraph:State" xmi:id="_JgmdQKI3Ee-TH_vN7xDzYQ" name="On" incomingTransitions="_NJ4REKI3Ee-TH_vN7xDzYQ">
         <outgoingTransitions xmi:id="_EhBvcKI4Ee-TH_vN7xDzYQ" specification="off" target="_SZssRqI0Ee-TH_vN7xDzYQ"/>
         <regions xmi:id="_W74WoKI3Ee-TH_vN7xDzYQ" name="r">
           <vertices xsi:type="sgraph:State" xmi:id="_a69bUKI3Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;available&quot;" name="Available" incomingTransitions="_bq_xIKI3Ee-TH_vN7xDzYQ _0XLVUKNbEe-PP65CgVRBKA">
