@@ -1,4 +1,4 @@
-package amogus_drones;
+
 
 import java.awt.*;
 import javax.swing.*;
@@ -12,6 +12,13 @@ public class AmogusUI {
 		JFrame window = new JFrame("AMOGUS UI - Test");
 		window.setSize(1000, 1000);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Hub hub = new Hub();
+		
+		Amadrone[] drones = { hub.drone.getD0(), hub.drone.getD1(), hub.drone.getD2() };
+		House[] houses = { hub.houses.getH0() };
+		ChargingStation[] chargers = { hub.charger.getStation0(), hub.charger.getStation1() };
+		PackageSM[] packages = { hub.package_ID.getP0(), hub.package_ID.getP1(), hub.package_ID.getP2(), hub.package_ID.getP3() };
 		
 		// Map Panel
         JPanel mapPanel = new JPanel();

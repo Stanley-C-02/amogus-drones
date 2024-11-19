@@ -31,6 +31,15 @@ GeneratorModel for create::java {
 		}
 	}
 
+	statechart Hub {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src"
+		}
+	}
+
 	statechart Package {
 
 		feature Outlet {

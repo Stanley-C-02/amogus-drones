@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="__cpwwKXTEe-Hssmza_E6BA" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;Package.ysc&quot;&#xA;import: &quot;Amadrone.ysc&quot;&#xA;import: &quot;House.ysc&quot;&#xA;import: &quot;ChargingStation.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event myEvent&#xA;&#xA;interface package:&#xA;&#x9;var package0: Package&#xA;&#x9;var package1: Package&#xA;&#x9;var package2: Package&#xA;&#x9;var package3: Package&#xA;&#xA;interface drone:&#xA;&#x9;var drone0: Amadrone&#xA;&#x9;var drone1: Amadrone&#xA;&#x9;var drone2: Amadrone&#xA;//&#x9;var drone = new Amadrone()&#xA;&#xA;interface destinations:&#xA;&#x9;var house0: House&#xA;&#x9;var house1: House&#xA;&#x9;var house2: House&#xA;&#x9;var house3: House&#xA;&#x9;var house4: House&#xA;&#xA;interface chargers:&#xA;&#x9;var station0: ChargingStation&#xA;&#x9;var station1: ChargingStation" name="Hub" domainID="com.yakindu.domain.java">
+  <sgraph:Statechart xmi:id="__cpwwKXTEe-Hssmza_E6BA" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;Package.ysc&quot;&#xA;import: &quot;Amadrone.ysc&quot;&#xA;import: &quot;House.ysc&quot;&#xA;import: &quot;ChargingStation.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event myEvent&#xA;&#x9;&#xA;&#x9;// Assume map size is:&#xA;&#x9;// (0, 0) - top-left corner to&#xA;&#x9;// (100, 100) - bottom-right corner&#xA;&#x9;var hub_pos_x: integer = 50&#xA;&#x9;var hub_pos_y: integer = 50&#xA;&#xA;interface drone:&#xA;&#x9;var d0: Amadrone&#xA;&#x9;var d1: Amadrone&#xA;&#x9;var d2: Amadrone&#xA;&#xA;interface houses:&#xA;&#x9;var h0: House&#xA;&#x9;var h1: House&#xA;&#x9;var h2: House&#xA;&#x9;var h3: House&#xA;&#x9;var h4: House&#xA;&#xA;interface charger:&#xA;&#x9;var station0: ChargingStation&#xA;&#x9;var station1: ChargingStation&#xA;&#x9;&#xA;interface package:&#xA;&#x9;var p0: Package&#xA;&#x9;var p1: Package&#xA;&#x9;var p2: Package&#xA;&#x9;var p3: Package&#xA;&#xA;internal:&#xA;&#x9;entry /&#xA;&#x9;&#x9;drone.d0.id = 0;&#xA;&#x9;&#x9;drone.d1.id = 1;&#xA;&#x9;&#x9;drone.d2.id = 2;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;houses.h0.name = &quot;TMU&quot;;&#xA;&#x9;&#x9;houses.h0.x = 40;&#xA;&#x9;&#x9;houses.h0.y = 90;&#xA;&#x9;&#x9;houses.h1.name = &quot;Stanley&quot;;&#xA;&#x9;&#x9;houses.h1.x = 60;&#xA;&#x9;&#x9;houses.h1.y = 10;&#xA;&#x9;&#x9;houses.h2.name = &quot;Alice&quot;;&#xA;&#x9;&#x9;houses.h2.x = 25;&#xA;&#x9;&#x9;houses.h2.y = 50;&#xA;&#x9;&#x9;houses.h3.name = &quot;Bob&quot;;&#xA;&#x9;&#x9;houses.h3.x = 55;&#xA;&#x9;&#x9;houses.h3.y = 65;&#xA;&#x9;&#x9;houses.h4.name = &quot;Arshdeep&quot;;&#xA;&#x9;&#x9;houses.h4.x = 60;&#xA;&#x9;&#x9;houses.h4.y = 80;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;charger.station0.id = 0;&#xA;&#x9;&#x9;charger.station0.name = &quot;Hub Charger&quot;;&#xA;&#x9;&#x9;charger.station0.x = 60;&#xA;&#x9;&#x9;charger.station0.y = 50;&#xA;&#x9;&#x9;charger.station1.id = 1;&#xA;&#x9;&#x9;charger.station1.name = &quot;North Charger&quot;;&#xA;&#x9;&#x9;charger.station1.x = 40;&#xA;&#x9;&#x9;charger.station1.y = 30;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;package.p0.id = 0;&#xA;&#x9;&#x9;package.p0.name = &quot;BIC Mechanical Pencil Set (10 pcs)&quot;;&#xA;&#x9;&#x9;package.p0.weight = 62;&#xA;&#x9;&#x9;package.p1.id = 1;&#xA;&#x9;&#x9;package.p1.name = &quot;Lysol Spray&quot;;&#xA;&#x9;&#x9;package.p1.weight = 680;&#xA;&#x9;&#x9;package.p2.id = 2;&#xA;&#x9;&#x9;package.p2.name = &quot;Tim Hortons Original Blend&quot;;&#xA;&#x9;&#x9;package.p2.weight = 930;&#xA;&#x9;&#x9;package.p3.id = 3;&#xA;&#x9;&#x9;package.p3.name = &quot;AA Battery Pack (20 pcs)&quot;;&#xA;&#x9;&#x9;package.p3.weight = 400" name="Hub">
     <regions xmi:id="__cqX26XTEe-Hssmza_E6BA" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="__cqX3KXTEe-Hssmza_E6BA">
         <outgoingTransitions xmi:id="__cqX3aXTEe-Hssmza_E6BA" target="__cqX3qXTEe-Hssmza_E6BA"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="__cqX3qXTEe-Hssmza_E6BA" name="StateA" incomingTransitions="__cqX3aXTEe-Hssmza_E6BA __cq-66XTEe-Hssmza_E6BA">
+      <vertices xsi:type="sgraph:State" xmi:id="__cqX3qXTEe-Hssmza_E6BA" specification="" name="Init Drones" incomingTransitions="__cqX3aXTEe-Hssmza_E6BA">
         <outgoingTransitions xmi:id="__cq-4aXTEe-Hssmza_E6BA" specification="myEvent" target="__cq-6KXTEe-Hssmza_E6BA"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="__cq-6KXTEe-Hssmza_E6BA" specification="" name="StateB" incomingTransitions="__cq-4aXTEe-Hssmza_E6BA">
-        <outgoingTransitions xmi:id="__cq-66XTEe-Hssmza_E6BA" specification="myEvent" target="__cqX3qXTEe-Hssmza_E6BA"/>
-      </vertices>
+      <vertices xsi:type="sgraph:State" xmi:id="__cq-6KXTEe-Hssmza_E6BA" specification="" name="Init Packages" incomingTransitions="__cq-4aXTEe-Hssmza_E6BA"/>
     </regions>
   </sgraph:Statechart>
   <notation:Diagram xmi:id="__crl8KXTEe-Hssmza_E6BA" type="org.yakindu.sct.ui.editor.editor.StatechartDiagramEditor" element="__cpwwKXTEe-Hssmza_E6BA" measurementUnit="Pixel">
@@ -63,12 +61,12 @@
           <styles xsi:type="notation:ShapeStyle" xmi:id="__crmFKXTEe-Hssmza_E6BA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
           <styles xsi:type="notation:FontStyle" xmi:id="__crmFaXTEe-Hssmza_E6BA"/>
           <styles xsi:type="notation:BooleanValueStyle" xmi:id="__crmFqXTEe-Hssmza_E6BA" name="isHorizontal" booleanValue="true"/>
-          <layoutConstraint xsi:type="notation:Bounds" xmi:id="__crmF6XTEe-Hssmza_E6BA" x="198" y="82"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="__crmF6XTEe-Hssmza_E6BA" x="309" y="80" width="177" height="66"/>
         </children>
         <layoutConstraint xsi:type="notation:Bounds" xmi:id="__crmGKXTEe-Hssmza_E6BA"/>
       </children>
       <styles xsi:type="notation:ShapeStyle" xmi:id="__crmGaXTEe-Hssmza_E6BA" fontName="Verdana" fillColor="16448250" lineColor="12632256"/>
-      <layoutConstraint xsi:type="notation:Bounds" xmi:id="__crmGqXTEe-Hssmza_E6BA" x="205" y="10" width="400" height="400"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="__crmGqXTEe-Hssmza_E6BA" x="205" y="10" width="561" height="400"/>
     </children>
     <children xsi:type="notation:Shape" xmi:id="__crmG6XTEe-Hssmza_E6BA" type="StatechartText" fontName="Verdana" lineColor="4210752">
       <children xsi:type="notation:DecorationNode" xmi:id="__crmHKXTEe-Hssmza_E6BA" type="StatechartName">
@@ -94,24 +92,13 @@
     <edges xmi:id="__crmK6XTEe-Hssmza_E6BA" type="Transition" element="__cq-4aXTEe-Hssmza_E6BA" source="__crmAKXTEe-Hssmza_E6BA" target="__crmDKXTEe-Hssmza_E6BA">
       <children xsi:type="notation:DecorationNode" xmi:id="__crmLKXTEe-Hssmza_E6BA" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="__crmLaXTEe-Hssmza_E6BA"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="__crmLqXTEe-Hssmza_E6BA" y="10"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="__crmLqXTEe-Hssmza_E6BA" x="-10" y="10"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="__crmL6XTEe-Hssmza_E6BA" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="__crmMKXTEe-Hssmza_E6BA" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="__crmMaXTEe-Hssmza_E6BA" points="[16, 0, -110, 0]$[116, -9, -10, -9]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="__crmMaXTEe-Hssmza_E6BA" points="[48, 3, -127, 10]$[145, 3, -30, 10]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="__crmMqXTEe-Hssmza_E6BA" id="(0.7241379310344828,0.22641509433962265)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="__crmM6XTEe-Hssmza_E6BA" id="(0.1724137931034483,0.18867924528301888)"/>
-    </edges>
-    <edges xmi:id="__crmNKXTEe-Hssmza_E6BA" type="Transition" element="__cq-66XTEe-Hssmza_E6BA" source="__crmDKXTEe-Hssmza_E6BA" target="__crmAKXTEe-Hssmza_E6BA">
-      <children xsi:type="notation:DecorationNode" xmi:id="__crmNaXTEe-Hssmza_E6BA" type="TransitionExpression">
-        <styles xsi:type="notation:ShapeStyle" xmi:id="__crmNqXTEe-Hssmza_E6BA"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="__crmN6XTEe-Hssmza_E6BA" x="1" y="-15"/>
-      </children>
-      <styles xsi:type="notation:ConnectorStyle" xmi:id="__crmOKXTEe-Hssmza_E6BA" routing="Rectilinear" lineColor="4210752"/>
-      <styles xsi:type="notation:FontStyle" xmi:id="__crmOaXTEe-Hssmza_E6BA" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="__crmOqXTEe-Hssmza_E6BA" points="[-15, -1, 112, 0]$[-120, 7, 7, 8]"/>
-      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="__crmO6XTEe-Hssmza_E6BA" id="(0.25862068965517243,0.8301886792452831)"/>
-      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="__crmPKXTEe-Hssmza_E6BA" id="(0.7931034482758621,0.8490566037735849)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_LiK88KH2Ee-fR9mIPl7HaQ" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;House.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event AttachDrone&#xA;&#x9;in event DropPackageAtHouse&#xA;&#x9;&#xA;&#x9;// status: ENUM('available', 'in-transit', 'delivered')&#xA;&#x9;var status: string&#xA;&#x9;var weight: integer&#xA;&#x9;var destination: House&#xA;&#x9;" name="Package">
+  <sgraph:Statechart xmi:id="_LiK88KH2Ee-fR9mIPl7HaQ" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;House.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event AttachDrone&#xA;&#x9;in event DropPackageAtHouse&#xA;&#x9;&#xA;&#x9;// status: ENUM('available', 'in-transit', 'delivered')&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;//&#x9;var status: string&#xA;&#x9;var weight: integer&#xA;//&#x9;var destination: House" name="Package">
     <regions xmi:id="_LiLkC6H2Ee-fR9mIPl7HaQ" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_LiLkDKH2Ee-fR9mIPl7HaQ">
         <outgoingTransitions xmi:id="_LiLkDaH2Ee-fR9mIPl7HaQ" target="_LiLkDqH2Ee-fR9mIPl7HaQ"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_LiLkDqH2Ee-fR9mIPl7HaQ" specification="entry /&#xD;&#xA;&#x9;status = 'available'" name="In Warehouse" incomingTransitions="_LiLkDaH2Ee-fR9mIPl7HaQ">
+      <vertices xsi:type="sgraph:State" xmi:id="_LiLkDqH2Ee-fR9mIPl7HaQ" specification="//entry /&#xD;&#xA;//&#x9;status = &quot;available&quot;" name="In Warehouse" incomingTransitions="_LiLkDaH2Ee-fR9mIPl7HaQ">
         <outgoingTransitions xmi:id="_LiLkEaH2Ee-fR9mIPl7HaQ" specification="AttachDrone" target="_LiLkGKH2Ee-fR9mIPl7HaQ"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_LiLkGKH2Ee-fR9mIPl7HaQ" specification="entry /&#xD;&#xA;&#x9;status = 'in-transit'" name="In Transit" incomingTransitions="_LiLkEaH2Ee-fR9mIPl7HaQ">
+      <vertices xsi:type="sgraph:State" xmi:id="_LiLkGKH2Ee-fR9mIPl7HaQ" specification="//entry /&#xD;&#xA;//&#x9;status = &quot;in-transit&quot;" name="In Transit" incomingTransitions="_LiLkEaH2Ee-fR9mIPl7HaQ">
         <outgoingTransitions xmi:id="_u7JvUKNMEe-PP65CgVRBKA" specification="DropPackageAtHouse" target="_iDjq8KIREe-fR9mIPl7HaQ"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_iDjq8KIREe-fR9mIPl7HaQ" specification="entry /&#xD;&#xA;&#x9;status = 'delivered'" name="Delivered" incomingTransitions="_u7JvUKNMEe-PP65CgVRBKA"/>
+      <vertices xsi:type="sgraph:State" xmi:id="_iDjq8KIREe-fR9mIPl7HaQ" specification="//entry /&#xD;&#xA;//&#x9;status = &quot;delivered&quot;" name="Delivered" incomingTransitions="_u7JvUKNMEe-PP65CgVRBKA"/>
     </regions>
   </sgraph:Statechart>
   <notation:Diagram xmi:id="_LiMLG6H2Ee-fR9mIPl7HaQ" type="org.yakindu.sct.ui.editor.editor.StatechartDiagramEditor" element="_LiK88KH2Ee-fR9mIPl7HaQ" measurementUnit="Pixel">
