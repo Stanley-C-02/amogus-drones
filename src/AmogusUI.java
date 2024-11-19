@@ -8,7 +8,7 @@ public class AmogusUI {
 	public static void main (String[] args) {
 
 		JFrame window = new JFrame("AMOGUS UI - Test");
-		window.setSize(1000, 1000);
+		window.setSize(1800, 1000);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Hub hub = new Hub();
@@ -19,12 +19,8 @@ public class AmogusUI {
 		PackageSM[] packages = { hub.package_ID.getP0(), hub.package_ID.getP1(), hub.package_ID.getP2(), hub.package_ID.getP3() };
 		
 		// Map Panel
-        JPanel mapPanel = new JPanel();
-        mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
-        mapPanel.setLayout(new BorderLayout());
-        JTextArea mapArea = new JTextArea("Map content here...");
-        mapArea.setEditable(false);
-        mapPanel.add(mapArea, BorderLayout.CENTER);
+		JPanel mapPanel = new MapPanel();
+		mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
 
         // Drones Panel
         JPanel dronesPanel = new JPanel();
