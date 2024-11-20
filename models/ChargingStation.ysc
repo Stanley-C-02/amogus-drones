@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_SZreIKI0Ee-TH_vN7xDzYQ" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;Amadrone.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;in event reserve_drone&#xA;&#x9;in event connect_drone&#xA;&#x9;in event disconnect_drone&#xA;&#x9;out event charge_drone&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;// status: ENUM('disabled', 'available', 'reserved', 'busy')&#xA;&#x9;var status: string&#xA;&#x9;var x: integer&#xA;&#x9;var y: integer&#xA;&#x9;const charge_rate: integer = 10&#xA;&#x9;//This needs to be updated as per &#xA;&#x9;//Drone that is using the station&#xA;//&#x9;var drone: Amadrone&#xA;&#x9;//This timer needs to change&#xA;&#x9;// as per the drone battery&#xA;&#x9;//needs logic&#xA;//&#x9;var timer = 10&#xA;&#x9;" name="ChargingStation">
+  <sgraph:Statechart xmi:id="_SZreIKI0Ee-TH_vN7xDzYQ" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;Amadrone.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;in event reserve_drone&#xA;&#x9;in event connect_drone&#xA;&#x9;in event disconnect_drone&#xA;&#x9;&#xA;&#x9;out event charge_drone&#xA;&#x9;out event drone_reserved&#xA;&#x9;out event drone_connected&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;// status: ENUM('disabled', 'available', 'reserved', 'busy')&#xA;&#x9;var status: string&#xA;&#x9;var x: integer&#xA;&#x9;var y: integer&#xA;&#x9;const charge_rate: integer = 10&#xA;&#x9;//This needs to be updated as per &#xA;&#x9;//Drone that is using the station&#xA;//&#x9;var drone: Amadrone&#xA;&#x9;//This timer needs to change&#xA;&#x9;// as per the drone battery&#xA;&#x9;//needs logic&#xA;//&#x9;var timer = 10&#xA;&#x9;" name="ChargingStation">
     <regions xmi:id="_SZssQ6I0Ee-TH_vN7xDzYQ" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_SZssRKI0Ee-TH_vN7xDzYQ">
         <outgoingTransitions xmi:id="_SZssRaI0Ee-TH_vN7xDzYQ" target="_SZssRqI0Ee-TH_vN7xDzYQ"/>
@@ -12,17 +12,16 @@
         <outgoingTransitions xmi:id="_EhBvcKI4Ee-TH_vN7xDzYQ" specification="off" target="_SZssRqI0Ee-TH_vN7xDzYQ"/>
         <regions xmi:id="_W74WoKI3Ee-TH_vN7xDzYQ" name="r">
           <vertices xsi:type="sgraph:State" xmi:id="_a69bUKI3Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;available&quot;" name="Available" incomingTransitions="_bq_xIKI3Ee-TH_vN7xDzYQ _0XLVUKNbEe-PP65CgVRBKA">
-            <outgoingTransitions xmi:id="_dNXTYKNWEe-PP65CgVRBKA" specification="reserve_drone" target="_R-HMsKNWEe-PP65CgVRBKA"/>
+            <outgoingTransitions xmi:id="_dNXTYKNWEe-PP65CgVRBKA" specification="reserve_drone / raise drone_reserved" target="_R-HMsKNWEe-PP65CgVRBKA"/>
           </vertices>
           <vertices xsi:type="sgraph:Entry" xmi:id="_bG17MKI3Ee-TH_vN7xDzYQ">
             <outgoingTransitions xmi:id="_bq_xIKI3Ee-TH_vN7xDzYQ" specification="" target="_a69bUKI3Ee-TH_vN7xDzYQ"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_hb5YwKI3Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;busy&quot;" name="Charging" incomingTransitions="_k7GDgKI3Ee-TH_vN7xDzYQ _pJWyAKNbEe-PP65CgVRBKA">
-            <outgoingTransitions xmi:id="_pJWyAKNbEe-PP65CgVRBKA" specification="every 1s/raise charge_drone" target="_hb5YwKI3Ee-TH_vN7xDzYQ"/>
+          <vertices xsi:type="sgraph:State" xmi:id="_hb5YwKI3Ee-TH_vN7xDzYQ" specification="entry /&#xD;&#xA;&#x9;status = &quot;busy&quot;&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;raise charge_drone" name="Charging" incomingTransitions="_k7GDgKI3Ee-TH_vN7xDzYQ">
             <outgoingTransitions xmi:id="_0XLVUKNbEe-PP65CgVRBKA" specification="disconnect_drone" target="_a69bUKI3Ee-TH_vN7xDzYQ"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_R-HMsKNWEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;reserved&quot;" name="Reserved" incomingTransitions="_dNXTYKNWEe-PP65CgVRBKA">
-            <outgoingTransitions xmi:id="_k7GDgKI3Ee-TH_vN7xDzYQ" specification="connect_drone" target="_hb5YwKI3Ee-TH_vN7xDzYQ"/>
+            <outgoingTransitions xmi:id="_k7GDgKI3Ee-TH_vN7xDzYQ" specification="connect_drone / raise drone_connected" target="_hb5YwKI3Ee-TH_vN7xDzYQ"/>
           </vertices>
         </regions>
       </vertices>
@@ -124,7 +123,7 @@
                   <styles xsi:type="notation:ShapeStyle" xmi:id="_hb7N8aI3Ee-TH_vN7xDzYQ" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
                   <styles xsi:type="notation:FontStyle" xmi:id="_hb7N8qI3Ee-TH_vN7xDzYQ"/>
                   <styles xsi:type="notation:BooleanValueStyle" xmi:id="_hb71B6I3Ee-TH_vN7xDzYQ" name="isHorizontal" booleanValue="true"/>
-                  <layoutConstraint xsi:type="notation:Bounds" xmi:id="_hb7N86I3Ee-TH_vN7xDzYQ" x="61" y="249" width="156" height="66"/>
+                  <layoutConstraint xsi:type="notation:Bounds" xmi:id="_hb7N86I3Ee-TH_vN7xDzYQ" x="53" y="249" width="171" height="108"/>
                 </children>
                 <children xmi:id="_R-ausKNWEe-PP65CgVRBKA" type="State" element="_R-HMsKNWEe-PP65CgVRBKA">
                   <children xsi:type="notation:DecorationNode" xmi:id="_R-eZEKNWEe-PP65CgVRBKA" type="StateName">
@@ -206,7 +205,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_k7IfwaI3Ee-TH_vN7xDzYQ" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_k7Ifw6I3Ee-TH_vN7xDzYQ" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_k7IfwqI3Ee-TH_vN7xDzYQ" points="[0, 33, 19, -51]$[0, 73, 19, -11]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_k7IfwqI3Ee-TH_vN7xDzYQ" points="[0, 33, 21, -59]$[0, 73, 21, -19]"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_k7MxMKI3Ee-TH_vN7xDzYQ" id="(0.37735849056603776,0.1791044776119403)"/>
     </edges>
     <edges xmi:id="_EhELsKI4Ee-TH_vN7xDzYQ" type="Transition" element="_EhBvcKI4Ee-TH_vN7xDzYQ" source="_Jgo5gKI3Ee-TH_vN7xDzYQ" target="_SZtTcqI0Ee-TH_vN7xDzYQ">
@@ -230,25 +229,14 @@
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_dNfPMqNWEe-PP65CgVRBKA" points="[0, 30, 14, -47]$[0, 68, 14, -9]"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_dNiSgKNWEe-PP65CgVRBKA" id="(0.42105263157894735,0.1509433962264151)"/>
     </edges>
-    <edges xmi:id="_pJdfsKNbEe-PP65CgVRBKA" type="Transition" element="_pJWyAKNbEe-PP65CgVRBKA" source="_hb7N8KI3Ee-TH_vN7xDzYQ" target="_hb7N8KI3Ee-TH_vN7xDzYQ">
-      <children xsi:type="notation:DecorationNode" xmi:id="_pJiYMKNbEe-PP65CgVRBKA" type="TransitionExpression">
-        <styles xsi:type="notation:ShapeStyle" xmi:id="_pJiYMaNbEe-PP65CgVRBKA"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_pJiYMqNbEe-PP65CgVRBKA" x="9" y="-12"/>
-      </children>
-      <styles xsi:type="notation:ConnectorStyle" xmi:id="_pJdfsaNbEe-PP65CgVRBKA" routing="Rectilinear" lineColor="4210752"/>
-      <styles xsi:type="notation:FontStyle" xmi:id="_pJgjAKNbEe-PP65CgVRBKA" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_pJdfsqNbEe-PP65CgVRBKA" points="[-34, 37, -23, 25]$[12, 15, 23, 3]"/>
-      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_pJvzkKNbEe-PP65CgVRBKA" id="(0.9230769230769231,0.4393939393939394)"/>
-      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_pJvzkaNbEe-PP65CgVRBKA" id="(0.8525641025641025,0.6212121212121212)"/>
-    </edges>
     <edges xmi:id="_0XL8YKNbEe-PP65CgVRBKA" type="Transition" element="_0XLVUKNbEe-PP65CgVRBKA" source="_hb7N8KI3Ee-TH_vN7xDzYQ" target="_a7BFsKI3Ee-TH_vN7xDzYQ">
       <children xsi:type="notation:DecorationNode" xmi:id="_0XL8ZKNbEe-PP65CgVRBKA" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_0XL8ZaNbEe-PP65CgVRBKA"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_0XL8ZqNbEe-PP65CgVRBKA" x="5" y="66"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_0XL8ZqNbEe-PP65CgVRBKA" x="9" y="66"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_0XL8YaNbEe-PP65CgVRBKA" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_0XL8Y6NbEe-PP65CgVRBKA" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_0XL8YqNbEe-PP65CgVRBKA" points="[120, -7, 79, 207]$[173, -7, 132, 207]$[173, -214, 132, 0]$[124, -214, 83, 0]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_0XL8YqNbEe-PP65CgVRBKA" points="[132, -32, 86, 207]$[178, -32, 132, 207]$[178, -239, 132, 0]$[129, -239, 83, 0]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_0XO_sKNbEe-PP65CgVRBKA" id="(0.23076923076923078,0.6060606060606061)"/>
     </edges>
   </notation:Diagram>
