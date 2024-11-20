@@ -17,16 +17,35 @@ public class MapPanel extends JPanel {
     private int targetY; 
     private Timer movementTimer;
     
-    public MapPanel() {
+    private int hub_x;
+    private int hub_y;
+    private Amadrone[] drones;
+    private House[] houses;
+    private ChargingStation[] chargers;
+    
+    private final static int HOUSE_ICON_SIZE = 50;
+    private final static int WAREHOUSE_ICON_SIZE = 50;
+    private final static int DRONE_ICON_SIZE = 30;
+    private final static int CHARGER_ICON_SIZE = 30;
+    private final static double SCALE = 9;
+    
+    public MapPanel(Hub hub, Amadrone[] drones, House[] houses, ChargingStation[] chargers) {
+    	this.hub_x = (int) hub.getHub_pos_x();
+    	this.hub_y = (int) hub.getHub_pos_y();
+    	this.drones = drones;
+    	this.houses = houses;
+    	this.chargers = chargers;
     	
-    try {
-    houseIcon = ImageIO.read(new File("ui-components/house.png"));
-    warehouseIcon = ImageIO.read(new File("ui-components/warehouse.png"));
-    droneIcon = ImageIO.read(new File("ui-components/drone.png"));
-    chargingStationIcon = ImageIO.read(new File("ui-components/charging-station.png"));
-    }
-    catch(IOException e) {}
-
+	    try {
+		    houseIcon = ImageIO.read(new File("ui-components/house.png"));
+		    warehouseIcon = ImageIO.read(new File("ui-components/warehouse.png"));
+		    droneIcon = ImageIO.read(new File("ui-components/drone.png"));
+		    chargingStationIcon = ImageIO.read(new File("ui-components/charging-station.png"));
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    sendDrone(0, 0);
     }
     
     @Override
@@ -38,25 +57,31 @@ public class MapPanel extends JPanel {
         g2d.setColor(new Color(144, 238, 144));
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
-        g2d.drawImage(houseIcon, 50, 50, 50, 50, this);
-        g2d.drawImage(houseIcon, 50, 150, 50, 50, this);
-        g2d.drawImage(houseIcon, 50, 250, 50, 50, this);
-        g2d.drawImage(houseIcon, 50, 350, 50, 50, this);
-        g2d.drawImage(houseIcon, 50, 450, 50, 50, this);
+        for (House house : houses) {
+        	g2d.drawImage(houseIcon,
+        			(int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2),
+        			(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2),
+        			HOUSE_ICON_SIZE, HOUSE_ICON_SIZE, this);
+        }
         
+        g2d.drawImage(warehouseIcon,
+        		(int) (hub_x * SCALE - WAREHOUSE_ICON_SIZE / 2),
+        		(int) (hub_y * SCALE - WAREHOUSE_ICON_SIZE / 2),
+        		WAREHOUSE_ICON_SIZE, WAREHOUSE_ICON_SIZE, this);
 
-        
-        g2d.drawImage(warehouseIcon, 950, 50, 50, 50, this);
-        
-        g2d.drawImage(droneIcon, 900, 50, 30, 30, this); 
-        g2d.drawImage(droneIcon, 1000, 50, 30, 30, this);
-        if (droneIcon != null) {
-            g2d.drawImage(droneIcon, drone1X, drone1Y, 30, 30, this);
+        for (Amadrone drone : drones) {
+        	g2d.drawImage(droneIcon,
+        			(int) (drone.getX() * SCALE - DRONE_ICON_SIZE / 2),
+        			(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2),
+        			DRONE_ICON_SIZE, DRONE_ICON_SIZE, this);
         }
 
-        
-        g2d.drawImage(chargingStationIcon, 250, 850, 30, 30, this);
-        g2d.drawImage(chargingStationIcon, 350, 850, 30, 30, this);
+        for (ChargingStation charger : chargers) {
+        	g2d.drawImage(chargingStationIcon,
+        			(int) (charger.getX() * SCALE - CHARGER_ICON_SIZE / 2),
+        			(int) (charger.getY() * SCALE - CHARGER_ICON_SIZE / 2),
+        			CHARGER_ICON_SIZE, CHARGER_ICON_SIZE, this);
+        }
         
     }
     
@@ -69,21 +94,21 @@ public class MapPanel extends JPanel {
     		movementTimer.stop();
     	}
     	
-    	movementTimer = new Timer(10, e -> updateDronePosition());
+    	movementTimer = new Timer(100, e -> updateDronePosition(drones[0]));
     	movementTimer.start();
     	
     }
     
-    private void updateDronePosition() {
+    private void updateDronePosition(Amadrone drone) {
         // Calculate the distance to the target
-        double dx = targetX - drone1X;
-        double dy = targetY - drone1Y;
-        double distance = Math.sqrt(dx * dx + dy * dy);
+        double dx = targetX - drone.getX();
+        double dy = targetY - drone.getY();
+        double distance = Math.hypot(dx, dy);
         
         // Stop drone if it gets close to house
         if (distance < 1) {
-            drone1X = targetX;
-            drone1Y = targetY;
+            drone.setX(targetX);
+            drone.setY(targetY);
             movementTimer.stop();
             repaint();
             return;
@@ -95,8 +120,8 @@ public class MapPanel extends JPanel {
         double moveY = step * (dy / distance);
 
         // Update the drone's position
-        drone1X += moveX;
-        drone1Y += moveY;
+        drone.setX(drone.getX() + moveX);
+        drone.setY(drone.getY() + moveY);
 
         repaint();
     }
