@@ -8,10 +8,12 @@ public class DronesPanel extends JPanel {
         setLayout(new GridLayout(3, 1, 0, 0)); 
 
         for (final Amadrone drone : drones) {
-        	add(createDronePanel(
+        	JPanel panel = createDronePanel(
     			String.valueOf(drone.getId()),
     			drone.getStatus(),
-    			100, 100, "MOTOR", 100, 100, 100, 1));
+    			100, 100, "MOTOR", 100, 100, 100, 1);
+        	panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        	add(panel);
         }
         //add(createDronePanel("Drone 1", "Active", 1000, 800, "GM2804", 100.0f, 15.0f, 500, 10));
         //add(createDronePanel("Drone 2", "Idle", 1200, 600, "A2212", 120.0f, 12.0f, 300, 8));
