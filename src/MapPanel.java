@@ -10,6 +10,12 @@ public class MapPanel extends JPanel {
     private Image warehouseIcon;
     private Image droneIcon;
     private Image chargingStationIcon;
+    private int drone1X = 950;
+    private int drone1Y = 150;
+    
+    private int targetX; 
+    private int targetY; 
+    private Timer movementTimer;
     
     public MapPanel() {
     	
@@ -43,12 +49,58 @@ public class MapPanel extends JPanel {
         g2d.drawImage(warehouseIcon, 950, 50, 50, 50, this);
         
         g2d.drawImage(droneIcon, 900, 50, 30, 30, this); 
-        g2d.drawImage(droneIcon, 1050, 50, 30, 30, this);
-        g2d.drawImage(droneIcon, 950, 150, 30, 30, this);
+        g2d.drawImage(droneIcon, 1000, 50, 30, 30, this);
+        if (droneIcon != null) {
+            g2d.drawImage(droneIcon, drone1X, drone1Y, 30, 30, this);
+        }
 
         
         g2d.drawImage(chargingStationIcon, 250, 850, 30, 30, this);
         g2d.drawImage(chargingStationIcon, 350, 850, 30, 30, this);
         
     }
+    
+    public void sendDrone(int locationX, int locationY) {
+    	//To-do: Adjust this to be a house in the future
+    	this.targetX = locationX; 
+    	this.targetY = locationY;
+    	
+    	if(movementTimer != null && movementTimer.isRunning()) {
+    		movementTimer.stop();
+    	}
+    	
+    	movementTimer = new Timer(10, e -> updateDronePosition());
+    	movementTimer.start();
+    	
+    }
+    
+    private void updateDronePosition() {
+        // Calculate the distance to the target
+        double dx = targetX - drone1X;
+        double dy = targetY - drone1Y;
+        double distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Stop drone if it gets close to house
+        if (distance < 1) {
+            drone1X = targetX;
+            drone1Y = targetY;
+            movementTimer.stop();
+            repaint();
+            return;
+        }
+        
+        //Calculate movement
+        double step = 2;
+        double moveX = step * (dx / distance);
+        double moveY = step * (dy / distance);
+
+        // Update the drone's position
+        drone1X += moveX;
+        drone1Y += moveY;
+
+        repaint();
+    }
+
+    
+    
 }
