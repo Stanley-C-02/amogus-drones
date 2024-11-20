@@ -45,7 +45,7 @@
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_UZfuYKN0Ee-5kOalt36Ydw" specification="entry /&#xD;&#xA;&#x9;status = &quot;delivered&quot;&#xD;&#xA;//&#x9;raise package.DropPackageAtHouse" name="Deliver Package" incomingTransitions="_MCYqwKN6Ee-5kOalt36Ydw"/>
               <vertices xsi:type="sgraph:State" xmi:id="_erDRAKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;in-transit&quot;" name="Moving" incomingTransitions="_Ltv3gKN6Ee-5kOalt36Ydw _VF9kEKN6Ee-5kOalt36Ydw">
-                <outgoingTransitions xmi:id="_MCYqwKN6Ee-5kOalt36Ydw" target="_UZfuYKN0Ee-5kOalt36Ydw"/>
+                <outgoingTransitions xmi:id="_MCYqwKN6Ee-5kOalt36Ydw" specification="" target="_UZfuYKN0Ee-5kOalt36Ydw"/>
                 <outgoingTransitions xmi:id="_VF9kEKN6Ee-5kOalt36Ydw" specification="every 1s" target="_erDRAKNkEe-PP65CgVRBKA"/>
               </vertices>
             </regions>

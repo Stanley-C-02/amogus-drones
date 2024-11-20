@@ -3,13 +3,19 @@ import javax.swing.*;
 
 public class DronesPanel extends JPanel {
 
-    public DronesPanel() {
+    public DronesPanel(Amadrone[] drones) {
         setBorder(BorderFactory.createTitledBorder("Drones Status"));
         setLayout(new GridLayout(3, 1, 0, 0)); 
 
-        add(createDronePanel("Drone 1", "Active", 1000, 800, "GM2804", 100.0f, 15.0f, 500, 10));
-        add(createDronePanel("Drone 2", "Idle", 1200, 600, "A2212", 120.0f, 12.0f, 300, 8));
-        add(createDronePanel("Drone 3", "Charging", 1500, 1500, "GM3506", 150.0f, 10.0f, 700, 12));
+        for (final Amadrone drone : drones) {
+        	add(createDronePanel(
+    			String.valueOf(drone.getId()),
+    			drone.getStatus(),
+    			100, 100, "MOTOR", 100, 100, 100, 1));
+        }
+        //add(createDronePanel("Drone 1", "Active", 1000, 800, "GM2804", 100.0f, 15.0f, 500, 10));
+        //add(createDronePanel("Drone 2", "Idle", 1200, 600, "A2212", 120.0f, 12.0f, 300, 8));
+        //add(createDronePanel("Drone 3", "Charging", 1500, 1500, "GM3506", 150.0f, 10.0f, 700, 12));
     }
 
     private JPanel createDronePanel(String droneName, String status, int maxCapacity, int currentCapacity,
@@ -18,9 +24,9 @@ public class DronesPanel extends JPanel {
         dronePanel.setLayout(new GridLayout(6, 2, 0, 0));
 
         // Drone name and status
-        dronePanel.add(new JLabel(droneName));
+        dronePanel.add(new JLabel("Drone ID: #" + droneName));
         dronePanel.add(new JLabel(""));
-        dronePanel.add(new JLabel("Status:"));
+        dronePanel.add(new JLabel("Status: "));
         dronePanel.add(new JLabel(status));
 
         // Battery details
