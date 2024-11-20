@@ -4,12 +4,7 @@ import java.util.TimerTask;
 
 import javax.swing.*;
 
-import com.yakindu.core.IEventDriven;
-import com.yakindu.core.ITimed;
-
 public class AmogusUI {
-//	public static JTextPane door_state, door_lock, door_mode, door_timer;
-	
 	public static void main (String[] args) {
 
 		JFrame window = new JFrame("AMOGUS UI - Test");
@@ -35,7 +30,7 @@ public class AmogusUI {
 		DronesPanel dronesPanel = new DronesPanel(drones);
 
         // Packages Panel
-        OrderingPanel orderingPanel = new OrderingPanel();
+        OrderingPanel orderingPanel = new OrderingPanel(packages, houses);
 
         // Creating Adjustable Split Panes
         JSplitPane dronesOrdersSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, dronesPanel, orderingPanel);
@@ -76,7 +71,7 @@ public class AmogusUI {
 			
 			timer.schedule(timerTask, 0, 999);
 			
-			drone.enter();
+//			drone.enter();
 		}
 		
 		return drones;
@@ -91,9 +86,9 @@ public class AmogusUI {
 		
 		final House[] houses = { hub.houses.getH0(), hub.houses.getH1(), hub.houses.getH2(), hub.houses.getH3(), hub.houses.getH4() };
 		
-		for (final House house : houses) {
-			house.enter();
-		}
+//		for (final House house : houses) {
+//			house.enter();
+//		}
 		
 		return houses; 
 	}
@@ -125,7 +120,7 @@ public class AmogusUI {
 			
 			timer.schedule(timerTask, 0, 999);
 			
-			charger.enter();
+//			charger.enter();
 		}
 		
 		return chargers; 
@@ -139,9 +134,9 @@ public class AmogusUI {
 		
 		final PackageSM[] packages = { hub.package_ID.getP0(), hub.package_ID.getP1(), hub.package_ID.getP2(), hub.package_ID.getP3() };
 		
-		for (final PackageSM packageSC : packages) {
-			packageSC.enter();
-		}
+//		for (final PackageSM packageSC : packages) {
+//			packageSC.enter();
+//		}
 		
 		return packages;
 	}

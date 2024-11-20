@@ -2,21 +2,35 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class OrderingPanel extends JPanel {
-
-    public OrderingPanel() {
+	private PackageSM[] packages;
+	private House[] houses;
+	private String[] packageOptions;
+	private String[] deliveryOptions;
+	
+    public OrderingPanel(PackageSM[] packages, House[] houses) {
+    	this.packages = packages;
+    	this.houses = houses;
+    	
+        this.packageOptions = Arrays.stream(packages)
+        		.map(p -> "#" + p.getId() + ": " + p.getName() + " (" + p.getWeight() + "g)")
+        		.toArray(size -> new String[size]);
+        
+        this.deliveryOptions = Arrays.stream(houses)
+        		.map(h -> h.getName() + " (" + h.getX() + ", " + h.getY() + ")")
+        		.toArray(size -> new String[size]);
+        
         setBorder(BorderFactory.createTitledBorder("Order Package"));
         setLayout(new GridLayout(3, 2, 10, 10));
 
         add(new JLabel("Select Package:"));
-        //To-Do: Set this to be for the Package Instances Array
-        JComboBox<String> packageDropdown = new JComboBox<>(new String[]{"Package A", "Package B", "Package C"});
+        JComboBox<String> packageDropdown = new JComboBox<>(this.packageOptions);
         add(packageDropdown);
 
-        //To-Do: Set this to be for the House Instances Array
         add(new JLabel("Select Delivery House:"));
-        JComboBox<String> houseDropdown = new JComboBox<>(new String[]{"House 1", "House 2", "House 3", "House 4", "House 5"});
+        JComboBox<String> houseDropdown = new JComboBox<>(this.deliveryOptions);
         add(houseDropdown);
 
         JButton submitButton = new JButton("Submit Order");
@@ -26,14 +40,50 @@ public class OrderingPanel extends JPanel {
         submitButton.addActionListener(e -> {
             String selectedPackage = (String) packageDropdown.getSelectedItem();
             String selectedHouse = (String) houseDropdown.getSelectedItem();
-            JOptionPane.showMessageDialog(
-                this,
-                "Order Submitted!\n" +
-                "Package: " + selectedPackage + "\n" +
-                "Delivery House: " + selectedHouse,
-                "Order Confirmation",
-                JOptionPane.INFORMATION_MESSAGE
-            );
+            
+            int packageIndex = packageDropdown.getSelectedIndex();
+            int houseIndex = houseDropdown.getSelectedIndex();
+            
+            if (this.houses[houseIndex].getPackage_id() == -1) {
+            	this.orderPackage(packageIndex, houseIndex);
+            	
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Order Submitted!\n" +
+                        "Package: " + selectedPackage + "\n" +
+                        "Delivery House: " + selectedHouse,
+                        "Order Confirmation",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            } else {
+            	JOptionPane.showMessageDialog(
+            			this,
+            			"Error: " + selectedHouse + "\n" +
+            			"Already has an order in progress.",
+            			"Order in Progress",
+            			JOptionPane.ERROR_MESSAGE
+    			);
+            }
         });
+    }
+    
+    private void orderPackage(int packageIndex, int houseIndex) {
+    	this.houses[houseIndex].raiseStart_order();
+    	switch (packageIndex) {
+    		case 0:
+    			this.houses[houseIndex].raiseOrder_0();
+    			break;
+    		case 1:
+    			this.houses[houseIndex].raiseOrder_1();
+    			break;
+    		case 2:
+    			this.houses[houseIndex].raiseOrder_2();
+    			break;
+    		case 3:
+    			this.houses[houseIndex].raiseOrder_3();
+    			break;
+			default:
+				System.out.println("Error: unknown package order detected: index #" + packageIndex);
+    	}
     }
 }
