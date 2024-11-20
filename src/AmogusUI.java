@@ -60,26 +60,26 @@ public class AmogusUI {
 		
 		final Amadrone[] drones = { hub.drone.getD0(), hub.drone.getD1(), hub.drone.getD2() };
 		
-		class refresh extends TimerTask {
-			@Override
-			public void run() {
-		        try {
-		            Thread.sleep(999);
-		            System.out.println("TODO: DRONE STUFF");
-		            //readStatechartData(hub);
-		        } catch (InterruptedException error) {
-		            System.out.println(error);
-		        }
-			}
-		}
+//		class refresh extends TimerTask {
+//			@Override
+//			public void run() {
+//		        try {
+//		            Thread.sleep(999);
+//		            System.out.println("TODO: DRONE STUFF");
+//		            //readStatechartData(hub);
+//		        } catch (InterruptedException error) {
+//		            System.out.println(error);
+//		        }
+//			}
+//		}
 		
 		for (final Amadrone drone : drones) {
 			drone.setTimerService(new ScaledTimeTimerService(1));
 			
-			Timer timer = new Timer(true);
-			TimerTask timerTask = new refresh();
-			
-			timer.schedule(timerTask, 0, 999);
+//			Timer timer = new Timer(true);
+//			TimerTask timerTask = new refresh();
+//			
+//			timer.schedule(timerTask, 0, 999);
 			
 //			drone.enter();
 		}
@@ -109,26 +109,26 @@ public class AmogusUI {
 		
 		final ChargingStation[] chargers = { hub.charger.getS0(), hub.charger.getS1() };
 		
-		class refresh extends TimerTask {
-			@Override
-			public void run() {
-		        try {
-		            Thread.sleep(999);
-		            System.out.println("TODO: CHARGING STATION STUFF");
-		            //readStatechartData(hub);
-		        } catch (InterruptedException error) {
-		            System.out.println(error);
-		        }
-			}
-		}
+//		class refresh extends TimerTask {
+//			@Override
+//			public void run() {
+//		        try {
+//		            Thread.sleep(999);
+//		            System.out.println("TODO: CHARGING STATION STUFF");
+//		            //readStatechartData(hub);
+//		        } catch (InterruptedException error) {
+//		            System.out.println(error);
+//		        }
+//			}
+//		}
 		
 		for (final ChargingStation charger : chargers) {
 			charger.setTimerService(new ScaledTimeTimerService(1));
 			
-			Timer timer = new Timer(true);
-			TimerTask timerTask = new refresh();
-			
-			timer.schedule(timerTask, 0, 999);
+//			Timer timer = new Timer(true);
+//			TimerTask timerTask = new refresh();
+//			
+//			timer.schedule(timerTask, 0, 999);
 			
 //			charger.enter();
 		}
