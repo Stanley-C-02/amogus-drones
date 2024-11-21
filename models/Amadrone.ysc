@@ -43,7 +43,7 @@
                 <outgoingTransitions xmi:id="_h9nQIKNzEe-5kOalt36Ydw" target="_SlfNYKNkEe-PP65CgVRBKA"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_UZfuYKN0Ee-5kOalt36Ydw" specification="entry /&#xD;&#xA;&#x9;status = &quot;delivered&quot;;&#xD;&#xA;//&#x9;raise package.DropPackageAtHouse&#xD;&#xA;&#x9;raise Routing.set_idle" name="Arrived" incomingTransitions="_MCYqwKN6Ee-5kOalt36Ydw"/>
-              <vertices xsi:type="sgraph:State" xmi:id="_erDRAKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;in-transit&quot;;&#xD;&#xA;&#x9;raise motor.on;&#xD;&#xA;&#x9;battery.available = battery.available - (motor.power + gps.power)" name="Moving" incomingTransitions="_Ltv3gKN6Ee-5kOalt36Ydw _KNKCAaetEe-wMtpPiyEs_Q">
+              <vertices xsi:type="sgraph:State" xmi:id="_erDRAKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;in-transit&quot;;&#xD;&#xA;&#x9;raise motor.on;&#xD;&#xA;&#x9;raise battery.start_discharging;&#xD;&#xA;&#x9;battery.available = battery.available - (motor.power + gps.power)" name="Moving" incomingTransitions="_Ltv3gKN6Ee-5kOalt36Ydw _KNKCAaetEe-wMtpPiyEs_Q">
                 <outgoingTransitions xmi:id="_MCYqwKN6Ee-5kOalt36Ydw" specification="Routing.arrive_at_location" target="_UZfuYKN0Ee-5kOalt36Ydw"/>
                 <outgoingTransitions xmi:id="_KNKCAaetEe-wMtpPiyEs_Q" specification="every 1s" target="_erDRAKNkEe-PP65CgVRBKA"/>
               </vertices>
