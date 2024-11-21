@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_z4xUsJ6-Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;var x: real // x or E-W&#xA;&#x9;var y: real // y or N-S&#xA;&#x9;var heading: real // degrees from North; 90 is E&#xA;&#x9;&#xA;//&#x9;transition to self for updating data? every #s or external event)&#xA;" name="Gps">
+  <sgraph:Statechart xmi:id="_z4xUsJ6-Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;var x: real // x or E-W&#xA;&#x9;var y: real // y or N-S&#xA;&#x9;var heading: real // degrees from North; 90 is E&#xA;&#x9;var power: integer&#xA;//&#x9;transition to self for updating data? every #s or external event)&#xA;" name="Gps">
     <regions xmi:id="_z4x7w56-Ee-Q_sfPrdmAZA" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_z4x7xJ6-Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_z4x7xZ6-Ee-Q_sfPrdmAZA" target="_z4x7xp6-Ee-Q_sfPrdmAZA"/>
