@@ -74,6 +74,9 @@ public class AmogusUI {
 //		}
 		
 		for (final Amadrone drone : drones) {
+			drone.setBattery(new Battery());
+			drone.setGps(new Gps());
+			drone.setMotor(new Motor());
 			drone.setTimerService(new ScaledTimeTimerService(1));
 			
 //			Timer timer = new Timer(true);
