@@ -5,6 +5,9 @@ import java.util.TimerTask;
 import javax.swing.*;
 
 public class AmogusUI {
+	// how often UI checks statechart values and updates itself, in Hz
+	private static final double REFRESH_RATE = 4;
+	
 	private static DronesPanel dronesPanel;
 	private static HousesPanel housesPanel;
 	
@@ -113,19 +116,14 @@ public class AmogusUI {
   	   class refresh extends TimerTask {
   	       @Override
   	       public void run() {
-  	           try {
-  	               Thread.sleep(999);
-  	               readStatechartData();
-  	           } catch (InterruptedException error) {
-  	               System.out.println(error);
-  	           }
+               readStatechartData();
   	       }
   	   }
   	 
   	   Timer timer = new Timer(true);
   	   TimerTask timerTask = new refresh(); //reference created for TimerTask class
   		
-  	   timer.schedule(timerTask, 0, 999);
+  	   timer.schedule(timerTask, 0, (int) (1000 / REFRESH_RATE));
     }
     
     private static void readStatechartData() {
