@@ -14,7 +14,7 @@
           <vertices xsi:type="sgraph:State" xmi:id="_NoiyQKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;idle&quot;" name="Idle" incomingTransitions="__Uk1AKNxEe-5kOalt36Ydw _XOrLwKN0Ee-5kOalt36Ydw">
             <outgoingTransitions xmi:id="__uZqQKNxEe-5kOalt36Ydw" specification="after 0 s" target="_OttDgKNkEe-PP65CgVRBKA"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_OttDgKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;request-package&quot;;&#xD;&#xA;&#x9;&#x9;battery.available = battery.available - gps.power;&#xD;&#xA;&#x9;&#x9;motor.off" name="Requesting Destination" incomingTransitions="__uZqQKNxEe-5kOalt36Ydw _BQMigKe3Ee-wMtpPiyEs_Q">
+          <vertices xsi:type="sgraph:State" xmi:id="_OttDgKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;request-package&quot;;&#xD;&#xA;&#x9;&#x9;battery.available = battery.available - gps.power;&#xD;&#xA;&#x9;&#x9;raise motor.off" name="Requesting Destination" incomingTransitions="__uZqQKNxEe-5kOalt36Ydw _BQMigKe3Ee-wMtpPiyEs_Q">
             <outgoingTransitions xmi:id="_SBULgKNzEe-5kOalt36Ydw" specification="Routing.assign_destination / raise Routing.received" target="_NizY0KNzEe-5kOalt36Ydw"/>
             <outgoingTransitions xmi:id="_BQMigKe3Ee-wMtpPiyEs_Q" specification="every 1 s" target="_OttDgKNkEe-PP65CgVRBKA"/>
           </vertices>
