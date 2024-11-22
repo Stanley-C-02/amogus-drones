@@ -60,31 +60,11 @@ public class AmogusUI {
 		
 		final Amadrone[] drones = { hub.drone.getD0(), hub.drone.getD1(), hub.drone.getD2() };
 		
-//		class refresh extends TimerTask {
-//			@Override
-//			public void run() {
-//		        try {
-//		            Thread.sleep(999);
-//		            System.out.println("TODO: DRONE STUFF");
-//		            //readStatechartData(hub);
-//		        } catch (InterruptedException error) {
-//		            System.out.println(error);
-//		        }
-//			}
-//		}
-		
 		for (final Amadrone drone : drones) {
 			drone.setBattery(new Battery());
 			drone.setGps(new Gps());
 			drone.setMotor(new Motor());
 			drone.setTimerService(new ScaledTimeTimerService(1));
-			
-//			Timer timer = new Timer(true);
-//			TimerTask timerTask = new refresh();
-//			
-//			timer.schedule(timerTask, 0, 999);
-			
-//			drone.enter();
 		}
 		
 		return drones;
@@ -99,10 +79,6 @@ public class AmogusUI {
 		
 		final House[] houses = { hub.houses.getH0(), hub.houses.getH1(), hub.houses.getH2(), hub.houses.getH3(), hub.houses.getH4() };
 		
-//		for (final House house : houses) {
-//			house.enter();
-//		}
-		
 		return houses; 
 	}
 	
@@ -112,28 +88,8 @@ public class AmogusUI {
 		
 		final ChargingStation[] chargers = { hub.charger.getS0(), hub.charger.getS1() };
 		
-//		class refresh extends TimerTask {
-//			@Override
-//			public void run() {
-//		        try {
-//		            Thread.sleep(999);
-//		            System.out.println("TODO: CHARGING STATION STUFF");
-//		            //readStatechartData(hub);
-//		        } catch (InterruptedException error) {
-//		            System.out.println(error);
-//		        }
-//			}
-//		}
-		
 		for (final ChargingStation charger : chargers) {
 			charger.setTimerService(new ScaledTimeTimerService(1));
-			
-//			Timer timer = new Timer(true);
-//			TimerTask timerTask = new refresh();
-//			
-//			timer.schedule(timerTask, 0, 999);
-			
-//			charger.enter();
 		}
 		
 		return chargers; 
@@ -146,10 +102,6 @@ public class AmogusUI {
 		hub.package_ID.setP3(new PackageSM());
 		
 		final PackageSM[] packages = { hub.package_ID.getP0(), hub.package_ID.getP1(), hub.package_ID.getP2(), hub.package_ID.getP3() };
-		
-//		for (final PackageSM packageSC : packages) {
-//			packageSC.enter();
-//		}
 		
 		return packages;
 	}
