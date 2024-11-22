@@ -2,57 +2,91 @@ import java.awt.*;
 import javax.swing.*;
 
 public class DronesPanel extends JPanel {
-
+	DronePanel[] panels;
+	
     public DronesPanel(Amadrone[] drones) {
         setBorder(BorderFactory.createTitledBorder("Drones Status"));
         setLayout(new GridLayout(3, 1, 0, 0)); 
+        
+        panels = new DronePanel[drones.length];
 
-        for (final Amadrone drone : drones) {
-        	JPanel panel = createDronePanel(
-    			String.valueOf(drone.getId()),
-    			drone.getStatus(),
-    			100, 100, "MOTOR", 100, 100, 100, 1);
-        	panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        	add(panel);
+        for (int i = 0; i < drones.length; i++) {
+         	DronePanel panel = new DronePanel(drones[i]);
+         	add(panel);
+         	panels[i] = panel;
         }
         //add(createDronePanel("Drone 1", "Active", 1000, 800, "GM2804", 100.0f, 15.0f, 500, 10));
         //add(createDronePanel("Drone 2", "Idle", 1200, 600, "A2212", 120.0f, 12.0f, 300, 8));
         //add(createDronePanel("Drone 3", "Charging", 1500, 1500, "GM3506", 150.0f, 10.0f, 700, 12));
     }
-
-    private JPanel createDronePanel(String droneName, String status, int maxCapacity, int currentCapacity,
-                                    String motor, float power, float speed, int payload, int windResistance) {
-        JPanel dronePanel = new JPanel();
-        dronePanel.setLayout(new GridLayout(6, 2, 0, 0));
-
-        // Drone name and status
-        dronePanel.add(new JLabel("Drone ID: #" + droneName));
-        dronePanel.add(new JLabel(""));
-        dronePanel.add(new JLabel("Status: "));
-        dronePanel.add(new JLabel(status));
-
-        // Battery details
-        dronePanel.add(new JLabel("Battery (Max/Current/Charge):"));
-        int chargePercentage = (int) ((currentCapacity / (float) maxCapacity) * 100);
-        dronePanel.add(new JLabel(maxCapacity + "Wh / " + currentCapacity + "Wh / " + chargePercentage + "%"));
-
-        // Motor section
-        dronePanel.add(new JLabel("Motor:"));
-        JPanel motorPanel = new JPanel(new GridLayout(3, 1));
-        motorPanel.add(new JLabel("Type: " + motor));
-        motorPanel.add(new JLabel(String.format("Power: %.2f W, Speed: %.2f m/s", power, speed)));
-        motorPanel.add(new JLabel("Payload: " + payload + " grams"));
-        dronePanel.add(motorPanel);
-
-        // Wind Resistance
-        dronePanel.add(new JLabel("Wind Resistance (0-12):"));
-        dronePanel.add(new JLabel(String.valueOf(windResistance)));
-
-        // Flight Range
-        int flightRange = (int) ((currentCapacity / power) * speed * 3600);
-        dronePanel.add(new JLabel("Flight Range (metres):"));
-        dronePanel.add(new JLabel(String.valueOf(flightRange)));
-
-        return dronePanel;
+    
+    public void readStatechartData() {
+    	for (DronePanel p : panels) {
+    		p.readStatechartData();
+    	}
     }
+
+    class DronePanel extends JPanel {
+    	Amadrone drone;
+    	JLabel name, location, status, battery, motorType, motorDetails, motorPayload, range;
+    	
+    	public DronePanel(Amadrone drone) {
+    		this.drone = drone;
+    		
+            setLayout(new GridLayout(5, 2, 0, 0));
+            
+            name = new JLabel();
+            location = new JLabel();
+            status = new JLabel();
+            battery = new JLabel();
+            motorType = new JLabel();
+            motorDetails = new JLabel();
+            motorPayload = new JLabel();
+            range = new JLabel();
+    		
+            readStatechartData();
+
+            // Drone name and status
+            add(name);
+            add(location);
+            add(new JLabel("Status: "));
+            add(status);
+
+            // Battery details
+            add(new JLabel("Battery (Current/Max/%): "));
+            add(battery);
+
+            // Motor section
+            add(new JLabel("Motor:"));
+            JPanel motorPanel = new JPanel(new GridLayout(3, 1));
+            motorPanel.add(motorType);
+            motorPanel.add(motorDetails);
+            motorPanel.add(motorPayload);
+            add(motorPanel);
+
+            // Flight Range
+            add(new JLabel("Flight Range (metres): "));
+            add(range);
+    	}
+    	
+    	public void readStatechartData() {
+    		name.setText("Drone #" + drone.getId() + ": " + drone.getName());
+    		
+    		location.setText(String.format("Location: x%.2f y%.2f", drone.getX(), drone.getY()));
+    		
+    		status.setText(drone.getStatus());
+
+            battery.setText(drone.getBattery().getAvailable() + "Wh / " + drone.getBattery().getMaxCapacity() + "Wh / " + drone.getBattery().getCharge() + "%");
+            
+            motorType.setText("Type #" + drone.getMotor().getId() + ": " + drone.getMotor().getName());
+            motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
+            motorPayload.setText("Payload: " + drone.getMotor().getMax_payload() + " grams");
+            
+//            TODO Integrate this into drone statechart???
+            final int flightRange = (int) ((drone.getBattery().getAvailable() / drone.getMotor().getPower()) * drone.getMotor().getSpeed() * 3600);
+            range.setText(String.valueOf(flightRange));
+    	}
+    }
+
+
 }

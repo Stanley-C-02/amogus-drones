@@ -5,6 +5,7 @@ import java.util.TimerTask;
 import javax.swing.*;
 
 public class AmogusUI {
+	private static DronesPanel dronesPanel;
 	private static HousesPanel housesPanel;
 	
 	public static void main (String[] args) {
@@ -29,7 +30,7 @@ public class AmogusUI {
 		//mapPanel.sendDrone(50, 450);
 
         // Drones Panel
-		DronesPanel dronesPanel = new DronesPanel(drones);
+		dronesPanel = new DronesPanel(drones);
 
         // Packages Panel
         OrderingPanel orderingPanel = new OrderingPanel(packages, houses);
@@ -128,6 +129,7 @@ public class AmogusUI {
     }
     
     private static void readStatechartData() {
+    	dronesPanel.readStatechartData();
     	housesPanel.readStatechartData();
     }
 }
