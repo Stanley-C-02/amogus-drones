@@ -36,7 +36,7 @@
             <outgoingTransitions xmi:id="_vpw3EKNzEe-5kOalt36Ydw" specification="Collision.detect" target="_JttWkKNzEe-5kOalt36Ydw"/>
             <outgoingTransitions xmi:id="_XOrLwKN0Ee-5kOalt36Ydw" specification="Routing.set_idle / raise Routing.finished" target="_NoiyQKNkEe-PP65CgVRBKA"/>
             <regions xmi:id="_NizY06NzEe-5kOalt36Ydw" name="r">
-              <vertices xsi:type="sgraph:State" xmi:id="_SlfNYKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;pickup&quot;;&#xD;&#xA;&#x9;unlocked = true&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;battery.available = battery.available - gps.power" name="Preparing" incomingTransitions="_Evs50Ke4Ee-wMtpPiyEs_Q">
+              <vertices xsi:type="sgraph:State" xmi:id="_SlfNYKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;pickup&quot;;&#xD;&#xA;&#x9;unlocked = true;&#xD;&#xA;&#x9;raise Routing.route_to_location&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;battery.available = battery.available - gps.power" name="Preparing" incomingTransitions="_Evs50Ke4Ee-wMtpPiyEs_Q">
                 <outgoingTransitions xmi:id="_Ltv3gKN6Ee-5kOalt36Ydw" specification="Routing.route_to_location / raise Routing.delivering" target="_erDRAKNkEe-PP65CgVRBKA"/>
               </vertices>
               <vertices xsi:type="sgraph:Entry" xmi:id="_hfslEKNzEe-5kOalt36Ydw" kind="DEEP_HISTORY">
@@ -277,7 +277,7 @@
                           <styles xsi:type="notation:ShapeStyle" xmi:id="_B0ND8adsEe-VOvhz6OR__g" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
                           <styles xsi:type="notation:FontStyle" xmi:id="_B0ND8qdsEe-VOvhz6OR__g"/>
                           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_B0ND86dsEe-VOvhz6OR__g" name="isHorizontal" booleanValue="true"/>
-                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_B0ND9KdsEe-VOvhz6OR__g" x="98" y="-1" width="357" height="123"/>
+                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_B0ND9KdsEe-VOvhz6OR__g" x="98" y="-1" width="355" height="136"/>
                         </children>
                         <children xmi:id="_B0ND9adsEe-VOvhz6OR__g" type="Entry" element="_hfslEKNzEe-5kOalt36Ydw">
                           <children xmi:id="_B0ND9qdsEe-VOvhz6OR__g" type="BorderItemLabelContainer">
@@ -542,7 +542,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_Ltzh4aN6Ee-5kOalt36Ydw" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_Ltzh46N6Ee-5kOalt36Ydw" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_Ltzh4qN6Ee-5kOalt36Ydw" points="[4, 61, -10, -129]$[4, 122, -10, -68]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_Ltzh4qN6Ee-5kOalt36Ydw" points="[4, 62, -10, -128]$[4, 122, -10, -68]"/>
     </edges>
     <edges xmi:id="_R45tsKdVEe-_ZNaSICvhug" type="Transition" element="_R401MKdVEe-_ZNaSICvhug" source="_JtxA8KNzEe-5kOalt36Ydw" target="_Niz_4KNzEe-5kOalt36Ydw">
       <children xsi:type="notation:DecorationNode" xmi:id="_R4670KdVEe-_ZNaSICvhug" type="TransitionExpression">
