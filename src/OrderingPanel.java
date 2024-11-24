@@ -46,7 +46,7 @@ public class OrderingPanel extends JPanel {
             int packageIndex = packageDropdown.getSelectedIndex();
             int houseIndex = houseDropdown.getSelectedIndex();
             
-            if (this.houses[houseIndex].getPackage_id() == -1) {
+            if (this.houses[houseIndex].getPackage() == null) {
             	this.orderPackage(packageIndex, houseIndex);
             	
                 JOptionPane.showMessageDialog(
@@ -70,37 +70,93 @@ public class OrderingPanel extends JPanel {
     }
     
     private void orderPackage(int packageIndex, int houseIndex) {
-//    	this.houses[houseIndex].raiseStart_order();
-//    	switch (packageIndex) {
-//    		case 0:
-//    	    	switch (houseIndex) {
-//        		case 0:
-//        			hub.
-//        			break;
-//        		case 1:
-//        			this.houses[houseIndex].raiseOrder_1();
-//        			break;
-//        		case 2:
-//        			this.houses[houseIndex].raiseOrder_2();
-//        			break;
-//        		case 3:
-//        			this.houses[houseIndex].raiseOrder_3();
-//        			break;
-//    			default:
-//    				System.out.println("Error: unknown package order detected: index #" + packageIndex);
-//    	    	}
-//    			break;
-//    		case 1:
-//    			this.houses[houseIndex].raiseOrder_1();
-//    			break;
-//    		case 2:
-//    			this.houses[houseIndex].raiseOrder_2();
-//    			break;
-//    		case 3:
-//    			this.houses[houseIndex].raiseOrder_3();
-//    			break;
-//			default:
-//				System.out.println("Error: unknown package order detected: index #" + packageIndex);
-//    	}
+    	switch (packageIndex) {
+    		case 0:
+    	    	switch (houseIndex) {
+	        		case 0:
+	        			hub.houses.raiseOrder_p0_to_h0();
+	        			break;
+	        		case 1:
+	        			hub.houses.raiseOrder_p0_to_h1();
+	        			break;
+	        		case 2:
+	        			hub.houses.raiseOrder_p0_to_h2();
+	        			break;
+	        		case 3:
+	        			hub.houses.raiseOrder_p0_to_h3();
+	        			break;
+	        		case 4:
+	        			hub.houses.raiseOrder_p0_to_h4();
+	        			break;
+	    			default:
+	    				System.out.println("Error: unknown house order detected: houseIndex #" + houseIndex);
+    	    	}
+    			break;
+    		case 1:
+    	    	switch (houseIndex) {
+	        		case 0:
+	        			hub.houses.raiseOrder_p1_to_h0();
+	        			break;
+	        		case 1:
+	        			hub.houses.raiseOrder_p1_to_h1();
+	        			break;
+	        		case 2:
+	        			hub.houses.raiseOrder_p1_to_h2();
+	        			break;
+	        		case 3:
+	        			hub.houses.raiseOrder_p1_to_h3();
+	        			break;
+	        		case 4:
+	        			hub.houses.raiseOrder_p1_to_h4();
+	        			break;
+	    			default:
+	    				System.out.println("Error: unknown house order detected: houseIndex #" + houseIndex);
+		    	}
+				break;
+    		case 2:
+    	    	switch (houseIndex) {
+	        		case 0:
+	        			hub.houses.raiseOrder_p2_to_h0();
+	        			break;
+	        		case 1:
+	        			hub.houses.raiseOrder_p2_to_h1();
+	        			break;
+	        		case 2:
+	        			hub.houses.raiseOrder_p2_to_h2();
+	        			break;
+	        		case 3:
+	        			hub.houses.raiseOrder_p2_to_h3();
+	        			break;
+	        		case 4:
+	        			hub.houses.raiseOrder_p2_to_h4();
+	        			break;
+	    			default:
+	    				System.out.println("Error: unknown house order detected: houseIndex #" + houseIndex);
+		    	}
+			break;
+    		case 3:
+    	    	switch (houseIndex) {
+	        		case 0:
+	        			hub.houses.raiseOrder_p3_to_h0();
+	        			break;
+	        		case 1:
+	        			hub.houses.raiseOrder_p3_to_h1();
+	        			break;
+	        		case 2:
+	        			hub.houses.raiseOrder_p3_to_h2();
+	        			break;
+	        		case 3:
+	        			hub.houses.raiseOrder_p3_to_h3();
+	        			break;
+	        		case 4:
+	        			hub.houses.raiseOrder_p3_to_h4();
+	        			break;
+	    			default:
+	    				System.out.println("Error: unknown house order detected: houseIndex #" + houseIndex);
+		    	}
+			break;
+			default:
+				System.out.println("Error: unknown package order detected: packageIndex #" + packageIndex);
+    	}
     }
 }

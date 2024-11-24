@@ -54,10 +54,10 @@ public class HousesPanel extends JPanel {
 			name.setText("House Name: " + house.getName());
 			
 			String orderStatus;
-			if (house.getPackage_id() == -1) {			
-				orderStatus = "None (-1)";
+			if (house.getPackage() == null) {
+				orderStatus = "None";
 			} else {
-				orderStatus = "Ordered #" + house.getPackage_id();
+				orderStatus = "Ordered #" + house.getPackage().getId();
 			}
 			status.setText("Order Status: " + orderStatus);
 			
