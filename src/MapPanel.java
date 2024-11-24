@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
-public class MapPanel extends JPanel {
+public class MapPanel extends JPanel implements Amadrone.OperationCallback{
     private Image houseIcon;
     private Image warehouseIcon;
     private Image droneIcon;
@@ -107,6 +107,8 @@ public class MapPanel extends JPanel {
     		movementTimer.stop();
     	}
     	
+    	//Update the drone position only one step
+    	//updateDronePosition(drones[0])
     	movementTimer = new Timer(100, e -> updateDronePosition(drones[0]));
     	movementTimer.start();
     	
@@ -139,6 +141,27 @@ public class MapPanel extends JPanel {
         repaint();
     }
     
+    public long offsetDrone(long xValue, long yValue, long speed) {
+        // Logic to calculate and update drone's offset position in the GUI
+        for (Amadrone drone : drones) {
+            if (drone.getId() == selectedDroneId) {
+                double currentX = drone.getX();
+                double currentY = drone.getY();
+
+                
+                double newX = currentX + xValue * speed;
+                double newY = currentY + yValue * speed;
+
+                
+                drone.setX(newX);
+                drone.setY(newY);
+
+                repaint();
+                return (long)0;
+            }
+        }
+		return -1 ;
+    }
     public void setSelectedDroneId(long droneId) {
         this.selectedDroneId = droneId;
         repaint();
@@ -149,7 +172,7 @@ public class MapPanel extends JPanel {
         repaint();
     }
 
-
+    
 
     
     
