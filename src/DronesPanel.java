@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class DronesPanel extends JPanel {
@@ -29,6 +30,7 @@ public class DronesPanel extends JPanel {
     class DronePanel extends JPanel {
     	Amadrone drone;
     	JLabel name, location, status, battery, motorType, motorDetails, motorPayload, range;
+    	JButton startDrone, stopDrone;
     	
     	public DronePanel(Amadrone drone) {
     		this.drone = drone;
@@ -43,14 +45,24 @@ public class DronesPanel extends JPanel {
             motorDetails = new JLabel();
             motorPayload = new JLabel();
             range = new JLabel();
+            
+            startDrone = new JButton("On");
+            stopDrone = new JButton("Off");
+
     		
             readStatechartData();
 
-            // Drone name and status
+            // Drone name 
             add(name);
             add(location);
+            
+            //Drone Status
             add(new JLabel("Status: "));
-            add(status);
+            JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            statusPanel.add(status);
+            statusPanel.add(startDrone);
+            statusPanel.add(stopDrone);
+            add(statusPanel);
 
             // Battery details
             add(new JLabel("Battery (Current/Max/%): "));
@@ -67,6 +79,25 @@ public class DronesPanel extends JPanel {
             // Flight Range
             add(new JLabel("Flight Range (metres): "));
             add(range);
+            
+            
+            // Button Listeners
+            startDrone.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    drone.setStatus("on");
+                    status.setText("on");
+                }
+            });
+
+            stopDrone.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    drone.setStatus("off");
+                    status.setText("off");
+                }
+            });
+           
     	}
     	
     	public void readStatechartData() {
