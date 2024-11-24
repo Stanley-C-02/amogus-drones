@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event start_charging&#xA;&#x9;in event stop_charging&#xA;&#x9;in event start_discharging&#xA;&#x9;out event low_battery&#xA;&#x9;out event drone_power_off&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var maxCapacity: real = 100 // wattHours&#xA;&#x9;var available: real = 0 // wattHours&#xA;&#x9;&#xA;&#x9;// Current % derived&#xA;&#x9;// available / maxCapacity * 100&#xA;&#x9;var charge: real&#xA;&#x9;" name="Battery">
+  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event start_charging&#xA;&#x9;in event stop_charging&#xA;&#x9;in event start_discharging&#xA;&#x9;out event low_battery&#xA;&#x9;out event drone_power_off&#xA;&#x9;&#xA;&#x9;var id: int = -1&#xA;&#x9;var name: String = &quot;Unknown&quot;&#xA;&#x9;var maxCapacity: double = 100 // wattHours&#xA;&#x9;var available: double = 0 // wattHours&#xA;&#x9;&#xA;&#x9;// Current % derived&#xA;&#x9;// available / maxCapacity * 100&#xA;&#x9;var charge: double&#xA;&#x9;" name="Battery" domainID="com.yakindu.domain.java">
     <regions xmi:id="_SeOfQ564Ee-Q_sfPrdmAZA" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_SeOfRJ64Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_SeOfRZ64Ee-Q_sfPrdmAZA" target="_SeQUcJ64Ee-Q_sfPrdmAZA"/>
@@ -30,7 +30,7 @@
           </vertices>
         </regions>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available = available + 1;&#xD;&#xA;&#x9;charge = ((available as real / maxCapacity as real) * 100) as integer" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA _bcxM0KemEe-wMtpPiyEs_Q">
+      <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available = available + 1;&#xD;&#xA;&#x9;charge = ((available / maxCapacity) * 100)" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA _bcxM0KemEe-wMtpPiyEs_Q">
         <outgoingTransitions xmi:id="_SeSJoZ64Ee-Q_sfPrdmAZA" specification="[available == maxCapacity]" target="_SeQUcJ64Ee-Q_sfPrdmAZA"/>
         <outgoingTransitions xmi:id="_bcxM0KemEe-wMtpPiyEs_Q" specification="after 1 s [available &lt; maxCapacity]" target="_SeRilZ64Ee-Q_sfPrdmAZA"/>
         <outgoingTransitions xmi:id="_yHHEgKerEe-wMtpPiyEs_Q" specification="stop_charging" target="_SeQUcJ64Ee-Q_sfPrdmAZA"/>

@@ -36,7 +36,7 @@ public class AmogusUI {
 		dronesPanel = new DronesPanel(drones);
 
         // Packages Panel
-        OrderingPanel orderingPanel = new OrderingPanel(packages, houses);
+        OrderingPanel orderingPanel = new OrderingPanel(hub, packages, houses);
 		
         // Houses Panel
         housesPanel = new HousesPanel(houses);

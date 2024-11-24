@@ -5,12 +5,14 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class OrderingPanel extends JPanel {
+	private Hub hub;
 	private PackageSM[] packages;
 	private House[] houses;
 	private String[] packageOptions;
 	private String[] deliveryOptions;
 	
-    public OrderingPanel(PackageSM[] packages, House[] houses) {
+    public OrderingPanel(Hub hub, PackageSM[] packages, House[] houses) {
+    	this.hub = hub;
     	this.packages = packages;
     	this.houses = houses;
     	
@@ -68,22 +70,37 @@ public class OrderingPanel extends JPanel {
     }
     
     private void orderPackage(int packageIndex, int houseIndex) {
-    	this.houses[houseIndex].raiseStart_order();
-    	switch (packageIndex) {
-    		case 0:
-    			this.houses[houseIndex].raiseOrder_0();
-    			break;
-    		case 1:
-    			this.houses[houseIndex].raiseOrder_1();
-    			break;
-    		case 2:
-    			this.houses[houseIndex].raiseOrder_2();
-    			break;
-    		case 3:
-    			this.houses[houseIndex].raiseOrder_3();
-    			break;
-			default:
-				System.out.println("Error: unknown package order detected: index #" + packageIndex);
-    	}
+//    	this.houses[houseIndex].raiseStart_order();
+//    	switch (packageIndex) {
+//    		case 0:
+//    	    	switch (houseIndex) {
+//        		case 0:
+//        			hub.
+//        			break;
+//        		case 1:
+//        			this.houses[houseIndex].raiseOrder_1();
+//        			break;
+//        		case 2:
+//        			this.houses[houseIndex].raiseOrder_2();
+//        			break;
+//        		case 3:
+//        			this.houses[houseIndex].raiseOrder_3();
+//        			break;
+//    			default:
+//    				System.out.println("Error: unknown package order detected: index #" + packageIndex);
+//    	    	}
+//    			break;
+//    		case 1:
+//    			this.houses[houseIndex].raiseOrder_1();
+//    			break;
+//    		case 2:
+//    			this.houses[houseIndex].raiseOrder_2();
+//    			break;
+//    		case 3:
+//    			this.houses[houseIndex].raiseOrder_3();
+//    			break;
+//			default:
+//				System.out.println("Error: unknown package order detected: index #" + packageIndex);
+//    	}
     }
 }
