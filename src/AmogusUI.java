@@ -23,7 +23,8 @@ public class AmogusUI {
 		House[] houses = AmogusUI.initHouseSCs(hub);
 		ChargingStation[] chargers = AmogusUI.initChargerSCs(hub);
 		PackageSM[] packages = AmogusUI.initPackageSCs(hub);
-		
+
+		hub.setTimerService(new ScaledTimeTimerService(1));
 		hub.enter();
 		
 		// Map Panel
