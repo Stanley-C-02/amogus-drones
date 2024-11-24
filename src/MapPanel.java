@@ -12,6 +12,8 @@ public class MapPanel extends JPanel {
     private Image chargingStationIcon;
     private int drone1X = 950;
     private int drone1Y = 150;
+    private long selectedDroneId = -1;
+    private int selectedHouseIndex = -1;
     
     private int targetX; 
     private int targetY; 
@@ -57,11 +59,16 @@ public class MapPanel extends JPanel {
         g2d.setColor(new Color(144, 238, 144));
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
-        for (House house : houses) {
+        for (int i = 0; i < houses.length; i++) {
+            House house = houses[i];
         	g2d.drawImage(houseIcon,
         			(int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2),
         			(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2),
         			HOUSE_ICON_SIZE, HOUSE_ICON_SIZE, this);
+            if (i == selectedHouseIndex) {
+                g2d.setColor(Color.RED);
+                g2d.drawRect((int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2) - 2, (int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2) - 2, HOUSE_ICON_SIZE + 4, HOUSE_ICON_SIZE + 4);
+            }
         }
         
         g2d.drawImage(warehouseIcon,
@@ -74,6 +81,12 @@ public class MapPanel extends JPanel {
         			(int) (drone.getX() * SCALE - DRONE_ICON_SIZE / 2),
         			(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2),
         			DRONE_ICON_SIZE, DRONE_ICON_SIZE, this);
+        	
+        	if (drone.getId() == selectedDroneId) {
+                g2d.setColor(Color.RED);
+                g2d.drawRect((int) (drone.getX() * SCALE - DRONE_ICON_SIZE / 2) - 2, (int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2) - 2, DRONE_ICON_SIZE + 4, DRONE_ICON_SIZE + 4);
+            }
+        	
         }
 
         for (ChargingStation charger : chargers) {
@@ -125,6 +138,18 @@ public class MapPanel extends JPanel {
 
         repaint();
     }
+    
+    public void setSelectedDroneId(long droneId) {
+        this.selectedDroneId = droneId;
+        repaint();
+    }
+    
+    public void setSelectedHouseIndex(int index) {
+        this.selectedHouseIndex = index;
+        repaint();
+    }
+
+
 
     
     

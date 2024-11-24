@@ -4,8 +4,10 @@ import javax.swing.*;
 
 public class DronesPanel extends JPanel {
 	DronePanel[] panels;
+	private MapPanel mapPanel;
 	
-    public DronesPanel(Amadrone[] drones) {
+    public DronesPanel(Amadrone[] drones, MapPanel mapPanel) {
+    	this.mapPanel = mapPanel;
         setBorder(BorderFactory.createTitledBorder("Drones Status"));
         setLayout(new GridLayout(3, 1, 0, 0)); 
         
@@ -87,6 +89,8 @@ public class DronesPanel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     drone.setStatus("on");
                     status.setText("on");
+                    drone.raiseOn();
+                    mapPanel.setSelectedDroneId(drone.getId());
                 }
             });
 
@@ -95,6 +99,8 @@ public class DronesPanel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     drone.setStatus("off");
                     status.setText("off");
+                    drone.raiseOff();
+                    mapPanel.setSelectedDroneId(drone.getId());
                 }
             });
            

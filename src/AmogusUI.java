@@ -34,10 +34,10 @@ public class AmogusUI {
 		//mapPanel.sendDrone(50, 450);
 
         // Drones Panel
-		dronesPanel = new DronesPanel(drones);
+		dronesPanel = new DronesPanel(drones, mapPanel);
 
         // Packages Panel
-        OrderingPanel orderingPanel = new OrderingPanel(hub, packages, houses);
+        OrderingPanel orderingPanel = new OrderingPanel(hub, packages, houses, mapPanel);
 		
         // Houses Panel
         housesPanel = new HousesPanel(houses);

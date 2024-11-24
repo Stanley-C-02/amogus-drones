@@ -10,8 +10,10 @@ public class OrderingPanel extends JPanel {
 	private House[] houses;
 	private String[] packageOptions;
 	private String[] deliveryOptions;
+	private MapPanel mapPanel;
 	
-    public OrderingPanel(Hub hub, PackageSM[] packages, House[] houses) {
+    public OrderingPanel(Hub hub, PackageSM[] packages, House[] houses, MapPanel mapPanel) {
+    	this.mapPanel = mapPanel;
     	this.hub = hub;
     	this.packages = packages;
     	this.houses = houses;
@@ -38,6 +40,11 @@ public class OrderingPanel extends JPanel {
         JButton submitButton = new JButton("Submit Order");
         add(new JLabel());
         add(submitButton);
+        
+        houseDropdown.addActionListener(e -> {
+            int selectedHouseIndex = houseDropdown.getSelectedIndex();
+            mapPanel.setSelectedHouseIndex(selectedHouseIndex);
+        });
 
         submitButton.addActionListener(e -> {
             String selectedPackage = (String) packageDropdown.getSelectedItem();
