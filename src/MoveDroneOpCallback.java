@@ -21,10 +21,14 @@ public class MoveDroneOpCallback implements Amadrone.OperationCallback {
             drone.setY(yDest);
             return;
         }
-        
+        //To-do: Speed too fast
+        speed = 1;
         double moveX = speed * (dx / distance);
         double moveY = speed * (dy / distance);
-
+        System.out.println(xDest);
+        System.out.println(yDest);
+        
+        
         // Update the drone's position
         drone.setX(drone.getX() + moveX);
         drone.setY(drone.getY() + moveY);
