@@ -1,5 +1,8 @@
 import java.awt.Color;
+
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,8 +12,10 @@ import javax.swing.JPanel;
 
 public class HousesPanel extends JPanel {
 	private HousePanel[] panels;
+	private MapPanel mapPanel;
 	
-	public HousesPanel(House[] houses) {
+	public HousesPanel(House[] houses, MapPanel mapPanel) {
+		this.mapPanel = mapPanel;
         setBorder(BorderFactory.createTitledBorder("House Order Status"));
         setLayout(new GridLayout(1, houses.length, 0, 0));
         
@@ -37,6 +42,8 @@ public class HousesPanel extends JPanel {
 		public HousePanel(House house) {
 			this.house = house;
 			
+			setBackground(Color.WHITE);
+			
 	        setLayout(new GridLayout(3, 1, 0, 0));
 	        
 	        name = new JLabel();
@@ -48,6 +55,8 @@ public class HousesPanel extends JPanel {
 	        add(name);
 	        add(status);
 	        add(location);
+	        
+	        addMouseListener(new HousePanelMouseListener());
 		}
 		
 		public void readStatechartData() {
@@ -63,5 +72,40 @@ public class HousesPanel extends JPanel {
 			
 			location.setText("Location: x" + house.getX() + " y" + house.getY());
 		}
+
+        private class HousePanelMouseListener implements MouseListener {
+
+    		@Override
+    		public void mouseClicked(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+
+    		@Override
+    		public void mouseEntered(MouseEvent e) {
+    			HousePanel p = (HousePanel) e.getSource();
+    			p.setBackground(Color.LIGHT_GRAY);
+                mapPanel.setSelectedHouseId(p.house.getId());
+    		}
+    		
+    		@Override
+    		public void mouseExited(MouseEvent e) {
+    			HousePanel p = (HousePanel) e.getSource();
+    			p.setBackground(Color.WHITE);
+                mapPanel.clearSelectedHouseId();
+    		}
+
+    		@Override
+    		public void mousePressed(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+
+    		@Override
+    		public void mouseReleased(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+        }
 	}
 }

@@ -9,7 +9,7 @@ public class DronesPanel extends JPanel {
     public DronesPanel(Amadrone[] drones, MapPanel mapPanel) {
     	this.mapPanel = mapPanel;
         setBorder(BorderFactory.createTitledBorder("Drones Status"));
-        setLayout(new GridLayout(3, 1, 0, 0)); 
+        setLayout(new GridLayout(drones.length, 1, 0, 0)); 
         
         panels = new DronePanel[drones.length];
 
@@ -33,9 +33,12 @@ public class DronesPanel extends JPanel {
     	Amadrone drone;
     	JLabel name, location, status, battery, motorType, motorDetails, motorPayload, range;
     	JButton startDrone, stopDrone;
+    	JPanel statusPanel, motorPanel;
     	
     	public DronePanel(Amadrone drone) {
     		this.drone = drone;
+    		
+    		setBackground(Color.WHITE);
     		
             setLayout(new GridLayout(5, 2, 0, 0));
             
@@ -51,6 +54,10 @@ public class DronesPanel extends JPanel {
             startDrone = new JButton("On");
             stopDrone = new JButton("Off");
 
+            statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            statusPanel.setBackground(Color.WHITE);
+            motorPanel = new JPanel(new GridLayout(3, 1));
+            motorPanel.setBackground(Color.WHITE);
     		
             readStatechartData();
 
@@ -60,10 +67,9 @@ public class DronesPanel extends JPanel {
             
             //Drone Status
             add(new JLabel("Status: "));
-            JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-            statusPanel.add(status);
             statusPanel.add(startDrone);
             statusPanel.add(stopDrone);
+            statusPanel.add(status);
             add(statusPanel);
 
             // Battery details
@@ -72,7 +78,6 @@ public class DronesPanel extends JPanel {
 
             // Motor section
             add(new JLabel("Motor:"));
-            JPanel motorPanel = new JPanel(new GridLayout(3, 1));
             motorPanel.add(motorType);
             motorPanel.add(motorDetails);
             motorPanel.add(motorPayload);
@@ -87,23 +92,23 @@ public class DronesPanel extends JPanel {
             startDrone.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    drone.setStatus("on");
-                    status.setText("on");
                     drone.raiseOn();
                     mapPanel.setSelectedDroneId(drone.getId());
+                    readStatechartData();
                 }
             });
 
             stopDrone.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    drone.setStatus("off");
-                    status.setText("off");
                     drone.raiseOff();
                     mapPanel.setSelectedDroneId(drone.getId());
+                    readStatechartData();
                 }
             });
-           
+            
+            
+            addMouseListener(new DronePanelMouseListener());
     	}
     	
     	public void readStatechartData() {
@@ -112,6 +117,9 @@ public class DronesPanel extends JPanel {
     		location.setText(String.format("Location: x%.2f y%.2f", drone.getX(), drone.getY()));
     		
     		status.setText(drone.getStatus());
+    		
+    		startDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_ON) ? Color.GREEN : Color.LIGHT_GRAY);
+    		stopDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_OFF) ? Color.PINK : Color.LIGHT_GRAY);
 
             battery.setText(drone.getBattery().getAvailable() + "Wh / " + drone.getBattery().getMaxCapacity() + "Wh / " + drone.getBattery().getCharge() + "%");
             
@@ -123,7 +131,44 @@ public class DronesPanel extends JPanel {
             final int flightRange = (int) ((drone.getBattery().getAvailable() / drone.getMotor().getPower()) * drone.getMotor().getSpeed() * 3600);
             range.setText(String.valueOf(flightRange));
     	}
+        
+        private class DronePanelMouseListener implements MouseListener {
+
+    		@Override
+    		public void mouseClicked(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+
+    		@Override
+    		public void mouseEntered(MouseEvent e) {
+    			DronePanel p = (DronePanel) e.getSource();
+    			p.setBackground(Color.LIGHT_GRAY);
+    			p.statusPanel.setBackground(Color.LIGHT_GRAY);
+    			p.motorPanel.setBackground(Color.LIGHT_GRAY);
+                mapPanel.setSelectedDroneId(p.drone.getId());
+    		}
+    		
+    		@Override
+    		public void mouseExited(MouseEvent e) {
+    			DronePanel p = (DronePanel) e.getSource();
+    			p.setBackground(Color.WHITE);
+    			p.statusPanel.setBackground(Color.WHITE);
+    			p.motorPanel.setBackground(Color.WHITE);
+                mapPanel.clearSelectedDroneId();
+    		}
+
+    		@Override
+    		public void mousePressed(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+
+    		@Override
+    		public void mouseReleased(MouseEvent arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+        }
     }
-
-
 }

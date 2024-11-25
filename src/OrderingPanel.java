@@ -23,11 +23,12 @@ public class OrderingPanel extends JPanel {
         		.toArray(size -> new String[size]);
         
         this.deliveryOptions = Arrays.stream(houses)
-        		.map(h -> h.getName() + " (" + h.getX() + ", " + h.getY() + ")")
+        		.map(h -> h.getName() + " (" + h.getX() + ", " + h.getY() + ")" + " (ID: " + h.getId() + ")")
         		.toArray(size -> new String[size]);
         
         setBorder(BorderFactory.createTitledBorder("Order Package"));
         setLayout(new GridLayout(3, 2, 10, 10));
+        setBackground(Color.WHITE);
 
         add(new JLabel("Select Package:"));
         JComboBox<String> packageDropdown = new JComboBox<>(this.packageOptions);
@@ -43,7 +44,7 @@ public class OrderingPanel extends JPanel {
         
         houseDropdown.addActionListener(e -> {
             int selectedHouseIndex = houseDropdown.getSelectedIndex();
-            mapPanel.setSelectedHouseIndex(selectedHouseIndex);
+            mapPanel.setSelectedHouseId(selectedHouseIndex);
         });
 
         submitButton.addActionListener(e -> {

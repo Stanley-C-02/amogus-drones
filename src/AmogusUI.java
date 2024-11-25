@@ -47,7 +47,7 @@ public class AmogusUI {
         OrderingPanel orderingPanel = new OrderingPanel(hub, packages, houses, mapPanel);
 		
         // Houses Panel
-        housesPanel = new HousesPanel(houses);
+        housesPanel = new HousesPanel(houses, mapPanel);
         
         startRefresh();
 
