@@ -22,7 +22,7 @@ public class MoveDroneOpCallback implements Amadrone.OperationCallback {
             return;
         }
         //To-do: Speed too fast
-        speed = 1;
+        speed = 2;
         double moveX = speed * (dx / distance);
         double moveY = speed * (dy / distance);
         System.out.println(xDest);
