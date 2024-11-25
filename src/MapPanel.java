@@ -47,7 +47,6 @@ public class MapPanel extends JPanel {
 	    	e.printStackTrace();
 	    }
 	    
-	    sendDrone(0, 0);
     }
     
     @Override
@@ -98,47 +97,49 @@ public class MapPanel extends JPanel {
         
     }
     
-    public void sendDrone(int locationX, int locationY) {
-    	//To-do: Adjust this to be a house in the future
-    	this.targetX = locationX; 
-    	this.targetY = locationY;
-    	
-    	if(movementTimer != null && movementTimer.isRunning()) {
-    		movementTimer.stop();
-    	}
-    	
-    	movementTimer = new Timer(100, e -> updateDronePosition(drones[0]));
-    	movementTimer.start();
-    	
-    }
-    
-    private void updateDronePosition(Amadrone drone) {
-        // Calculate the distance to the target
-        double dx = targetX - drone.getX();
-        double dy = targetY - drone.getY();
-        double distance = Math.hypot(dx, dy);
-        
-        // Stop drone if it gets close to house
-        if (distance < 1) {
-            drone.setX(targetX);
-            drone.setY(targetY);
-            movementTimer.stop();
-            repaint();
-            return;
-        }
-        
-        //Calculate movement
-        double step = 2;
-        double moveX = step * (dx / distance);
-        double moveY = step * (dy / distance);
-
-        // Update the drone's position
-        drone.setX(drone.getX() + moveX);
-        drone.setY(drone.getY() + moveY);
-
-        repaint();
-    }
-    
+//    public void sendDrone(int locationX, int locationY) {
+//    	//To-do: Adjust this to be a house in the future
+//    	this.targetX = (int) (locationX * SCALE - DRONE_ICON_SIZE / 2); 
+//    	this.targetY = (int) (locationY * SCALE - DRONE_ICON_SIZE / 2);
+//    	
+//    	if(movementTimer != null && movementTimer.isRunning()) {
+//    		movementTimer.stop();
+//    	}
+//    	
+//    	//Update the drone position only one step
+//    	//updateDronePosition(drones[0])
+//    	movementTimer = new Timer(100, e -> updateDronePosition(drones[0]));
+//    	movementTimer.start();
+//    	
+//    }
+//    
+//    private void updateDronePosition(Amadrone drone) {
+//        // Calculate the distance to the target
+//        double dx = targetX - drone.getX();
+//        double dy = targetY - drone.getY();
+//        double distance = Math.hypot(dx, dy);
+//        
+//        // Stop drone if it gets close to house
+//        if (distance < 1) {
+//            drone.setX(targetX);
+//            drone.setY(targetY);
+//            movementTimer.stop();
+//            repaint();
+//            return;
+//        }
+//        
+//        //Calculate movement
+//        double step = 2;
+//        double moveX = step * (dx / distance);
+//        double moveY = step * (dy / distance);
+//
+//        // Update the drone's position
+//        drone.setX(drone.getX() + moveX);
+//        drone.setY(drone.getY() + moveY);
+//
+//        repaint();
+//    }
+//    
     public void setSelectedDroneId(long droneId) {
         this.selectedDroneId = droneId;
         repaint();
@@ -149,7 +150,7 @@ public class MapPanel extends JPanel {
         repaint();
     }
 
-
+    
 
     
     

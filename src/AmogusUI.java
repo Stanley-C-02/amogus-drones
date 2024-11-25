@@ -10,6 +10,7 @@ public class AmogusUI {
 	
 	private static DronesPanel dronesPanel;
 	private static HousesPanel housesPanel;
+	private static MapPanel mapPanel;
 	
 	public static void main (String[] args) {
 
@@ -24,11 +25,17 @@ public class AmogusUI {
 		ChargingStation[] chargers = AmogusUI.initChargerSCs(hub);
 		PackageSM[] packages = AmogusUI.initPackageSCs(hub);
 
+		mapPanel = new MapPanel(hub, drones, houses, chargers);
+
 		hub.setTimerService(new ScaledTimeTimerService(1));
+		hub.drone.getD0().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD0(), mapPanel));
+		hub.drone.getD1().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD1(), mapPanel));
+		hub.drone.getD2().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD2(), mapPanel));
+
 		hub.enter();
-		
+		hub.drone.raiseStart_all();
+
 		// Map Panel
-		MapPanel mapPanel = new MapPanel(hub, drones, houses, chargers);
 		mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
 		//To-do: A state will perform this action
 		//mapPanel.sendDrone(50, 450);
@@ -67,6 +74,7 @@ public class AmogusUI {
 		
 		for (final Amadrone drone : drones) {
 			drone.setBattery(new Battery());
+			//drone.setOperationCallback(new MoveDroneOpCallback(drone, mapPanel));
 			drone.getBattery().setTimerService(new ScaledTimeTimerService(1));
 			
 			drone.setGps(new Gps());
