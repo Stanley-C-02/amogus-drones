@@ -43,9 +43,10 @@
               <vertices xsi:type="sgraph:Entry" xmi:id="_hfslEKNzEe-5kOalt36Ydw" kind="DEEP_HISTORY">
                 <outgoingTransitions xmi:id="_Evs50Ke4Ee-wMtpPiyEs_Q" target="_SlfNYKNkEe-PP65CgVRBKA"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_UZfuYKN0Ee-5kOalt36Ydw" specification="entry /&#xD;&#xA;&#x9;status = &quot;delivered&quot;;&#xD;&#xA;&#x9;raise Routing.set_idle;&#xD;&#xA;&#x9;unlocked = true" name="Arrived" incomingTransitions="_MCYqwKN6Ee-5kOalt36Ydw"/>
+              <vertices xsi:type="sgraph:State" xmi:id="_UZfuYKN0Ee-5kOalt36Ydw" specification="entry /&#xD;&#xA;&#x9;status = &quot;delivered&quot;;&#xD;&#xA;&#x9;raise Routing.set_idle;&#xD;&#xA;&#x9;unlocked = true" name="Arrived" incomingTransitions="_MCYqwKN6Ee-5kOalt36Ydw _DzR9gKrcEe-bIotoGGNoeQ"/>
               <vertices xsi:type="sgraph:State" xmi:id="_erDRAKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;in-transit&quot;;&#xD;&#xA;&#x9;raise motor.on;&#xD;&#xA;&#x9;unlocked = false&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;battery.available = battery.available - (motor.power + gps.power);&#xD;&#xA;&#x9;raise battery.update_charge;&#xD;&#xA;&#x9;offsetDrone(destX, destY, motor.speed)" name="Moving" incomingTransitions="_Ltv3gKN6Ee-5kOalt36Ydw">
                 <outgoingTransitions xmi:id="_MCYqwKN6Ee-5kOalt36Ydw" specification="Routing.arrive_at_location" target="_UZfuYKN0Ee-5kOalt36Ydw"/>
+                <outgoingTransitions xmi:id="_DzR9gKrcEe-bIotoGGNoeQ" specification="[(x - destX &lt;= 1 &amp;&amp; x - destX >= -1) &amp;&amp; (y - destY &lt;= 1 &amp;&amp; y - destY &lt;= 1)]" target="_UZfuYKN0Ee-5kOalt36Ydw"/>
               </vertices>
             </regions>
             <regions xmi:id="_YUCGoKdsEe-VOvhz6OR__g" name="y">
@@ -686,6 +687,17 @@
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_aXMj4qpvEe-uHJqI0dCMHw" points="[-1, 33, 133, 45]$[-121, 33, 13, 45]$[-121, -9, 13, 3]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_aXQOQKpvEe-uHJqI0dCMHw" id="(5.945303210463733E-4,0.06405693950177936)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_aXQOQapvEe-uHJqI0dCMHw" id="(0.4859154929577465,0.9545454545454546)"/>
+    </edges>
+    <edges xmi:id="_DzWO8KrcEe-bIotoGGNoeQ" type="Transition" element="_DzR9gKrcEe-bIotoGGNoeQ" source="_B0NER6dsEe-VOvhz6OR__g" target="_B0ND_6dsEe-VOvhz6OR__g">
+      <children xsi:type="notation:DecorationNode" xmi:id="_DzW2AKrcEe-bIotoGGNoeQ" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_DzW2AarcEe-bIotoGGNoeQ"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_DzW2AqrcEe-bIotoGGNoeQ" x="-259" y="-15"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_DzWO8arcEe-bIotoGGNoeQ" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_DzWO86rcEe-bIotoGGNoeQ" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_DzWO8qrcEe-bIotoGGNoeQ" points="[-5, 14, 15, -44]$[-19, 53, 1, -5]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_DzZSQKrcEe-bIotoGGNoeQ" id="(0.6125,0.9038461538461539)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_DzZSQarcEe-bIotoGGNoeQ" id="(0.9270833333333334,0.05263157894736842)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
