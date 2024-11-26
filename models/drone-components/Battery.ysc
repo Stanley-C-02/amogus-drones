@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(yes)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event start_charging&#xA;&#x9;in event stop_charging&#xA;&#x9;in event update_charge&#xA;//&#x9;in event start_discharging&#xA;&#x9;out event low_battery&#xA;&#x9;out event no_charge&#xA;&#x9;out event charging_complete&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var maxCapacity: real = 100 // wattHours&#xA;&#x9;var available: real = 20// wattHours&#xA;&#x9;&#xA;&#x9;// Current % derived&#xA;&#x9;// available / maxCapacity * 100&#xA;&#x9;var charge: real = 30&#xA;&#x9;" name="Battery">
+  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(yes)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event start_charging&#xA;&#x9;in event stop_charging&#xA;&#x9;in event update_charge&#xA;//&#x9;in event start_discharging&#xA;&#x9;out event low_battery&#xA;&#x9;out event no_charge&#xA;&#x9;out event charging_complete&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var maxCapacity: real = 100 // wattHours&#xA;&#x9;var available: real = 30// wattHours&#xA;&#x9;&#xA;&#x9;// Current % derived&#xA;&#x9;// available / maxCapacity * 100&#xA;&#x9;var charge: real = 30&#xA;&#x9;" name="Battery">
     <regions xmi:id="_SeOfQ564Ee-Q_sfPrdmAZA" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_SeOfRJ64Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_SeOfRZ64Ee-Q_sfPrdmAZA" target="_SeQUcJ64Ee-Q_sfPrdmAZA"/>
@@ -17,7 +17,7 @@
                 <outgoingTransitions xmi:id="_dqBY0qpqEe-5zKtSzdLKEQ" specification="" target="_iCKA7qewEe-wMtpPiyEs_Q"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_iCKA7qewEe-wMtpPiyEs_Q" specification="" name="Safe" incomingTransitions="_dqBY0qpqEe-5zKtSzdLKEQ">
-                <outgoingTransitions xmi:id="_jLOhw6ewEe-wMtpPiyEs_Q" specification="[charge &lt; 20] /&#xD;&#xA;&#x9;raise low_battery" target="_iCLPAKewEe-wMtpPiyEs_Q"/>
+                <outgoingTransitions xmi:id="_jLOhw6ewEe-wMtpPiyEs_Q" specification="[charge &lt; 30] /&#xD;&#xA;&#x9;raise low_battery" target="_iCLPAKewEe-wMtpPiyEs_Q"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_iCLPAKewEe-wMtpPiyEs_Q" specification="" name="Low" incomingTransitions="_jLOhw6ewEe-wMtpPiyEs_Q">
                 <outgoingTransitions xmi:id="_iCL2EaewEe-wMtpPiyEs_Q" specification="[charge &lt;= 0] /&#xD;&#xA;&#x9;raise no_charge" target="_iCMdIKewEe-wMtpPiyEs_Q"/>
@@ -25,7 +25,7 @@
               <vertices xsi:type="sgraph:State" xmi:id="_iCMdIKewEe-wMtpPiyEs_Q" specification="entry[available &lt;= 0] /&#xD;&#xA;&#x9;available = 0" name="Critical" incomingTransitions="_iCL2EaewEe-wMtpPiyEs_Q"/>
             </regions>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available +=20;&#xD;&#xA;&#x9;raise update_charge&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;available += 20;&#xD;&#xA;&#x9;raise update_charge" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA">
+          <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available +=200;&#xD;&#xA;&#x9;raise update_charge&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;available += 200;&#xD;&#xA;&#x9;raise update_charge" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA">
             <outgoingTransitions xmi:id="_SeSJoZ64Ee-Q_sfPrdmAZA" specification="[available >= maxCapacity] /&#xD;&#xA;&#x9;available = maxCapacity;&#xD;&#xA;&#x9;raise charging_complete" target="_dSvhVKpqEe-5zKtSzdLKEQ"/>
             <outgoingTransitions xmi:id="_yHHEgKerEe-wMtpPiyEs_Q" specification="stop_charging" target="_dSvhVKpqEe-5zKtSzdLKEQ"/>
           </vertices>
