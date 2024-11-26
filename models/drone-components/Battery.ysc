@@ -25,7 +25,7 @@
               <vertices xsi:type="sgraph:State" xmi:id="_iCMdIKewEe-wMtpPiyEs_Q" specification="entry[available &lt;= 0] /&#xD;&#xA;&#x9;available = 0" name="Critical" incomingTransitions="_iCL2EaewEe-wMtpPiyEs_Q"/>
             </regions>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available += 50;&#xD;&#xA;&#x9;raise update_charge&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;available += 50;&#xD;&#xA;&#x9;raise update_charge" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA">
+          <vertices xsi:type="sgraph:State" xmi:id="_SeRilZ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;available +=200;&#xD;&#xA;&#x9;raise update_charge&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;available += 200;&#xD;&#xA;&#x9;raise update_charge" name="Charging" incomingTransitions="_SeQ7gp64Ee-Q_sfPrdmAZA">
             <outgoingTransitions xmi:id="_SeSJoZ64Ee-Q_sfPrdmAZA" specification="[available >= maxCapacity] /&#xD;&#xA;&#x9;available = maxCapacity;&#xD;&#xA;&#x9;raise charging_complete" target="_dSvhVKpqEe-5zKtSzdLKEQ"/>
             <outgoingTransitions xmi:id="_yHHEgKerEe-wMtpPiyEs_Q" specification="stop_charging" target="_dSvhVKpqEe-5zKtSzdLKEQ"/>
           </vertices>
