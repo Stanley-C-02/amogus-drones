@@ -119,7 +119,7 @@ class DronePanel extends JPanel {
 	public void readStatechartData() {
 		name.setText("Drone #" + drone.getId() + ": " + drone.getName());
 		
-		location.setText(String.format("Location: x%.2f y%.2f", drone.getX(), drone.getY()));
+		location.setText(String.format("At: x%.2f y%.2f, heading to: x%.2f y%.2f", drone.getX(), drone.getY(), drone.getDestX(), drone.getDestY()));
 		
 		status.setText(drone.getStatus());
 
