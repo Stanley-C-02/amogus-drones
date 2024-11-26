@@ -121,7 +121,11 @@ class DronePanel extends JPanel {
 		
 		location.setText(String.format("At: x%.2f y%.2f, heading to: x%.2f y%.2f", drone.getX(), drone.getY(), drone.getDestX(), drone.getDestY()));
 		
-		status.setText(drone.getStatus());
+		String statusText = drone.getStatus() + " Collision: ";
+		if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_OK)) statusText = statusText + "OK";
+		else if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_YIELD)) statusText = statusText + "Yield";
+		else if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_PROCEED)) statusText = statusText + "Proceed";
+		status.setText(statusText);
 
 		startDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_ON) ? Color.GREEN : Color.DARK_GRAY);
 		stopDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_OFF) ? Color.PINK : Color.DARK_GRAY);

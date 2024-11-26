@@ -8,6 +8,7 @@ public class AmogusUI {
 	// how often UI checks statechart values and updates itself, in Hz
 	private static final double REFRESH_RATE = 4;
 	
+	private static Hub hub;
 	private static DronesPanel dronesPanel;
 	private static HousesPanel housesPanel;
 	private static MapPanel mapPanel;
@@ -19,7 +20,7 @@ public class AmogusUI {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Statecharts are null by default; initialize all of them here
-		Hub hub = new Hub();
+		hub = new Hub();
 		Amadrone[] drones = AmogusUI.initDroneSCs(hub);
 		House[] houses = AmogusUI.initHouseSCs(hub);
 		ChargingStation[] chargers = AmogusUI.initChargerSCs(hub);
