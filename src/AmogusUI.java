@@ -34,7 +34,7 @@ public class AmogusUI {
 
 		hub.enter();
 		hub.drone.raiseStart_all();
-
+		hub.charger.raiseStart_all();
 		// Map Panel
 		mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
 		//To-do: A state will perform this action
