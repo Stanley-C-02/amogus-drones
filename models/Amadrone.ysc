@@ -702,11 +702,11 @@
     <edges xmi:id="_aXMj4KpvEe-uHJqI0dCMHw" type="Transition" element="_aXIScKpvEe-uHJqI0dCMHw" source="_8gCBxpLaEe-sVtXFkbEeiA" target="_8gCBupLaEe-sVtXFkbEeiA">
       <children xsi:type="notation:DecorationNode" xmi:id="_aXNyAKpvEe-uHJqI0dCMHw" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_aXNyAapvEe-uHJqI0dCMHw"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_aXNyAqpvEe-uHJqI0dCMHw" x="-22" y="-10"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_aXNyAqpvEe-uHJqI0dCMHw" x="33" y="-10"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_aXMj4apvEe-uHJqI0dCMHw" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_aXNK8KpvEe-uHJqI0dCMHw" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_aXMj4qpvEe-uHJqI0dCMHw" points="[-1, -68, 133, 44]$[-3201, -68, -3067, 44]$[-3201, -112, -3067, 0]$[-203, -112, -69, 0]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_aXMj4qpvEe-uHJqI0dCMHw" points="[-1, -68, 133, 44]$[-113, -68, 21, 44]$[-113, -109, 21, 3]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_aXQOQKpvEe-uHJqI0dCMHw" id="(5.945303210463733E-4,0.06405693950177936)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_aXQOQapvEe-uHJqI0dCMHw" id="(0.4859154929577465,0.9545454545454546)"/>
     </edges>
