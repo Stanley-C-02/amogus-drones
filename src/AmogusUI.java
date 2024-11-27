@@ -128,13 +128,6 @@ public class AmogusUI {
   	       public void run() {
   	    	   mapPanel.repaint();
                readStatechartData();
-               
-               System.out.println("------------");
-               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_0_ORDER_STATUS_PACKAGE_ORDERED));
-               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_1_ORDER_STATUS_PACKAGE_ORDERED));
-               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_2_ORDER_STATUS_PACKAGE_ORDERED));
-               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_3_ORDER_STATUS_PACKAGE_ORDERED));
-               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_4_ORDER_STATUS_PACKAGE_ORDERED));
   	       }
   	   }
   	 
