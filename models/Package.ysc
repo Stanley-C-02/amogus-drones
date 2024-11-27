@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_LiK88KH2Ee-fR9mIPl7HaQ" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;//&#x9;in event AttachDrone&#xA;//&#x9;in event DropPackageAtHouse&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var weight: real = 1" name="Package">
-    <regions xmi:id="_LiLkC6H2Ee-fR9mIPl7HaQ" name="main region">
+  <sgraph:Statechart xmi:id="_LiK88KH2Ee-fR9mIPl7HaQ" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var weight: real = -1" name="Package">
+    <regions xmi:id="_LiLkC6H2Ee-fR9mIPl7HaQ" name="package availability status">
       <vertices xsi:type="sgraph:Entry" xmi:id="_LiLkDKH2Ee-fR9mIPl7HaQ">
         <outgoingTransitions xmi:id="_LiLkDaH2Ee-fR9mIPl7HaQ" target="_LiLkDqH2Ee-fR9mIPl7HaQ"/>
       </vertices>
@@ -47,7 +47,7 @@
         <layoutConstraint xsi:type="notation:Bounds" xmi:id="_LiMLQ6H2Ee-fR9mIPl7HaQ"/>
       </children>
       <styles xsi:type="notation:ShapeStyle" xmi:id="_LiMLRKH2Ee-fR9mIPl7HaQ" fontName="Verdana" fillColor="16448250" lineColor="12632256"/>
-      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_LiMLRaH2Ee-fR9mIPl7HaQ" x="205" y="10" width="140" height="163"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_LiMLRaH2Ee-fR9mIPl7HaQ" x="205" y="10" width="190" height="163"/>
     </children>
     <children xsi:type="notation:Shape" xmi:id="_LiMLRqH2Ee-fR9mIPl7HaQ" type="StatechartText" fontName="Verdana" lineColor="4210752">
       <children xsi:type="notation:DecorationNode" xmi:id="_LiMLR6H2Ee-fR9mIPl7HaQ" type="StatechartName">

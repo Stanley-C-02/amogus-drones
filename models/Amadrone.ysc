@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_8f-XQJLaEe-sVtXFkbEeiA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;drone-components/Battery.ysc&quot;&#xA;import: &quot;drone-components/Gps.ysc&quot;&#xA;import: &quot;drone-components/Motor.ysc&quot;&#xA;import: &quot;House.ysc&quot;&#xA;import: &quot;ChargingStation.ysc&quot;&#xD;&#xA;&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;out event batteryLow&#xA;&#x9;out event charged&#xA;&#x9;out event delivered&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;var x: real&#xA;&#x9;var y: real&#xA;&#x9;var destX: real&#xA;&#x9;var destY: real&#xA;&#x9;// status: ENUM('off', 'idle',&#xA;&#x9;//   'available', pickup,&#xA;&#x9;//   in-transit, yield, charging, returning)&#xA;&#x9;var status = &quot;&quot;&#xA;&#x9;var battery: Battery&#xA;&#x9;var gps: Gps&#xA;&#x9;var motor: Motor&#xA;&#x9;&#xA;&#x9;// derived&#xA;&#x9;var flight_range: real&#xA;&#x9;var unlocked: boolean&#xA;&#x9;&#xA;&#x9;var house: House = null&#x9;&#xA;&#x9;operation offsetDrone(xDest: real, yDest: real, speed: real)&#xD;&#xA;&#xA;&#xA;interface Routing:&#xA;&#x9;in event assign_destination&#xA;&#x9;in event delivered&#xA;&#x9;in event reset&#xA;&#x9;&#xA;&#x9;//This will set target in GUI&#xA;&#x9;in event route_to_location&#xA;&#x9;in event connect_charger&#xA;&#x9;in event disconnect_charger&#xA;&#x9;&#xA;&#x9;//This will be raised when drone&#xA;&#x9;//comes close to house perimeter&#xA;&#x9;in event arrive_at_location&#xA;&#x9;in event set_idle&#xA;&#x9;in event load_package&#xA;&#x9;in event dropoff_package&#xA;&#x9;&#xA;&#x9;out event received&#xA;&#x9;out event delivering&#xA;&#x9;out event finished&#xA;&#x9;out event moving&#xD;&#xA;&#xA;&#xA;interface Collision:&#xA;&#x9;in event detect&#xA;&#x9;in event proceed&#xA;&#x9;in event resume&#xA;&#x9;&#xA;&#x9;out event detected&#xA;&#x9;out event proceeding&#xA;&#x9;out event resumed&#xD;&#xA;&#xA;&#xA;internal:&#xA;&#x9;entry /&#xA;&#x9;&#x9;battery.enter;&#xA;&#x9;&#x9;gps.enter;&#xA;&#x9;&#x9;motor.enter&#xA;" name="Amadrone">
+  <sgraph:Statechart xmi:id="_8f-XQJLaEe-sVtXFkbEeiA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;import: &quot;drone-components/Battery.ysc&quot;&#xA;import: &quot;drone-components/Gps.ysc&quot;&#xA;import: &quot;drone-components/Motor.ysc&quot;&#xA;import: &quot;House.ysc&quot;&#xA;import: &quot;ChargingStation.ysc&quot;&#xD;&#xA;&#xA;&#xA;interface:&#xA;&#x9;in event on&#xA;&#x9;in event off&#xA;&#x9;out event batteryLow&#xA;&#x9;out event charged&#xA;&#x9;out event delivered&#xA;&#x9;&#xA;&#x9;var id: integer&#xA;&#x9;var name: string&#xA;&#x9;var x: real&#xA;&#x9;var y: real&#xA;&#x9;var destX: real&#xA;&#x9;var destY: real&#xA;&#x9;// status: ENUM('off', 'idle',&#xA;&#x9;//   'available', pickup,&#xA;&#x9;//   in-transit, yield, charging, returning)&#xA;&#x9;var status = &quot;&quot;&#xA;&#x9;var battery: Battery&#xA;&#x9;var gps: Gps&#xA;&#x9;var motor: Motor&#xA;&#x9;&#xA;&#x9;// derived&#xA;&#x9;var flight_range: real&#xA;&#x9;var unlocked: boolean&#xA;&#x9;&#xA;&#x9;var house: House = null&#x9;&#xA;&#x9;operation offsetDrone(xDest: real, yDest: real, speed: real)&#xD;&#xA;&#xA;&#xA;interface Routing:&#xA;&#x9;in event assign_destination&#xA;&#x9;in event delivered&#xA;&#x9;in event reset&#xA;&#x9;&#xA;&#x9;//This will set target in GUI&#xA;&#x9;in event route_to_location&#xA;&#x9;in event connect_charger&#xA;&#x9;in event disconnect_charger&#xA;&#x9;&#xA;&#x9;//This will be raised when drone&#xA;&#x9;//comes close to house perimeter&#xA;&#x9;in event arrive_at_location&#xA;&#x9;in event set_idle&#xA;&#x9;in event load_package&#xA;&#x9;in event dropoff_package&#xA;&#x9;&#xA;&#x9;out event requesting_destination&#xA;&#x9;out event received&#xA;&#x9;out event delivering&#xA;&#x9;out event finished&#xA;&#x9;out event moving&#xD;&#xA;&#xA;&#xA;interface Collision:&#xA;&#x9;in event detect&#xA;&#x9;in event proceed&#xA;&#x9;in event resume&#xA;&#x9;&#xA;&#x9;out event detected&#xA;&#x9;out event proceeding&#xA;&#x9;out event resumed&#xD;&#xA;&#xA;&#xA;internal:&#xA;&#x9;entry /&#xA;&#x9;&#x9;battery.enter;&#xA;&#x9;&#x9;gps.enter;&#xA;&#x9;&#x9;motor.enter&#xA;" name="Amadrone">
     <regions xmi:id="_8gBak5LaEe-sVtXFkbEeiA" name="main region">
       <vertices xsi:type="sgraph:Entry" xmi:id="_8gBalJLaEe-sVtXFkbEeiA">
         <outgoingTransitions xmi:id="_8gBalZLaEe-sVtXFkbEeiA" target="_8gBalpLaEe-sVtXFkbEeiA"/>
@@ -17,7 +17,7 @@
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_hNjXQKrpEe-bIotoGGNoeQ" name="Logistics" incomingTransitions="_gUBHMKrpEe-bIotoGGNoeQ">
             <regions xmi:id="_h0nXQKrpEe-bIotoGGNoeQ">
-              <vertices xsi:type="sgraph:State" xmi:id="_OttDgKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;request-package&quot;;&#xD;&#xA;&#x9;raise motor.turnOff&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;battery.available = battery.available - gps.power;&#xD;&#xA;&#x9;raise battery.update_charge" name="Requesting Destination" incomingTransitions="_eLsv0KrpEe-bIotoGGNoeQ _f7ujAKrpEe-bIotoGGNoeQ">
+              <vertices xsi:type="sgraph:State" xmi:id="_OttDgKNkEe-PP65CgVRBKA" specification="entry /&#xD;&#xA;&#x9;status = &quot;request-package&quot;;&#xD;&#xA;&#x9;raise Routing.requesting_destination;&#xD;&#xA;&#x9;raise motor.turnOff&#xD;&#xA;&#xD;&#xA;every 1s /&#xD;&#xA;&#x9;battery.available = battery.available - gps.power;&#xD;&#xA;&#x9;raise Routing.requesting_destination;&#xD;&#xA;&#x9;raise battery.update_charge" name="Requesting Destination" incomingTransitions="_eLsv0KrpEe-bIotoGGNoeQ _f7ujAKrpEe-bIotoGGNoeQ">
                 <outgoingTransitions xmi:id="_SBULgKNzEe-5kOalt36Ydw" specification="Routing.assign_destination / raise Routing.received" target="_NizY0KNzEe-5kOalt36Ydw"/>
               </vertices>
               <vertices xsi:type="sgraph:Entry" xmi:id="_f5LlUKrpEe-bIotoGGNoeQ" kind="DEEP_HISTORY">
@@ -189,7 +189,7 @@
                           <styles xsi:type="notation:ShapeStyle" xmi:id="_Otu4saNkEe-PP65CgVRBKA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
                           <styles xsi:type="notation:FontStyle" xmi:id="_Otu4sqNkEe-PP65CgVRBKA"/>
                           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_Otvfw6NkEe-PP65CgVRBKA" name="isHorizontal" booleanValue="true"/>
-                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Otu4s6NkEe-PP65CgVRBKA" x="74" y="56" width="377" height="142"/>
+                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Otu4s6NkEe-PP65CgVRBKA" x="74" y="12" width="362" height="165"/>
                         </children>
                         <children xmi:id="_f5MzcKrpEe-bIotoGGNoeQ" type="DeepHistory" element="_f5LlUKrpEe-bIotoGGNoeQ">
                           <children xmi:id="_f5MzdKrpEe-bIotoGGNoeQ" type="BorderItemLabelContainer">
@@ -600,7 +600,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_SBUykaNzEe-5kOalt36Ydw" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_SBUyk6NzEe-5kOalt36Ydw" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_SBUykqNzEe-5kOalt36Ydw" points="[189, -2, -220, -137]$[217, -2, -192, -137]$[217, 119, -192, -16]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_SBUykqNzEe-5kOalt36Ydw" points="[189, 42, -220, -137]$[217, 42, -192, -137]$[217, 163, -192, -16]"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_SBWnwKNzEe-5kOalt36Ydw" id="(0.3511659807956104,0.008658008658008658)"/>
     </edges>
     <edges xmi:id="_Ltzh4KN6Ee-5kOalt36Ydw" type="Transition" element="_Ltv3gKN6Ee-5kOalt36Ydw" source="_B0NDladsEe-VOvhz6OR__g" target="_LcSycKw-Ee-iWrABv0OHjw">
@@ -686,7 +686,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_eLsIxarpEe-bIotoGGNoeQ" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_eLsIxKrpEe-bIotoGGNoeQ" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_eLsIw6rpEe-bIotoGGNoeQ" points="[-330, -20, -39, 104]$[-330, -135, -39, -11]$[-293, -135, -2, -11]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_eLsIw6rpEe-bIotoGGNoeQ" points="[-330, -20, -39, 148]$[-330, -135, -39, 33]$[-293, -135, -2, 33]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_eLsIwqrpEe-bIotoGGNoeQ" id="(0.18792866941015088,0.010822510822510822)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_eLsIwarpEe-bIotoGGNoeQ" id="(0.005571030640668524,0.6119402985074627)"/>
     </edges>
@@ -717,7 +717,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_f7vxJqrpEe-bIotoGGNoeQ" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_f7vxJ6rpEe-bIotoGGNoeQ" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_f7vxKKrpEe-bIotoGGNoeQ" points="[9, 9, -63, -65]$[29, 9, -43, -65]$[29, 70, -43, -4]$[55, 70, -17, -4]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_f7vxKKrpEe-bIotoGGNoeQ" points="[9, 9, -63, -21]$[29, 9, -43, -21]$[29, 70, -43, 40]$[55, 70, -17, 40]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_f7zbpKrpEe-bIotoGGNoeQ" id="(0.2,0.13333333333333333)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_f7zbqKrpEe-bIotoGGNoeQ" id="(0.04735376044568245,0.373134328358209)"/>
     </edges>
