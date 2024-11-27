@@ -28,14 +28,17 @@ public class AmogusUI {
 
 		mapPanel = new MapPanel(hub, drones, houses, chargers);
 
+		for (Amadrone drone : drones) {
+			drone.setOperationCallback(new MoveDroneOpCallback(drone, mapPanel));
+			drone.enter();
+		}
+
 		hub.setTimerService(new ScaledTimeTimerService(1));
-		hub.drone.getD0().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD0(), mapPanel));
-		hub.drone.getD1().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD1(), mapPanel));
-		hub.drone.getD2().setOperationCallback(new MoveDroneOpCallback(hub.drone.getD2(), mapPanel));
 
 		hub.enter();
 		hub.drone.raiseStart_all();
 		hub.charger.raiseStart_all();
+		
 		// Map Panel
 		mapPanel.setBorder(BorderFactory.createTitledBorder("Map"));
 		//To-do: A state will perform this action
@@ -74,13 +77,10 @@ public class AmogusUI {
 		final Amadrone[] drones = { hub.drone.getD0(), hub.drone.getD1(), hub.drone.getD2() };
 		
 		for (final Amadrone drone : drones) {
+			drone.setTimerService(new ScaledTimeTimerService(1));
 			drone.setBattery(new Battery());
-			//drone.setOperationCallback(new MoveDroneOpCallback(drone, mapPanel));
-			drone.getBattery().setTimerService(new ScaledTimeTimerService(1));
-			
 			drone.setGps(new Gps());
 			drone.setMotor(new Motor());
-			drone.setTimerService(new ScaledTimeTimerService(1));
 		}
 		
 		return drones;
@@ -128,6 +128,13 @@ public class AmogusUI {
   	       public void run() {
   	    	   mapPanel.repaint();
                readStatechartData();
+               
+               System.out.println("------------");
+               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_0_ORDER_STATUS_PACKAGE_ORDERED));
+               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_1_ORDER_STATUS_PACKAGE_ORDERED));
+               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_2_ORDER_STATUS_PACKAGE_ORDERED));
+               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_3_ORDER_STATUS_PACKAGE_ORDERED));
+               System.out.println(hub.isStateActive(Hub.State.HUB_CONTROLLER_HUB_HOUSES_MANAGED_IN_SYSTEM_HOUSES_HOUSE_4_ORDER_STATUS_PACKAGE_ORDERED));
   	       }
   	   }
   	 

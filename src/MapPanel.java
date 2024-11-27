@@ -124,27 +124,27 @@ public class MapPanel extends JPanel {
 						DRONE_ICON_SIZE + 4);
 			}
 			
-			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_Y_PACKAGE_ATTACHED)) {
+			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON_DRONE_PACKAGE_ATTACHMENT_STATUS_ATTACHED)) {
 				g2d.drawImage(packageIcon, (int) (drone.getX() * SCALE - PACKAGE_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE + DRONE_ICON_SIZE / 2), PACKAGE_ICON_SIZE, PACKAGE_ICON_SIZE, this);
 			}
 			
-			if (drone.isStateActive(Amadrone.State.MAIN_REGION_OFF)) {
+			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_OFF)) {
 				g2d.drawImage(blockedIcon, (int) (drone.getX() * SCALE - BLOCKED_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - BLOCKED_ICON_SIZE), BLOCKED_ICON_SIZE, BLOCKED_ICON_SIZE, this);
 			}
 			
-			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_YIELD)) {
+			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON_DRONE_COLLISION_STATUS_YIELD)) {
 				g2d.drawImage(yieldIcon, (int) (drone.getX() * SCALE - YIELD_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - YIELD_ICON_SIZE), YIELD_ICON_SIZE, YIELD_ICON_SIZE, this);
 			}
 			
-			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_PROCEED)) {
+			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON_DRONE_COLLISION_STATUS_PROCEED)) {
 				g2d.drawImage(continueIcon, (int) (drone.getX() * SCALE - CONTINUE_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - CONTINUE_ICON_SIZE), CONTINUE_ICON_SIZE, CONTINUE_ICON_SIZE, this);
 			}
 			
-			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS_R_LOW_BATTERY)) {
+			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON_DRONE_BATTERY_STATUS_LOW)) {
 				g2d.drawImage(chargingIcon, (int) (drone.getX() * SCALE - CHARGING_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - CHARGING_ICON_SIZE), CHARGING_ICON_SIZE, CHARGING_ICON_SIZE, this);
 			}

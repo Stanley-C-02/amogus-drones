@@ -83,9 +83,6 @@ public class OrderingPanel extends JPanel {
     	    	switch (houseIndex) {
 	        		case 0:
 	        			hub.houses.raiseOrder_p0_to_h0();
-	        			hub.drone.getD0().routing().raiseReceived();
-	        			
-	        			System.out.print("rasised");
 	        			break;
 	        		case 1:
 	        			hub.houses.raiseOrder_p0_to_h1();

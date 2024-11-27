@@ -97,7 +97,7 @@ class DronePanel extends JPanel {
         startDrone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                drone.raiseOn();
+                drone.raiseTurnOn();
                 mapPanel.setSelectedDroneId(drone.getId());
                 readStatechartData();
             }
@@ -106,7 +106,7 @@ class DronePanel extends JPanel {
         stopDrone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                drone.raiseOff();
+                drone.raiseTurnOff();
                 mapPanel.setSelectedDroneId(drone.getId());
                 readStatechartData();
             }
@@ -121,16 +121,12 @@ class DronePanel extends JPanel {
 		
 		location.setText(String.format("At: x%.2f y%.2f, heading to: x%.2f y%.2f", drone.getX(), drone.getY(), drone.getDestX(), drone.getDestY()));
 		
-		String statusText = drone.getStatus() + " Collision: ";
-		if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_OK)) statusText = statusText + "OK";
-		else if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_YIELD)) statusText = statusText + "Yield";
-		else if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_PROCEED)) statusText = statusText + "Proceed";
-		status.setText(statusText);
+		status.setText(drone.getStatus());
 
-		startDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_ON) ? Color.GREEN : Color.DARK_GRAY);
-		stopDrone.setBackground(drone.isStateActive(Amadrone.State.MAIN_REGION_OFF) ? Color.PINK : Color.DARK_GRAY);
-		startDrone.setForeground(drone.isStateActive(Amadrone.State.MAIN_REGION_ON) ? Color.BLACK : Color.WHITE);
-		stopDrone.setForeground(drone.isStateActive(Amadrone.State.MAIN_REGION_OFF) ? Color.BLACK : Color.WHITE);
+		startDrone.setBackground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON) ? Color.GREEN : Color.DARK_GRAY);
+		stopDrone.setBackground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_OFF) ? Color.PINK : Color.DARK_GRAY);
+		startDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON) ? Color.BLACK : Color.WHITE);
+		stopDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_OFF) ? Color.BLACK : Color.WHITE);
 
         battery.setText(drone.getBattery().getAvailable() + "Wh / " + drone.getBattery().getMaxCapacity() + "Wh / " + drone.getBattery().getCharge() + "%");
         
