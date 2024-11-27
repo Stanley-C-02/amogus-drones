@@ -10,26 +10,27 @@ public class MoveDroneOpCallback implements Amadrone.OperationCallback {
 	}
 
 	@Override
-	public void offsetDrone(double xDest, double yDest, double speed) {
-		double dx = xDest - drone.getX();
-        double dy = yDest - drone.getY();
-        double distance = Math.hypot(dx, dy);
+	public void offsetDrone() {
+		double xDist = drone.getDestX() - drone.getX();
+        double yDist = drone.getDestY() - drone.getY();
+        double distance = Math.hypot(xDist, yDist);
         
-        // Stop drone if close to destination
-        if (distance < 1) {
-            drone.setX(xDest);
-            drone.setY(yDest);
-            return;
-        }
-        
-        //To-do: Speed too fast
-        speed = speed/5;
-        double moveX = speed * (dx / distance);
-        double moveY = speed * (dy / distance);
-        
+        double moveX = drone.getMotor().getSpeed() * (xDist / distance);
+        double moveY = drone.getMotor().getSpeed() * (yDist / distance);
+
         // Update the drone's position
-        drone.setX(drone.getX() + moveX);
-        drone.setY(drone.getY() + moveY);
+        if (Math.hypot(moveX, moveY) > distance) {
+        	// Move onto destination when near
+            drone.setX(drone.getDestX());
+            drone.setY(drone.getDestY());        	
+        } else {
+        	// Move towards destination
+            drone.setX(drone.getX() + moveX);
+            drone.setY(drone.getY() + moveY);
+        }
         mapPanel.repaint();
 	}
 }
+
+// speed / distance 
+// moveX / dx
