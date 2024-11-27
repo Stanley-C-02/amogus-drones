@@ -103,7 +103,7 @@ public class MapPanel extends JPanel {
 						HOUSE_ICON_SIZE + 4);
 			}
 
-			if (house.isStateActive(House.State.MAIN_REGION_WAITING_FOR_PACKAGE)) {
+			if (house.isStateActive(House.State.HOUSE_ORDERING_STATUS_ORDERED)) {
 				g2d.drawImage(orderedIcon, (int) (house.getX() * SCALE - ORDERED_ICON_SIZE / 2),
 						(int) (house.getY() * SCALE + HOUSE_ICON_SIZE / 2), ORDERED_ICON_SIZE, ORDERED_ICON_SIZE, this);
 			}
