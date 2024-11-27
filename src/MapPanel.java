@@ -6,14 +6,18 @@ import javax.swing.*;
 
 public class MapPanel extends JPanel {
 	private Image houseIcon;
+	private Image orderedIcon;
+	
 	private Image warehouseIcon;
+	
 	private Image droneIcon;
-	private Image chargingStationIcon;
 	private Image blockedIcon;
 	private Image packageIcon;
 	private Image yieldIcon;
 	private Image continueIcon;
 	private Image chargingIcon;
+	
+	private Image chargingStationIcon;
 	
 	private int drone1X = 950;
 	private int drone1Y = 150;
@@ -31,14 +35,19 @@ public class MapPanel extends JPanel {
 	private ChargingStation[] chargers;
 
 	private final static int HOUSE_ICON_SIZE = 60;
+	private final static int ORDERED_ICON_SIZE = 40;
+	
 	private final static int WAREHOUSE_ICON_SIZE = 100;
+	
 	private final static int DRONE_ICON_SIZE = 40;
 	private final static int CHARGER_ICON_SIZE = 30;
 	private final static int BLOCKED_ICON_SIZE = 30;	
 	private final static int PACKAGE_ICON_SIZE = 30;
 	private final static int YIELD_ICON_SIZE = 40;
 	private final static int CONTINUE_ICON_SIZE = 40;
+	
 	private final static int CHARGING_ICON_SIZE = 30;
+	
 	private final static double SCALE = 9;
 
 	public MapPanel(Hub hub, Amadrone[] drones, House[] houses, ChargingStation[] chargers) {
@@ -50,14 +59,18 @@ public class MapPanel extends JPanel {
 
 		try {
 			houseIcon = ImageIO.read(new File("assets/house.png"));
+			orderedIcon = ImageIO.read(new File("assets/ordered-icon.png"));
+			
 			warehouseIcon = ImageIO.read(new File("assets/warehouse.png"));
+			
 			droneIcon = ImageIO.read(new File("assets/drone.png"));
-			chargingStationIcon = ImageIO.read(new File("assets/charging-station.png"));
 			packageIcon = ImageIO.read(new File("assets/package-icon.png"));
 			blockedIcon = ImageIO.read(new File("assets/blocked-icon.png"));
 			yieldIcon = ImageIO.read(new File("assets/yield-icon.png"));
 			continueIcon = ImageIO.read(new File("assets/continue-icon.png"));
 			chargingIcon = ImageIO.read(new File("assets/charging-icon.png"));
+			
+			chargingStationIcon = ImageIO.read(new File("assets/charging-station.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -82,12 +95,19 @@ public class MapPanel extends JPanel {
 			House house = houses[i];
 			g2d.drawImage(houseIcon, (int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2),
 					(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2), HOUSE_ICON_SIZE, HOUSE_ICON_SIZE, this);
+			
 			if (house.getId() == selectedHouseId) {
 				g2d.setColor(Color.RED);
 				g2d.drawRect((int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2) - 2,
 						(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2) - 2, HOUSE_ICON_SIZE + 4,
 						HOUSE_ICON_SIZE + 4);
 			}
+
+			if (house.isStateActive(House.State.MAIN_REGION_WAITING_FOR_PACKAGE)) {
+				g2d.drawImage(orderedIcon, (int) (house.getX() * SCALE - ORDERED_ICON_SIZE / 2),
+						(int) (house.getY() * SCALE + HOUSE_ICON_SIZE / 2), ORDERED_ICON_SIZE, ORDERED_ICON_SIZE, this);
+			}
+			
 		}
 
 		g2d.drawImage(warehouseIcon, (int) (hub_x * SCALE - WAREHOUSE_ICON_SIZE / 2),
