@@ -9,6 +9,11 @@ public class MapPanel extends JPanel {
 	private Image warehouseIcon;
 	private Image droneIcon;
 	private Image chargingStationIcon;
+	private Image packageIcon;
+	private Image yieldIcon;
+	private Image continueIcon;
+	private Image chargingIcon;
+	
 	private int drone1X = 950;
 	private int drone1Y = 150;
 	private long selectedDroneId = -1;
@@ -28,6 +33,10 @@ public class MapPanel extends JPanel {
 	private final static int WAREHOUSE_ICON_SIZE = 50;
 	private final static int DRONE_ICON_SIZE = 30;
 	private final static int CHARGER_ICON_SIZE = 30;
+	private final static int PACKAGE_ICON_SIZE = 20;
+	private final static int YIELD_ICON_SIZE = 20;
+	private final static int CONTINUE_ICON_SIZE = 20;
+	private final static int CHARGING_ICON_SIZE = 20;
 	private final static double SCALE = 9;
 
 	public MapPanel(Hub hub, Amadrone[] drones, House[] houses, ChargingStation[] chargers) {
@@ -38,10 +47,14 @@ public class MapPanel extends JPanel {
 		this.chargers = chargers;
 
 		try {
-			houseIcon = ImageIO.read(new File("ui-components/house.png"));
-			warehouseIcon = ImageIO.read(new File("ui-components/warehouse.png"));
-			droneIcon = ImageIO.read(new File("ui-components/drone.png"));
-			chargingStationIcon = ImageIO.read(new File("ui-components/charging-station.png"));
+			houseIcon = ImageIO.read(new File("assets/house.png"));
+			warehouseIcon = ImageIO.read(new File("assets/warehouse.png"));
+			droneIcon = ImageIO.read(new File("assets/drone.png"));
+			chargingStationIcon = ImageIO.read(new File("assets/charging-station.png"));
+			packageIcon = ImageIO.read(new File("assets/package-icon.png"));
+			yieldIcon = ImageIO.read(new File("assets/yield-icon.png"));
+			continueIcon = ImageIO.read(new File("assets/continue-icon.png"));
+			chargingIcon = ImageIO.read(new File("assets/charging-icon.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -82,7 +95,26 @@ public class MapPanel extends JPanel {
 						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2) - 2, DRONE_ICON_SIZE + 4,
 						DRONE_ICON_SIZE + 4);
 			}
-
+			
+			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_Y_PACKAGE_ATTACHED)) {
+				g2d.drawImage(packageIcon, (int) (drone.getX() * SCALE - PACKAGE_ICON_SIZE / 2),
+						(int) (drone.getY() * SCALE + DRONE_ICON_SIZE / 2), PACKAGE_ICON_SIZE, PACKAGE_ICON_SIZE, this);
+			}
+			
+			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_YIELD)) {
+				g2d.drawImage(yieldIcon, (int) (drone.getX() * SCALE - YIELD_ICON_SIZE / 2),
+						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - YIELD_ICON_SIZE), YIELD_ICON_SIZE, YIELD_ICON_SIZE, this);
+			}
+			
+			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_PROCEED)) {
+				g2d.drawImage(continueIcon, (int) (drone.getX() * SCALE - CONTINUE_ICON_SIZE / 2),
+						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - CONTINUE_ICON_SIZE), CONTINUE_ICON_SIZE, CONTINUE_ICON_SIZE, this);
+			}
+			
+			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS_R_LOW_BATTERY)) {
+				g2d.drawImage(chargingIcon, (int) (drone.getX() * SCALE - CHARGING_ICON_SIZE / 2),
+						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - CHARGING_ICON_SIZE), CHARGING_ICON_SIZE, CHARGING_ICON_SIZE, this);
+			}
 		}
 
 		for (ChargingStation charger : chargers) {
