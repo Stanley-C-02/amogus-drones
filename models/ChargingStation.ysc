@@ -26,7 +26,7 @@
               <vertices xsi:type="sgraph:Entry" xmi:id="_fEDZwKzOEe-3jLherP5NaQ">
                 <outgoingTransitions xmi:id="_iYqlIKzOEe-3jLherP5NaQ" target="_enOT0KzOEe-3jLherP5NaQ"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_hb5YwKI3Ee-TH_vN7xDzYQ" specification="entry [battery != null] /&#xD;&#xA;&#x9;raise battery.start_charging&#xD;&#xA;&#xD;&#xA;every 1s [battery != null] /&#xD;&#xA;&#x9;raise battery.start_charging;&#xD;&#xA;&#x9;battery.available = battery.available + chargeRate;&#xD;&#xA;&#x9;raise battery.charged" name="Charging" incomingTransitions="_hp4MgKzOEe-3jLherP5NaQ"/>
+              <vertices xsi:type="sgraph:State" xmi:id="_hb5YwKI3Ee-TH_vN7xDzYQ" specification="entry [battery != null] /&#xD;&#xA;&#x9;raise battery.start_charging&#xD;&#xA;&#xD;&#xA;every 1s [battery != null] /&#xD;&#xA;&#x9;raise battery.start_charging;&#xD;&#xA;&#x9;battery.available = battery.available + chargeRate / 3600;&#xD;&#xA;&#x9;raise battery.charged" name="Charging" incomingTransitions="_hp4MgKzOEe-3jLherP5NaQ"/>
             </regions>
           </vertices>
         </regions>

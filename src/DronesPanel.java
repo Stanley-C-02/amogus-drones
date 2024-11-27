@@ -128,15 +128,15 @@ class DronePanel extends JPanel {
 		startDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON) ? Color.BLACK : Color.WHITE);
 		stopDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_OFF) ? Color.BLACK : Color.WHITE);
 
-        battery.setText(drone.getBattery().getAvailable() + "Wh / " + drone.getBattery().getMaxCapacity() + "Wh / " + drone.getBattery().getCharge() + "%");
+        battery.setText(String.format("%.2f%% (%.2f / %d Wh)", drone.getBattery().getCharge(), drone.getBattery().getAvailable(), (long) drone.getBattery().getMaxCapacity()));
         
         motorType.setText("Type #" + drone.getMotor().getId() + ": " + drone.getMotor().getName());
         motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
         motorPayload.setText("Payload: " + drone.getMotor().getMax_payload() + " grams");
         
 //        TODO Integrate this into drone statechart???
-        final int flightRange = (int) ((drone.getBattery().getAvailable() / drone.getMotor().getPower()) * drone.getMotor().getSpeed() * 3600);
-        range.setText(String.valueOf(flightRange));
+//        final int flightRange = (int) ((drone.getBattery().getAvailable() / drone.getMotor().getPower()) * drone.getMotor().getSpeed() * 3600);
+        range.setText(String.format("%.2f", drone.getFlight_range()));
 	}
 	
 	void setBgColor(Color color) {
