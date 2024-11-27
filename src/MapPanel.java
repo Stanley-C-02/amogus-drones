@@ -9,6 +9,7 @@ public class MapPanel extends JPanel {
 	private Image warehouseIcon;
 	private Image droneIcon;
 	private Image chargingStationIcon;
+	private Image blockedIcon;
 	private Image packageIcon;
 	private Image yieldIcon;
 	private Image continueIcon;
@@ -29,14 +30,15 @@ public class MapPanel extends JPanel {
 	private House[] houses;
 	private ChargingStation[] chargers;
 
-	private final static int HOUSE_ICON_SIZE = 50;
-	private final static int WAREHOUSE_ICON_SIZE = 50;
-	private final static int DRONE_ICON_SIZE = 30;
+	private final static int HOUSE_ICON_SIZE = 60;
+	private final static int WAREHOUSE_ICON_SIZE = 100;
+	private final static int DRONE_ICON_SIZE = 40;
 	private final static int CHARGER_ICON_SIZE = 30;
-	private final static int PACKAGE_ICON_SIZE = 20;
-	private final static int YIELD_ICON_SIZE = 20;
-	private final static int CONTINUE_ICON_SIZE = 20;
-	private final static int CHARGING_ICON_SIZE = 20;
+	private final static int BLOCKED_ICON_SIZE = 30;	
+	private final static int PACKAGE_ICON_SIZE = 30;
+	private final static int YIELD_ICON_SIZE = 40;
+	private final static int CONTINUE_ICON_SIZE = 40;
+	private final static int CHARGING_ICON_SIZE = 30;
 	private final static double SCALE = 9;
 
 	public MapPanel(Hub hub, Amadrone[] drones, House[] houses, ChargingStation[] chargers) {
@@ -52,6 +54,7 @@ public class MapPanel extends JPanel {
 			droneIcon = ImageIO.read(new File("assets/drone.png"));
 			chargingStationIcon = ImageIO.read(new File("assets/charging-station.png"));
 			packageIcon = ImageIO.read(new File("assets/package-icon.png"));
+			blockedIcon = ImageIO.read(new File("assets/blocked-icon.png"));
 			yieldIcon = ImageIO.read(new File("assets/yield-icon.png"));
 			continueIcon = ImageIO.read(new File("assets/continue-icon.png"));
 			chargingIcon = ImageIO.read(new File("assets/charging-icon.png"));
@@ -104,6 +107,11 @@ public class MapPanel extends JPanel {
 			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_Y_PACKAGE_ATTACHED)) {
 				g2d.drawImage(packageIcon, (int) (drone.getX() * SCALE - PACKAGE_ICON_SIZE / 2),
 						(int) (drone.getY() * SCALE + DRONE_ICON_SIZE / 2), PACKAGE_ICON_SIZE, PACKAGE_ICON_SIZE, this);
+			}
+			
+			if (drone.isStateActive(Amadrone.State.MAIN_REGION_OFF)) {
+				g2d.drawImage(blockedIcon, (int) (drone.getX() * SCALE - BLOCKED_ICON_SIZE / 2),
+						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - BLOCKED_ICON_SIZE), BLOCKED_ICON_SIZE, BLOCKED_ICON_SIZE, this);
 			}
 			
 			if (drone.isStateActive(Amadrone.State.MAIN_REGION_ON_R_LOGISTICS__REGION0_IN_TRANSIT_COLLISION_YIELD)) {
