@@ -70,6 +70,11 @@ public class MapPanel extends JPanel {
 		g2d.setColor(new Color(144, 238, 144));
 		g2d.fillRect(0, 0, getWidth(), getHeight());
 
+		for (ChargingStation charger : chargers) {
+			g2d.drawImage(chargingStationIcon, (int) (charger.getX() * SCALE - CHARGER_ICON_SIZE / 2),
+					(int) (charger.getY() * SCALE - CHARGER_ICON_SIZE / 2), CHARGER_ICON_SIZE, CHARGER_ICON_SIZE, this);
+		}
+
 		for (int i = 0; i < houses.length; i++) {
 			House house = houses[i];
 			g2d.drawImage(houseIcon, (int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2),
@@ -117,56 +122,8 @@ public class MapPanel extends JPanel {
 			}
 		}
 
-		for (ChargingStation charger : chargers) {
-			g2d.drawImage(chargingStationIcon, (int) (charger.getX() * SCALE - CHARGER_ICON_SIZE / 2),
-					(int) (charger.getY() * SCALE - CHARGER_ICON_SIZE / 2), CHARGER_ICON_SIZE, CHARGER_ICON_SIZE, this);
-		}
-
 	}
 
-//    public void sendDrone(int locationX, int locationY) {
-//    	//To-do: Adjust this to be a house in the future
-//    	this.targetX = (int) (locationX * SCALE - DRONE_ICON_SIZE / 2); 
-//    	this.targetY = (int) (locationY * SCALE - DRONE_ICON_SIZE / 2);
-//    	
-//    	if(movementTimer != null && movementTimer.isRunning()) {
-//    		movementTimer.stop();
-//    	}
-//    	
-//    	//Update the drone position only one step
-//    	//updateDronePosition(drones[0])
-//    	movementTimer = new Timer(100, e -> updateDronePosition(drones[0]));
-//    	movementTimer.start();
-//    	
-//    }
-//    
-//    private void updateDronePosition(Amadrone drone) {
-//        // Calculate the distance to the target
-//        double dx = targetX - drone.getX();
-//        double dy = targetY - drone.getY();
-//        double distance = Math.hypot(dx, dy);
-//        
-//        // Stop drone if it gets close to house
-//        if (distance < 1) {
-//            drone.setX(targetX);
-//            drone.setY(targetY);
-//            movementTimer.stop();
-//            repaint();
-//            return;
-//        }
-//        
-//        //Calculate movement
-//        double step = 2;
-//        double moveX = step * (dx / distance);
-//        double moveY = step * (dy / distance);
-//
-//        // Update the drone's position
-//        drone.setX(drone.getX() + moveX);
-//        drone.setY(drone.getY() + moveY);
-//
-//        repaint();
-//    }
-//    
 	public void setSelectedDroneId(long droneId) {
 		this.selectedDroneId = droneId;
 		repaint();
