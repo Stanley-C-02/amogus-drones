@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class AmogusUI {
 	// how often UI checks statechart values and updates itself, in Hz
-	private static final double REFRESH_RATE = 4;
+	private static final double REFRESH_RATE = 1;
 	
 	private static Hub hub;
 	private static DronesPanel dronesPanel;
@@ -126,6 +126,7 @@ public class AmogusUI {
   	   class refresh extends TimerTask {
   	       @Override
   	       public void run() {
+  	    	   mapPanel.repaint();
                readStatechartData();
   	       }
   	   }
