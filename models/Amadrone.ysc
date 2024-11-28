@@ -8,7 +8,7 @@
       <vertices xsi:type="sgraph:State" xmi:id="_8gBalpLaEe-sVtXFkbEeiA" specification="entry /&#xD;&#xA;&#x9;raise gps.turnOff;&#xD;&#xA;&#x9;raise motor.turnOff;&#xD;&#xA;&#x9;status = &quot;off&quot;" name="Off" incomingTransitions="_8gBalZLaEe-sVtXFkbEeiA _8gBao5LaEe-sVtXFkbEeiA _aXIScKpvEe-uHJqI0dCMHw">
         <outgoingTransitions xmi:id="_8gBamZLaEe-sVtXFkbEeiA" specification="turnOn /&#xD;&#xA;&#x9;raise turnedOn" target="_8gBaoJLaEe-sVtXFkbEeiA"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_8gBaoJLaEe-sVtXFkbEeiA" specification="entry / &#xD;&#xA;&#x9;raise gps.turnOn&#xD;&#xA;&#xD;&#xA;every 1s [battery.available >= 0] /&#xD;&#xA;&#x9;flightRange = battery.available / (motor.power + gps.power) * motor.speed * 3600&#xD;&#xA;&#xD;&#xA;every 1s [battery.available &lt; 0] /&#xD;&#xA;&#x9;flightRange = 0" name="On" incomingTransitions="_8gBamZLaEe-sVtXFkbEeiA">
+      <vertices xsi:type="sgraph:State" xmi:id="_8gBaoJLaEe-sVtXFkbEeiA" specification="entry / &#xD;&#xA;&#x9;raise gps.turnOn;&#xD;&#xA;&#x9;raise battery.updateCharge&#xD;&#xA;&#xD;&#xA;every 1s [battery.available >= 0] /&#xD;&#xA;&#x9;flightRange = battery.available / (motor.power + gps.power) * motor.speed * 3600&#xD;&#xA;&#xD;&#xA;every 1s [battery.available &lt; 0] /&#xD;&#xA;&#x9;flightRange = 0" name="On" incomingTransitions="_8gBamZLaEe-sVtXFkbEeiA">
         <outgoingTransitions xmi:id="_8gBao5LaEe-sVtXFkbEeiA" specification="turnOff /&#xD;&#xA;&#x9;raise turnedOff" target="_8gBalpLaEe-sVtXFkbEeiA"/>
         <outgoingTransitions xmi:id="_aXIScKpvEe-uHJqI0dCMHw" specification="battery.noCharge" target="_8gBalpLaEe-sVtXFkbEeiA"/>
         <regions xmi:id="_EIsMoKNkEe-PP65CgVRBKA" name="drone routing status">
@@ -420,7 +420,7 @@
           <styles xsi:type="notation:FontStyle" xmi:id="_8gCBz5LaEe-sVtXFkbEeiA"/>
           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_8gCB0JLaEe-sVtXFkbEeiA" name="isHorizontal"/>
           <styles xsi:type="notation:StringValueStyle" xmi:id="_JMZ-IKNkEe-PP65CgVRBKA" name="featureToShow" stringValue="specification"/>
-          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_8gCB0ZLaEe-sVtXFkbEeiA" x="331" y="4" width="758" height="1187"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_8gCB0ZLaEe-sVtXFkbEeiA" x="331" y="4" width="745" height="1189"/>
         </children>
         <layoutConstraint xsi:type="notation:Bounds" xmi:id="_8gCB0pLaEe-sVtXFkbEeiA"/>
       </children>
