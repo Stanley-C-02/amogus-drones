@@ -1,10 +1,16 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Arrays;
 
 public class OrderingPanel extends JPanel {
+	private static Color colorBgDefault = Color.WHITE;
+	private static Color colorBgFocus = Color.LIGHT_GRAY;
+	
 	private Hub hub;
 	private PackageSM[] packages;
 	private House[] houses;
@@ -75,6 +81,12 @@ public class OrderingPanel extends JPanel {
     			);
             }
         });
+        
+        setBgColor(colorBgDefault);
+        addMouseListener(new OrderingPanelMouseListener());
+        packageDropdown.addMouseListener(new OrderingPanelMouseListener());
+        houseDropdown.addMouseListener(new OrderingPanelMouseListener());
+        submitButton.addMouseListener(new OrderingPanelMouseListener());
     }
     
     private void orderPackage(int packageIndex, int houseIndex) {
@@ -166,5 +178,31 @@ public class OrderingPanel extends JPanel {
 			default:
 				System.out.println("Error: unknown package order detected: packageIndex #" + packageIndex);
     	}
+    }
+    
+    private void setBgColor(Color color) {
+    	setBackground(color);
+    }
+
+    private class OrderingPanelMouseListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			setBgColor(colorBgFocus);
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent e) {
+			setBgColor(colorBgDefault);
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {}
     }
 }

@@ -76,10 +76,7 @@ public class HousesPanel extends JPanel {
         private class HousePanelMouseListener implements MouseListener {
 
     		@Override
-    		public void mouseClicked(MouseEvent arg0) {
-    			// TODO Auto-generated method stub
-    			
-    		}
+    		public void mouseClicked(MouseEvent arg0) {}
 
     		@Override
     		public void mouseEntered(MouseEvent e) {
@@ -96,16 +93,10 @@ public class HousesPanel extends JPanel {
     		}
 
     		@Override
-    		public void mousePressed(MouseEvent arg0) {
-    			// TODO Auto-generated method stub
-    			
-    		}
+    		public void mousePressed(MouseEvent arg0) {}
 
     		@Override
-    		public void mouseReleased(MouseEvent arg0) {
-    			// TODO Auto-generated method stub
-    			
-    		}
+    		public void mouseReleased(MouseEvent arg0) {}
         }
 	}
 }

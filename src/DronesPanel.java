@@ -18,9 +18,6 @@ public class DronesPanel extends JPanel {
          	add(panel);
          	panels[i] = panel;
         }
-        //add(createDronePanel("Drone 1", "Active", 1000, 800, "GM2804", 100.0f, 15.0f, 500, 10));
-        //add(createDronePanel("Drone 2", "Idle", 1200, 600, "A2212", 120.0f, 12.0f, 300, 8));
-        //add(createDronePanel("Drone 3", "Charging", 1500, 1500, "GM3506", 150.0f, 10.0f, 700, 12));
     }
     
     public void readStatechartData() {
@@ -92,7 +89,6 @@ class DronePanel extends JPanel {
         add(new JLabel("Flight Range (metres): "));
         add(range);
         
-        
         // Button Listeners
         startDrone.addActionListener(new ActionListener() {
             @Override
@@ -134,8 +130,6 @@ class DronePanel extends JPanel {
         motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
         motorPayload.setText("Payload: " + drone.getMotor().getMax_payload() + " grams");
         
-//        TODO Integrate this into drone statechart???
-//        final int flightRange = (int) ((drone.getBattery().getAvailable() / drone.getMotor().getPower()) * drone.getMotor().getSpeed() * 3600);
         range.setText(String.format("%.2f", drone.getFlight_range()));
 	}
 	
@@ -148,35 +142,24 @@ class DronePanel extends JPanel {
     private class DronePanelMouseListener implements MouseListener {
 
 		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void mouseClicked(MouseEvent arg0) {}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-//			DronePanel p = (DronePanel) e.getSource();
 			setBgColor(colorBgFocus);
             mapPanel.setSelectedDroneId(drone.getId());
 		}
 		
 		@Override
 		public void mouseExited(MouseEvent e) {
-//			DronePanel p = (DronePanel) e.getSource();
 			setBgColor(colorBgDefault);
             mapPanel.clearSelectedDroneId();
 		}
 
 		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void mousePressed(MouseEvent arg0) {}
 
 		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void mouseReleased(MouseEvent arg0) {}
     }
 }
