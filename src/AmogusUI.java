@@ -134,8 +134,10 @@ public class AmogusUI {
 	private static void reInitAll(Amadrone[] drones, House[] houses, ChargingStation chargers[], PackageSM[] packages) {
 		drones[0].setId(0);
 		drones[0].setName("Drone 01");
-		drones[0].setX(50);
-		drones[0].setY(55);
+		drones[0].setHomeX(50);
+		drones[0].setHomeY(55);
+		drones[0].setX(drones[0].getHomeX());
+		drones[0].setY(drones[0].getHomeY());
 		drones[0].getBattery().setId(0);
 		drones[0].getBattery().setName("Medium");
 		drones[0].getBattery().setAvailable(1.5);
@@ -150,8 +152,10 @@ public class AmogusUI {
 		drones[0].getMotor().setMax_payload(500);
 		drones[1].setId(1);
 		drones[1].setName("Drone 02");
-		drones[1].setX(40);
-		drones[1].setY(45);
+		drones[1].setHomeX(40);
+		drones[1].setHomeY(45);
+		drones[1].setX(drones[1].getHomeX());
+		drones[1].setY(drones[1].getHomeY());
 		drones[1].getBattery().setId(1);
 		drones[1].getBattery().setName("Small");
 		drones[1].getBattery().setAvailable(0.5);
@@ -166,8 +170,10 @@ public class AmogusUI {
 		drones[1].getMotor().setMax_payload(200);
 		drones[2].setId(2);
 		drones[2].setName("Drone 03");
-		drones[2].setX(70);
-		drones[2].setY(35);
+		drones[2].setHomeX(70);
+		drones[2].setHomeY(35);
+		drones[2].setX(drones[2].getHomeX());
+		drones[2].setY(drones[2].getHomeY());
 		drones[2].getBattery().setId(2);
 		drones[2].getBattery().setName("Large");
 		drones[2].getBattery().setAvailable(8);
