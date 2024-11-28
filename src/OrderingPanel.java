@@ -197,6 +197,7 @@ public class OrderingPanel extends JPanel {
 		@Override
 		public void mouseExited(MouseEvent e) {
 			setBgColor(colorBgDefault);
+            mapPanel.clearSelectedHouseId();
 		}
 
 		@Override
