@@ -66,7 +66,7 @@ public class HousesPanel extends JPanel {
 			if (house.getPackage() == null) {
 				orderStatus = "None";
 			} else {
-				orderStatus = "Ordered #" + house.getPackage().getId();
+				orderStatus = "#" + house.getPackage().getId() + ": " + house.getPackage().getName() + " (" + house.getPackage().getWeight() + "g)";
 			}
 			status.setText("Order Status: " + orderStatus);
 			

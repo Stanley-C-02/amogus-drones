@@ -124,7 +124,7 @@ class DronePanel extends JPanel {
 		startDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON) ? Color.BLACK : Color.WHITE);
 		stopDrone.setForeground(drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_OFF) ? Color.BLACK : Color.WHITE);
 
-        battery.setText(String.format("%.2f%% (%d / %d mWh)", drone.getBattery().getCharge(), (long) drone.getBattery().getAvailable()*1000, (long) drone.getBattery().getMaxCapacity()*1000));
+        battery.setText(String.format("%.2f%% (%d / %d mWh)", drone.getBattery().getCharge(), (long) (drone.getBattery().getAvailable()*1000), (long) (drone.getBattery().getMaxCapacity()*1000)));
         
         motorType.setText("Type #" + drone.getMotor().getId() + ": " + drone.getMotor().getName());
         motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
