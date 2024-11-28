@@ -180,7 +180,7 @@ public class AmogusUI {
 		drones[2].getBattery().setMaxCapacity(8);
 		drones[2].getGps().setId(2);
 		drones[2].getGps().setName("Advanced GPS");
-		drones[2].getGps().setPower(50);
+		drones[2].getGps().setPower(25);
 		drones[2].getMotor().setId(2);
 		drones[2].getMotor().setName("A2212");
 		drones[2].getMotor().setPower(350);
