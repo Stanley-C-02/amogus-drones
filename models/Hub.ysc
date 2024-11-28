@@ -55,25 +55,25 @@
                             <outgoingTransitions xmi:id="_cMPcoKuxEe-hLvPug37I1g" specification="charger.s0.reserved / &#xD;&#xA;&#x9;raise charger.s1.release" target="_M6cRkKzlEe-qVem-Mu0Wzg"/>
                             <outgoingTransitions xmi:id="_hV3PkKu2Ee-HLsLjT5fNcw" specification="charger.s1.reserved / &#xD;&#xA;raise charger.s0.release" target="_gI8wgKu2Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_vEt38KuEEe-W0cwYakhDUQ" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d0.battery;&#xD;&#xA;&#x9;raise drone.d0.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connect to s0" incomingTransitions="_wNrEEKuEEe-W0cwYakhDUQ">
+                          <vertices xsi:type="sgraph:State" xmi:id="_vEt38KuEEe-W0cwYakhDUQ" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d0.battery;&#xD;&#xA;&#x9;raise drone.d0.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connected to Charging Station 0" incomingTransitions="_wNrEEKuEEe-W0cwYakhDUQ">
                             <outgoingTransitions xmi:id="_whjCUKuEEe-W0cwYakhDUQ" specification="drone.d0.charged" target="_vVEBEKuEEe-W0cwYakhDUQ"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_vVEBEKuEEe-W0cwYakhDUQ" specification="entry / &#xD;&#xA;&#x9;raise drone.d0.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d0.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging0;&#xD;&#xA;&#x9;raise finish_charging0" name="Disconnect s0" incomingTransitions="_whjCUKuEEe-W0cwYakhDUQ">
+                          <vertices xsi:type="sgraph:State" xmi:id="_vVEBEKuEEe-W0cwYakhDUQ" specification="entry / &#xD;&#xA;&#x9;raise drone.d0.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d0.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging0;&#xD;&#xA;&#x9;raise finish_charging0" name="Disconnected from Charging Station 0" incomingTransitions="_whjCUKuEEe-W0cwYakhDUQ">
                             <outgoingTransitions xmi:id="_bdb9QKuuEe-hLvPug37I1g" specification="reset_charging0" target="_Ssxy0KtUEe-TDLoJ57ToKQ"/>
                           </vertices>
                           <vertices xsi:type="sgraph:Entry" xmi:id="_Kc4dwKuXEe-nP9y0EbShww" kind="SHALLOW_HISTORY">
                             <outgoingTransitions xmi:id="_K7Gq0KuXEe-nP9y0EbShww" specification="" target="_Ssxy0KtUEe-TDLoJ57ToKQ"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_gI5tMKu2Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d0.battery;&#xD;&#xA;&#x9;raise drone.d0.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connect to s1" incomingTransitions="_gI9XwKu2Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_gI5tMKu2Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d0.battery;&#xD;&#xA;&#x9;raise drone.d0.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connected to Charging Station 1" incomingTransitions="_gI9XwKu2Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_gI5tTau2Ee-HLsLjT5fNcw" specification="drone.d0.charged" target="_gI7iYKu2Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_gI7iYKu2Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;raise drone.d0.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d0.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging0;&#xD;&#xA;&#x9;raise finish_charging0" name="Disconnect s1" incomingTransitions="_gI5tTau2Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_gI7iYKu2Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;raise drone.d0.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d0.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging0;&#xD;&#xA;&#x9;raise finish_charging0" name="Disconnected from Charging Station 1" incomingTransitions="_gI5tTau2Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_uxaV0KxSEe-apY1ZZX3nEQ" specification="reset_charging0" target="_Ssxy0KtUEe-TDLoJ57ToKQ"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_gI8wgKu2Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d0.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d0.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d0.Routing.assign_destination" name="s1 Reserved" incomingTransitions="_hV3PkKu2Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_gI8wgKu2Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d0.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d0.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d0.Routing.assign_destination" name="Charging Station 1 Reserved" incomingTransitions="_hV3PkKu2Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_gI9XwKu2Ee-HLsLjT5fNcw" specification="&#x9;drone.d0.delivered" target="_gI5tMKu2Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_M6cRkKzlEe-qVem-Mu0Wzg" specification="entry /&#xD;&#xA;&#x9;drone.d0.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d0.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d0.Routing.assign_destination" name="s0 Reserved" incomingTransitions="_cMPcoKuxEe-hLvPug37I1g">
+                          <vertices xsi:type="sgraph:State" xmi:id="_M6cRkKzlEe-qVem-Mu0Wzg" specification="entry /&#xD;&#xA;&#x9;drone.d0.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d0.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d0.Routing.assign_destination" name="Charging Station 0 Reserved" incomingTransitions="_cMPcoKuxEe-hLvPug37I1g">
                             <outgoingTransitions xmi:id="_wNrEEKuEEe-W0cwYakhDUQ" specification="&#x9;drone.d0.delivered" target="_vEt38KuEEe-W0cwYakhDUQ"/>
                           </vertices>
                         </regions>
@@ -157,25 +157,25 @@
                             <outgoingTransitions xmi:id="_ClJNQ6u5Ee-HLsLjT5fNcw" specification="charger.s0.reserved / &#xD;&#xA;&#x9;raise charger.s1.release" target="_ClLpQqu5Ee-HLsLjT5fNcw"/>
                             <outgoingTransitions xmi:id="_ClJ0Hqu5Ee-HLsLjT5fNcw" specification="charger.s1.reserved / &#xD;&#xA;&#x9;raise charger.s0.release" target="_ClNecKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClKbIKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d1.battery;&#xD;&#xA;&#x9;raise drone.d1.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connect to s0" incomingTransitions="_ClLpc6u5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClKbIKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d1.battery;&#xD;&#xA;&#x9;raise drone.d1.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connected to Charging Station 0" incomingTransitions="_ClLpc6u5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_ClKbPau5Ee-HLsLjT5fNcw" specification="drone.d1.charged" target="_ClLCMKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClLCMKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d1.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d1.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging1;&#xD;&#xA;&#x9;raise finish_charging1" name="Disconnect s0" incomingTransitions="_ClKbPau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClLCMKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d1.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d1.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging1;&#xD;&#xA;&#x9;raise finish_charging1" name="Disconnected from Charging Station 0" incomingTransitions="_ClKbPau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_ClLCX6u5Ee-HLsLjT5fNcw" specification="reset_charging1" target="_ClJNJKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
                           <vertices xsi:type="sgraph:Entry" xmi:id="_ClLpQKu5Ee-HLsLjT5fNcw" kind="SHALLOW_HISTORY">
                             <outgoingTransitions xmi:id="_ClLpQau5Ee-HLsLjT5fNcw" specification="" target="_ClJNJKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClLpQqu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d1.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d1.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d1.Routing.assign_destination" name="s0 Reserved" incomingTransitions="_ClJNQ6u5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClLpQqu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d1.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d1.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d1.Routing.assign_destination" name="Charging Station 0 Reserved" incomingTransitions="_ClJNQ6u5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_ClLpc6u5Ee-HLsLjT5fNcw" specification="&#x9;drone.d1.delivered" target="_ClKbIKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClMQUKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d1.battery;&#xD;&#xA;&#x9;raise drone.d1.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connect to s1" incomingTransitions="_ClNeoau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClMQUKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d1.battery;&#xD;&#xA;&#x9;raise drone.d1.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connected to Charging Station 1" incomingTransitions="_ClNeoau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_ClMQbau5Ee-HLsLjT5fNcw" specification="drone.d1.charged" target="_ClM3YKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClM3YKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d1.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d1.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging1;&#xD;&#xA;&#x9;raise finish_charging1" name="Disconnect s1" incomingTransitions="_ClMQbau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClM3YKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d1.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d1.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging1;&#xD;&#xA;&#x9;raise finish_charging1" name="Disconnected from Charging Station 1" incomingTransitions="_ClMQbau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_Jp7toKzmEe-8DOLtylS5VQ" specification="reset_charging1" target="_ClJNJKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_ClNecKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d1.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d1.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d1.Routing.assign_destination" name="s1 Reserved" incomingTransitions="_ClJ0Hqu5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_ClNecKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d1.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d1.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d1.Routing.assign_destination" name="Charging Station 1 Reserved" incomingTransitions="_ClJ0Hqu5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_ClNeoau5Ee-HLsLjT5fNcw" specification="&#x9;drone.d1.delivered" target="_ClMQUKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
                         </regions>
@@ -259,25 +259,25 @@
                             <outgoingTransitions xmi:id="_WiY-lqu5Ee-HLsLjT5fNcw" specification="charger.s0.reserved / &#xD;&#xA;raise charger.s1.release" target="_Wiazwqu5Ee-HLsLjT5fNcw"/>
                             <outgoingTransitions xmi:id="_WiY-pau5Ee-HLsLjT5fNcw" specification="charger.s1.reserved / &#xD;&#xA;raise charger.s0.release" target="_Wico8Ku5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_WiZloKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d2.battery;&#xD;&#xA;&#x9;raise drone.d2.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connect to s0" incomingTransitions="_Wiaz86u5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_WiZloKu5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s0.battery = drone.d2.battery;&#xD;&#xA;&#x9;raise drone.d2.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s0.startCharging" name="Connected to Charging Station 0" incomingTransitions="_Wiaz86u5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_WiZlvau5Ee-HLsLjT5fNcw" specification="drone.d2.charged" target="_WiaMsKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_WiaMsKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d2.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d2.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging2;&#xD;&#xA;&#x9;raise finish_charging2" name="Disconnect s0" incomingTransitions="_WiZlvau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_WiaMsKu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d2.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s0.release;&#xD;&#xA;&#x9;raise drone.d2.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging2;&#xD;&#xA;&#x9;raise finish_charging2" name="Disconnected from Charging Station 0" incomingTransitions="_WiZlvau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_WiaM36u5Ee-HLsLjT5fNcw" specification="reset_charging2" target="_WiYXpKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
                           <vertices xsi:type="sgraph:Entry" xmi:id="_WiazwKu5Ee-HLsLjT5fNcw" kind="SHALLOW_HISTORY">
                             <outgoingTransitions xmi:id="_Wiazwau5Ee-HLsLjT5fNcw" specification="" target="_WiYXpKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_Wiazwqu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d2.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d2.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d2.Routing.assign_destination" name="s0 Reserved" incomingTransitions="_WiY-lqu5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_Wiazwqu5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d2.destX = charger.s0.x;&#xD;&#xA;&#x9;drone.d2.destY = charger.s0.y;&#xD;&#xA;&#x9;raise drone.d2.Routing.assign_destination" name="Charging Station 0 Reserved" incomingTransitions="_WiY-lqu5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_Wiaz86u5Ee-HLsLjT5fNcw" specification="&#x9;drone.d2.delivered" target="_WiZloKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_Wiba0Ku5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d2.battery;&#xD;&#xA;&#x9;raise drone.d2.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connect to s1" incomingTransitions="_WicpIau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_Wiba0Ku5Ee-HLsLjT5fNcw" specification="entry /&#xD;&#xA;&#x9;charger.s1.battery = drone.d2.battery;&#xD;&#xA;&#x9;raise drone.d2.Routing.connect_charger;&#xD;&#xA;&#x9;raise charger.s1.startCharging" name="Connected to Charging Station 1" incomingTransitions="_WicpIau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_Wiba7au5Ee-HLsLjT5fNcw" specification="drone.d2.charged" target="_WicB4Ku5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_WicB4Ku5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d2.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d2.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging2;&#xD;&#xA;&#x9;raise finish_charging2" name="Disconnect s1" incomingTransitions="_Wiba7au5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_WicB4Ku5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;raise drone.d2.Routing.disconnect_charger;&#xD;&#xA;&#x9;raise charger.s1.release;&#xD;&#xA;&#x9;raise drone.d2.Routing.set_idle;&#xD;&#xA;&#x9;raise reset_charging2;&#xD;&#xA;&#x9;raise finish_charging2" name="Disconnected from Charging Station 1" incomingTransitions="_Wiba7au5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_L6Kq4KzmEe-8DOLtylS5VQ" specification="reset_charging2" target="_WiYXpKu5Ee-HLsLjT5fNcw"/>
                           </vertices>
-                          <vertices xsi:type="sgraph:State" xmi:id="_Wico8Ku5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d2.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d2.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d2.Routing.assign_destination" name="s1 Reserved" incomingTransitions="_WiY-pau5Ee-HLsLjT5fNcw">
+                          <vertices xsi:type="sgraph:State" xmi:id="_Wico8Ku5Ee-HLsLjT5fNcw" specification="entry / &#xD;&#xA;&#x9;drone.d2.destX = charger.s1.x;&#xD;&#xA;&#x9;drone.d2.destY = charger.s1.y;&#xD;&#xA;&#x9;raise drone.d2.Routing.assign_destination" name="Charging Station 1 Reserved" incomingTransitions="_WiY-pau5Ee-HLsLjT5fNcw">
                             <outgoingTransitions xmi:id="_WicpIau5Ee-HLsLjT5fNcw" specification="&#x9;drone.d2.delivered" target="_Wiba0Ku5Ee-HLsLjT5fNcw"/>
                           </vertices>
                         </regions>
