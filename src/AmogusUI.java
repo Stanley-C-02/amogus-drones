@@ -148,7 +148,7 @@ public class AmogusUI {
 		drones[0].getMotor().setId(0);
 		drones[0].getMotor().setName("GM3506");
 		drones[0].getMotor().setPower(100);
-		drones[0].getMotor().setSpeed(3);
+		drones[0].getMotor().setSpeed(4);
 		drones[0].getMotor().setMax_payload(500);
 		drones[1].setId(1);
 		drones[1].setName("Drone 02");
@@ -184,7 +184,7 @@ public class AmogusUI {
 		drones[2].getMotor().setId(2);
 		drones[2].getMotor().setName("A2212");
 		drones[2].getMotor().setPower(350);
-		drones[2].getMotor().setSpeed(2);
+		drones[2].getMotor().setSpeed(3);
 		drones[2].getMotor().setMax_payload(700);
 
 		drones[0].getBattery().raiseUpdateCharge();
@@ -216,19 +216,19 @@ public class AmogusUI {
 		chargers[0].setName("Fast Hub Charger");
 		chargers[0].setX(60);
 		chargers[0].setY(50);
-		chargers[0].setChargeRate(250);
+		chargers[0].setChargeRate(300);
 		chargers[1].setId(1);
 		chargers[1].setName("Slow Remote Charger");
 		chargers[1].setX(40);
 		chargers[1].setY(30);
-		chargers[1].setChargeRate(100);
+		chargers[1].setChargeRate(200);
 		
 		packages[0].setId(0);
 		packages[0].setName("BIC Mechanical Pencil Set (10 pcs)");
 		packages[0].setWeight(62);
 		packages[1].setId(1);
-		packages[1].setName("AA Battery Pack (20 pcs)");
-		packages[1].setWeight(400);
+		packages[1].setName("First Aid Kit");
+		packages[1].setWeight(500);
 		packages[2].setId(2);
 		packages[2].setName("Lysol Spray");
 		packages[2].setWeight(680);
