@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_bFVDoKIIEe-fR9mIPl7HaQ" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;import: &quot;Package.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event order&#xA;&#x9;in event assign&#xA;&#x9;in event complete_order&#xA;&#x9;&#xA;&#x9;out event assigned&#xA;&#x9;out event completed_order&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var x: real = -1&#xA;&#x9;var y: real = -1&#xA;&#x9;var package: Package = null" name="House">
+  <sgraph:Statechart xmi:id="_bFVDoKIIEe-fR9mIPl7HaQ" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;import: &quot;Package.ysc&quot;&#xA;&#xA;interface:&#xA;&#x9;in event order&#xA;&#x9;in event assign&#xA;&#x9;in event completeOrder&#xA;&#x9;&#xA;&#x9;out event assigned&#xA;&#x9;out event orderCompleted&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var x: real = -1&#xA;&#x9;var y: real = -1&#xA;&#x9;var package: Package = null" name="House">
     <regions xmi:id="_bFVqu6IIEe-fR9mIPl7HaQ" name="house ordering status">
       <vertices xsi:type="sgraph:Entry" xmi:id="_1feAbqIIEe-fR9mIPl7HaQ">
         <outgoingTransitions xmi:id="_dYMWwKILEe-fR9mIPl7HaQ" specification="" target="_1fenMKIIEe-fR9mIPl7HaQ"/>
@@ -12,7 +12,7 @@
         <outgoingTransitions xmi:id="_MiyWkK2VEe-rNZvQk01IWQ" specification="assign /&#xD;&#xA;&#x9;raise assigned" target="_5w7aEK2UEe-rNZvQk01IWQ"/>
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_5w7aEK2UEe-rNZvQk01IWQ" name="In Transit" incomingTransitions="_MiyWkK2VEe-rNZvQk01IWQ">
-        <outgoingTransitions xmi:id="_1fenOqIIEe-fR9mIPl7HaQ" specification="complete_order /&#xD;&#xA;&#x9;raise completed_order" target="_1fenMKIIEe-fR9mIPl7HaQ"/>
+        <outgoingTransitions xmi:id="_1fenOqIIEe-fR9mIPl7HaQ" specification="completeOrder /&#xD;&#xA;&#x9;raise orderCompleted" target="_1fenMKIIEe-fR9mIPl7HaQ"/>
       </vertices>
     </regions>
   </sgraph:Statechart>

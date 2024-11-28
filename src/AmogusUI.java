@@ -187,9 +187,9 @@ public class AmogusUI {
 		drones[2].getMotor().setSpeed(2);
 		drones[2].getMotor().setMax_payload(700);
 
-		drones[0].getBattery().raiseUpdate_charge();
-		drones[1].getBattery().raiseUpdate_charge();
-		drones[2].getBattery().raiseUpdate_charge();
+		drones[0].getBattery().raiseUpdateCharge();
+		drones[1].getBattery().raiseUpdateCharge();
+		drones[2].getBattery().raiseUpdateCharge();
 		
 		houses[0].setId(0);
 		houses[0].setName("TMU");
@@ -205,8 +205,8 @@ public class AmogusUI {
 		houses[2].setY(60);
 		houses[3].setId(3);
 		houses[3].setName("Bob");
-		houses[3].setX(35);
-		houses[3].setY(40);
+		houses[3].setX(20);
+		houses[3].setY(30);
 		houses[4].setId(4);
 		houses[4].setName("Arshdeep");
 		houses[4].setX(60);
