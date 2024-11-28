@@ -130,7 +130,7 @@ class DronePanel extends JPanel {
         motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
         motorPayload.setText("Payload: " + drone.getMotor().getMax_payload() + " grams");
         
-        range.setText(String.format("%.2f", drone.getFlight_range()));
+        range.setText(String.format("%.2f", drone.getFlightRange()));
 	}
 	
 	void setBgColor(Color color) {
