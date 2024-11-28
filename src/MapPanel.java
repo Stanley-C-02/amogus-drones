@@ -33,6 +33,8 @@ public class MapPanel extends JPanel {
 	private Amadrone[] drones;
 	private House[] houses;
 	private ChargingStation[] chargers;
+	
+	private final static float ICON_BORDER_WIDTH = 8;
 
 	private final static int HOUSE_ICON_SIZE = 60;
 	private final static int ORDERED_ICON_SIZE = 40;
@@ -81,6 +83,8 @@ public class MapPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		
+		g2d.setStroke(new BasicStroke(ICON_BORDER_WIDTH));
 
 		// Draw the terrain background
 		g2d.setColor(new Color(144, 238, 144));
@@ -98,9 +102,10 @@ public class MapPanel extends JPanel {
 			
 			if (house.getId() == selectedHouseId) {
 				g2d.setColor(Color.RED);
-				g2d.drawRect((int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2) - 2,
-						(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2) - 2, HOUSE_ICON_SIZE + 4,
-						HOUSE_ICON_SIZE + 4);
+				g2d.drawRect((int) (house.getX() * SCALE - HOUSE_ICON_SIZE / 2 - ICON_BORDER_WIDTH),
+						(int) (house.getY() * SCALE - HOUSE_ICON_SIZE / 2 - ICON_BORDER_WIDTH),
+						(int) (HOUSE_ICON_SIZE + ICON_BORDER_WIDTH * 2),
+						(int) (HOUSE_ICON_SIZE + ICON_BORDER_WIDTH * 2));
 			}
 
 			if (house.isStateActive(House.State.HOUSE_ORDERING_STATUS_ORDERED)) {
@@ -119,9 +124,10 @@ public class MapPanel extends JPanel {
 
 			if (drone.getId() == selectedDroneId) {
 				g2d.setColor(Color.RED);
-				g2d.drawRect((int) (drone.getX() * SCALE - DRONE_ICON_SIZE / 2) - 2,
-						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2) - 2, DRONE_ICON_SIZE + 4,
-						DRONE_ICON_SIZE + 4);
+				g2d.drawRect((int) (drone.getX() * SCALE - DRONE_ICON_SIZE / 2 - ICON_BORDER_WIDTH),
+						(int) (drone.getY() * SCALE - DRONE_ICON_SIZE / 2 - ICON_BORDER_WIDTH),
+						(int) (DRONE_ICON_SIZE + ICON_BORDER_WIDTH * 2),
+						(int) (DRONE_ICON_SIZE + ICON_BORDER_WIDTH * 2));
 			}
 			
 			if (drone.isStateActive(Amadrone.State.ACTIVE_DRONE_STATUS_ON_DRONE_PACKAGE_ATTACHMENT_STATUS_ATTACHED)) {
