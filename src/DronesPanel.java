@@ -30,6 +30,7 @@ public class DronesPanel extends JPanel {
 class DronePanel extends JPanel {
 	private static Color colorBgDefault = Color.WHITE;
 	private static Color colorBgFocus = Color.LIGHT_GRAY;
+	private static Color colorBgMoving = new Color(238, 255, 221);
 	
 	Amadrone drone;
 	MapPanel mapPanel;
@@ -108,7 +109,7 @@ class DronePanel extends JPanel {
             }
         });
         
-		setBgColor(colorBgDefault);
+		setBgDefault();
         addMouseListener(new DronePanelMouseListener());
 	}
 	
@@ -130,13 +131,22 @@ class DronePanel extends JPanel {
         motorDetails.setText(String.format("Power: %.2f W, Speed: %.2f m/s", drone.getMotor().getPower(), drone.getMotor().getSpeed()));
         motorPayload.setText("Payload: " + drone.getMotor().getMax_payload() + " grams");
         
-        range.setText(String.format("%.2f", drone.getFlight_range()));
+        range.setText(String.format("%.2f", drone.getFlightRange()));
+        
+        setBgDefault();
 	}
 	
-	void setBgColor(Color color) {
-		this.setBackground(color);
-		this.statusPanel.setBackground(color);
-		this.motorPanel.setBackground(color);
+	void setBgFocus() {
+		setBackground(colorBgFocus);
+		statusPanel.setBackground(colorBgFocus);
+		motorPanel.setBackground(colorBgFocus);
+	}
+	
+	void setBgDefault() {
+		final Color bgColor = drone.getStatus() == "moving" ? colorBgMoving : colorBgDefault;
+		setBackground(bgColor);
+		statusPanel.setBackground(bgColor);
+		motorPanel.setBackground(bgColor);
 	}
     
     private class DronePanelMouseListener implements MouseListener {
@@ -146,13 +156,13 @@ class DronePanel extends JPanel {
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			setBgColor(colorBgFocus);
+			setBgFocus();
             mapPanel.setSelectedDroneId(drone.getId());
 		}
 		
 		@Override
 		public void mouseExited(MouseEvent e) {
-			setBgColor(colorBgDefault);
+			setBgDefault();
             mapPanel.clearSelectedDroneId();
 		}
 

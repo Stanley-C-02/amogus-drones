@@ -42,6 +42,7 @@ public class MapPanel extends JPanel {
 	private final static int WAREHOUSE_ICON_SIZE = 100;
 	
 	private final static int DRONE_ICON_SIZE = 40;
+	private final static int DRONE_HOME_PADDING = 20;
 	private final static int CHARGER_ICON_SIZE = 30;
 	private final static int BLOCKED_ICON_SIZE = 30;	
 	private final static int PACKAGE_ICON_SIZE = 30;
@@ -89,6 +90,15 @@ public class MapPanel extends JPanel {
 		// Draw the terrain background
 		g2d.setColor(new Color(144, 238, 144));
 		g2d.fillRect(0, 0, getWidth(), getHeight());
+		
+		// Draw drone homes
+		for (Amadrone drone : drones) {
+			final int HOME_SIZE = DRONE_ICON_SIZE + DRONE_HOME_PADDING; 
+			g2d.setColor(new Color(102, 204, 153));
+			g2d.fillOval((int) (drone.getHomeX() * SCALE - HOME_SIZE / 2),
+					(int) (drone.getHomeY() * SCALE - HOME_SIZE / 2),
+					HOME_SIZE, HOME_SIZE);
+		}
 
 		for (ChargingStation charger : chargers) {
 			g2d.drawImage(chargingStationIcon, (int) (charger.getX() * SCALE - CHARGER_ICON_SIZE / 2),
@@ -108,7 +118,7 @@ public class MapPanel extends JPanel {
 						(int) (HOUSE_ICON_SIZE + ICON_BORDER_WIDTH * 2));
 			}
 
-			if (house.isStateActive(House.State.HOUSE_ORDERING_STATUS_ORDERED)) {
+			if (house.getPackage() != null) {
 				g2d.drawImage(orderedIcon, (int) (house.getX() * SCALE - ORDERED_ICON_SIZE / 2),
 						(int) (house.getY() * SCALE + HOUSE_ICON_SIZE / 2), ORDERED_ICON_SIZE, ORDERED_ICON_SIZE, this);
 			}

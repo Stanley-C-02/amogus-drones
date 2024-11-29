@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event start_charging&#xA;&#x9;in event stop_charging&#xA;&#x9;in event charged&#xA;&#x9;in event update_charge&#xA;&#x9;&#xA;&#x9;out event low_battery&#xA;&#x9;out event no_charge&#xA;&#x9;out event charging_complete&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var available: real = 100 // wattHours&#xA;&#x9;var maxCapacity: real = 100 // wattHours&#xA;&#x9;&#xA;&#x9;// Current % derived&#xA;&#x9;// available / maxCapacity * 100&#xA;&#x9;var charge: real = -1&#xA;&#x9;&#xA;&#x9;const LOW = 30&#xA;&#x9;" name="Battery">
+  <sgraph:Statechart xmi:id="_Sd-noJ64Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xD;&#xA;&#xA;interface:&#xA;&#x9;in event charged&#xA;&#x9;in event updateCharge&#xA;&#x9;&#xA;&#x9;out event lowBattery&#xA;&#x9;out event noCharge&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var available: real = 100 // wattHours&#xA;&#x9;var maxCapacity: real = 100 // wattHours&#xA;&#x9;&#xA;&#x9;// derived % from&#xA;&#x9;// available and maxCapacity&#xA;&#x9;var charge: real = -1&#xA;&#x9;&#xA;&#x9;const LOW = 30&#xA;&#xA;interface Charging:&#xA;&#x9;in event start&#xA;&#x9;in event stop&#xA;&#x9;&#xA;&#x9;out event complete" name="Battery">
     <regions xmi:id="_SeOfQ564Ee-Q_sfPrdmAZA" name="battery">
       <vertices xsi:type="sgraph:Entry" xmi:id="_SeOfRJ64Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_SeOfRZ64Ee-Q_sfPrdmAZA" target="_SeQUcJ64Ee-Q_sfPrdmAZA"/>
       </vertices>
-      <vertices xsi:type="sgraph:State" xmi:id="_SeQUcJ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;charge = ((available / maxCapacity) * 100)&#xD;&#xA;&#xD;&#xA;[update_charge] /&#xD;&#xA;&#x9;charge = ((available / maxCapacity) * 100)" name="Battery" incomingTransitions="_SeOfRZ64Ee-Q_sfPrdmAZA">
+      <vertices xsi:type="sgraph:State" xmi:id="_SeQUcJ64Ee-Q_sfPrdmAZA" specification="entry /&#xD;&#xA;&#x9;charge = ((available / maxCapacity) * 100)&#xD;&#xA;&#xD;&#xA;[updateCharge] /&#xD;&#xA;&#x9;charge = ((available / maxCapacity) * 100)" name="Battery" incomingTransitions="_SeOfRZ64Ee-Q_sfPrdmAZA">
         <regions xmi:id="_dWUqMJ64Ee-Q_sfPrdmAZA" name="battery capacity">
           <vertices xsi:type="sgraph:State" xmi:id="_iCKA7qewEe-wMtpPiyEs_Q" specification="entry[available > maxCapacity] /&#xD;&#xA;&#x9;available = maxCapacity" name="Safe" incomingTransitions="_RNC-8KzUEe-3jLherP5NaQ">
-            <outgoingTransitions xmi:id="_goqYYKzUEe-3jLherP5NaQ" specification="update_charge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
+            <outgoingTransitions xmi:id="_goqYYKzUEe-3jLherP5NaQ" specification="updateCharge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_iCLPAKewEe-wMtpPiyEs_Q" specification="entry /&#xD;&#xA;&#x9;raise low_battery" name="Low" incomingTransitions="_BOeCYKzUEe-3jLherP5NaQ">
-            <outgoingTransitions xmi:id="_knYQsKzUEe-3jLherP5NaQ" specification="update_charge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
+          <vertices xsi:type="sgraph:State" xmi:id="_iCLPAKewEe-wMtpPiyEs_Q" specification="entry /&#xD;&#xA;&#x9;raise lowBattery" name="Low" incomingTransitions="_BOeCYKzUEe-3jLherP5NaQ">
+            <outgoingTransitions xmi:id="_knYQsKzUEe-3jLherP5NaQ" specification="updateCharge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_iCMdIKewEe-wMtpPiyEs_Q" specification="entry[available &lt; 0] /&#xD;&#xA;&#x9;available = 0&#xD;&#xA;&#xD;&#xA;entry /&#xD;&#xA;&#x9;raise no_charge" name="Critical" incomingTransitions="_BoUFwKzUEe-3jLherP5NaQ">
-            <outgoingTransitions xmi:id="_lh6mUKzUEe-3jLherP5NaQ" specification="update_charge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
+          <vertices xsi:type="sgraph:State" xmi:id="_iCMdIKewEe-wMtpPiyEs_Q" specification="entry[available &lt; 0] /&#xD;&#xA;&#x9;available = 0&#xD;&#xA;&#xD;&#xA;entry /&#xD;&#xA;&#x9;raise noCharge" name="Critical" incomingTransitions="_BoUFwKzUEe-3jLherP5NaQ">
+            <outgoingTransitions xmi:id="_lh6mUKzUEe-3jLherP5NaQ" specification="updateCharge" target="_P2TOcKzUEe-3jLherP5NaQ"/>
           </vertices>
           <vertices xsi:type="sgraph:Entry" xmi:id="_AK8I0KzUEe-3jLherP5NaQ">
             <outgoingTransitions xmi:id="_AuNN8KzUEe-3jLherP5NaQ" specification="" target="_P2TOcKzUEe-3jLherP5NaQ"/>
@@ -30,10 +30,10 @@
             <outgoingTransitions xmi:id="_1qo3AazMEe-3jLherP5NaQ" specification="" target="_1qo3AqzMEe-3jLherP5NaQ"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_1qo3AqzMEe-3jLherP5NaQ" specification="" name="Discharging" incomingTransitions="_1qo3AazMEe-3jLherP5NaQ _1qqFQ6zMEe-3jLherP5NaQ">
-            <outgoingTransitions xmi:id="_1qo3BazMEe-3jLherP5NaQ" specification="start_charging" target="_1qpeEKzMEe-3jLherP5NaQ"/>
+            <outgoingTransitions xmi:id="_1qo3BazMEe-3jLherP5NaQ" specification="Charging.start" target="_1qpeEKzMEe-3jLherP5NaQ"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_1qpeEKzMEe-3jLherP5NaQ" specification="charged [available &lt; maxCapacity] /&#xD;&#xA;&#x9;raise update_charge&#xD;&#xA;&#xD;&#xA;charged [available >= maxCapacity] /&#xD;&#xA;&#x9;raise update_charge;&#xD;&#xA;&#x9;raise stop_charging&#xD;&#xA;&#xD;&#xA;exit /&#xD;&#xA;&#x9;raise charging_complete" name="Charging" incomingTransitions="_1qo3BazMEe-3jLherP5NaQ">
-            <outgoingTransitions xmi:id="_1qqFQ6zMEe-3jLherP5NaQ" specification="stop_charging" target="_1qo3AqzMEe-3jLherP5NaQ"/>
+          <vertices xsi:type="sgraph:State" xmi:id="_1qpeEKzMEe-3jLherP5NaQ" specification="charged [available &lt; maxCapacity] /&#xD;&#xA;&#x9;raise updateCharge&#xD;&#xA;&#xD;&#xA;charged [available >= maxCapacity] /&#xD;&#xA;&#x9;raise updateCharge;&#xD;&#xA;&#x9;raise Charging.stop&#xD;&#xA;&#xD;&#xA;exit /&#xD;&#xA;&#x9;raise Charging.complete" name="Charging" incomingTransitions="_1qo3BazMEe-3jLherP5NaQ">
+            <outgoingTransitions xmi:id="_1qqFQ6zMEe-3jLherP5NaQ" specification="Charging.stop" target="_1qo3AqzMEe-3jLherP5NaQ"/>
           </vertices>
         </regions>
       </vertices>
