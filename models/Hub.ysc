@@ -263,10 +263,10 @@
                 <outgoingTransitions xmi:id="_X4f9NaoJEe-1rfYxrUuMJQ" specification="" target="_X4bEz6oJEe-1rfYxrUuMJQ"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_X4bEz6oJEe-1rfYxrUuMJQ" name="No Order" incomingTransitions="_X4f9NaoJEe-1rfYxrUuMJQ _X4bEsKoJEe-1rfYxrUuMJQ">
-                <outgoingTransitions xmi:id="_X4eIGKoJEe-1rfYxrUuMJQ" specification="houses.order_p0_to_h0 [houses.h0.package == null] / houses.h0.package = package.p0" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4dg96oJEe-1rfYxrUuMJQ" specification="houses.order_p1_to_h0 [houses.h0.package == null] / houses.h0.package = package.p1" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4cS46oJEe-1rfYxrUuMJQ" specification="houses.order_p2_to_h0 [houses.h0.package == null] / houses.h0.package = package.p2" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4brxKoJEe-1rfYxrUuMJQ" specification="houses.order_p3_to_h0 [houses.h0.package == null] / houses.h0.package = package.p3" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4eIGKoJEe-1rfYxrUuMJQ" specification="houses.order_p0_to_h0 / houses.h0.package = package.p0" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4dg96oJEe-1rfYxrUuMJQ" specification="houses.order_p1_to_h0 / houses.h0.package = package.p1" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4cS46oJEe-1rfYxrUuMJQ" specification="houses.order_p2_to_h0 / houses.h0.package = package.p2" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4brxKoJEe-1rfYxrUuMJQ" specification="houses.order_p3_to_h0 / houses.h0.package = package.p3" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_X4ZPn6oJEe-1rfYxrUuMJQ" specification="entry /&#xD;&#xA;&#x9;raise houses.h0.order" name="Ordered" incomingTransitions="_X4eIGKoJEe-1rfYxrUuMJQ _X4dg96oJEe-1rfYxrUuMJQ _X4cS46oJEe-1rfYxrUuMJQ _X4brxKoJEe-1rfYxrUuMJQ">
                 <outgoingTransitions xmi:id="_YmOTQq2VEe-rNZvQk01IWQ" specification="houses.h0.assigned" target="_WV-u8K2VEe-rNZvQk01IWQ"/>
@@ -280,10 +280,10 @@
                 <outgoingTransitions xmi:id="_bEWD8azDEe-LE8XLODnQEw" specification="" target="_bEWrAKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_bEWrAKzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_bEWD8azDEe-LE8XLODnQEw _bEf08qzDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_bEWrA6zDEe-LE8XLODnQEw" specification="houses.order_p0_to_h1 [houses.h1.package == null] / houses.h1.package = package.p0" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEX5IKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h1 [houses.h1.package == null] / houses.h1.package = package.p1" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEYgMKzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h1 [houses.h1.package == null] / houses.h1.package = package.p2" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEZuUKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h1 [houses.h1.package == null] / houses.h1.package = package.p3" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEWrA6zDEe-LE8XLODnQEw" specification="houses.order_p0_to_h1 / houses.h1.package = package.p0" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEX5IKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h1 / houses.h1.package = package.p1" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEYgMKzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h1 / houses.h1.package = package.p2" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEZuUKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h1 / houses.h1.package = package.p3" target="_bEcKkKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_bEcKkKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h1.order" name="Ordered" incomingTransitions="_bEWrA6zDEe-LE8XLODnQEw _bEX5IKzDEe-LE8XLODnQEw _bEYgMKzDEe-LE8XLODnQEw _bEZuUKzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_o4EKEK2VEe-rNZvQk01IWQ" specification="houses.h1.assigned" target="_kaS-QK2VEe-rNZvQk01IWQ"/>
@@ -297,10 +297,10 @@
                 <outgoingTransitions xmi:id="_cH_SQazDEe-LE8XLODnQEw" specification="" target="_cH_SQqzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cH_SQqzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_cH_SQazDEe-LE8XLODnQEw _cICVk6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_cH_SRazDEe-LE8XLODnQEw" specification="houses.order_p0_to_h2 [houses.h2.package == null] / houses.h2.package = package.p0" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_SWKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h2 [houses.h2.package == null] / houses.h2.package = package.p1" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_Sa6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h2 [houses.h2.package == null] / houses.h2.package = package.p2" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_5UKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h2 [houses.h2.package == null] / houses.h2.package = package.p3" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_SRazDEe-LE8XLODnQEw" specification="houses.order_p0_to_h2 / houses.h2.package = package.p0" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_SWKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h2 / houses.h2.package = package.p1" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_Sa6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h2 / houses.h2.package = package.p2" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_5UKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h2 / houses.h2.package = package.p3" target="_cIAgYKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cIAgYKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h2.order" name="Ordered" incomingTransitions="_cH_SRazDEe-LE8XLODnQEw _cH_SWKzDEe-LE8XLODnQEw _cH_Sa6zDEe-LE8XLODnQEw _cH_5UKzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_qWvHgK2VEe-rNZvQk01IWQ" specification="houses.h2.assigned" target="_kuBLjK2VEe-rNZvQk01IWQ"/>
@@ -314,10 +314,10 @@
                 <outgoingTransitions xmi:id="_cxap2azDEe-LE8XLODnQEw" specification="" target="_cxap2qzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cxap2qzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_cxap2azDEe-LE8XLODnQEw _cxdtE6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_cxap3azDEe-LE8XLODnQEw" specification="houses.order_p0_to_h3 [houses.h3.package == null] / houses.h3.package = package.p0" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxbQ36zDEe-LE8XLODnQEw" specification="houses.order_p1_to_h3 [houses.h3.package == null] / houses.h3.package = package.p1" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxbQ8qzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h3 [houses.h3.package == null] / houses.h3.package = package.p2" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxb34KzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h3 [houses.h3.package == null] / houses.h3.package = package.p3" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxap3azDEe-LE8XLODnQEw" specification="houses.order_p0_to_h3 / houses.h3.package = package.p0" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxbQ36zDEe-LE8XLODnQEw" specification="houses.order_p1_to_h3 / houses.h3.package = package.p1" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxbQ8qzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h3 / houses.h3.package = package.p2" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxb34KzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h3 / houses.h3.package = package.p3" target="_cxce8KzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cxce8KzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h3.order" name="Ordered" incomingTransitions="_cxap3azDEe-LE8XLODnQEw _cxbQ36zDEe-LE8XLODnQEw _cxbQ8qzDEe-LE8XLODnQEw _cxb34KzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_uOQysK2VEe-rNZvQk01IWQ" specification="houses.h3.assigned" target="_lCltXa2VEe-rNZvQk01IWQ"/>
@@ -331,10 +331,10 @@
                 <outgoingTransitions xmi:id="_dLZ3PqzDEe-LE8XLODnQEw" specification="" target="_dLZ3P6zDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_dLZ3P6zDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_dLZ3PqzDEe-LE8XLODnQEw _dLc6Y6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_dLZ3QqzDEe-LE8XLODnQEw" specification="houses.order_p0_to_h4 [houses.h4.package == null] / houses.h4.package = package.p0" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeIKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h4 [houses.h4.package == null] / houses.h4.package = package.p1" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeM6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h4 [houses.h4.package == null] / houses.h4.package = package.p2" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeRqzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h4 [houses.h4.package == null] / houses.h4.package = package.p3" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLZ3QqzDEe-LE8XLODnQEw" specification="houses.order_p0_to_h4 / houses.h4.package = package.p0" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeIKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h4 / houses.h4.package = package.p1" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeM6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h4 / houses.h4.package = package.p2" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeRqzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h4 / houses.h4.package = package.p3" target="_dLbFMKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_dLbFMKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h4.order" name="Ordered" incomingTransitions="_dLZ3QqzDEe-LE8XLODnQEw _dLaeIKzDEe-LE8XLODnQEw _dLaeM6zDEe-LE8XLODnQEw _dLaeRqzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_rhecUK2VEe-rNZvQk01IWQ" specification="houses.h4.assigned" target="_lP2GPK2VEe-rNZvQk01IWQ"/>
@@ -2636,7 +2636,7 @@
     <edges xmi:id="_X4bE0qoJEe-1rfYxrUuMJQ" type="Transition" element="_X4brxKoJEe-1rfYxrUuMJQ" source="_X4bEu6oJEe-1rfYxrUuMJQ" target="_X4ZPk6oJEe-1rfYxrUuMJQ">
       <children xsi:type="notation:DecorationNode" xmi:id="_X4brwaoJEe-1rfYxrUuMJQ" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_X4brw6oJEe-1rfYxrUuMJQ"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_X4brwqoJEe-1rfYxrUuMJQ" x="142" y="15"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_X4brwqoJEe-1rfYxrUuMJQ" x="-49" y="15"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_X4brwKoJEe-1rfYxrUuMJQ" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_X4bE1aoJEe-1rfYxrUuMJQ" fontName="Verdana"/>

@@ -158,7 +158,7 @@ public class AmogusUI {
 		drones[1].setY(drones[1].getHomeY());
 		drones[1].getBattery().setId(1);
 		drones[1].getBattery().setName("Small");
-		drones[1].getBattery().setAvailable(0.6);
+		drones[1].getBattery().setAvailable(0.7);
 		drones[1].getBattery().setMaxCapacity(1);
 		drones[1].getGps().setId(1);
 		drones[1].getGps().setName("Standard GPS");
