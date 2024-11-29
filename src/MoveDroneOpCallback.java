@@ -15,6 +15,10 @@ public class MoveDroneOpCallback implements Amadrone.OperationCallback {
         double yDist = drone.getDestY() - drone.getY();
         double distance = Math.hypot(xDist, yDist);
         
+        if (distance == 0) {
+        	return;
+        }
+        
         double moveX = drone.getMotor().getSpeed() * (xDist / distance);
         double moveY = drone.getMotor().getSpeed() * (yDist / distance);
 
