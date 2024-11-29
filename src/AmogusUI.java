@@ -135,7 +135,7 @@ public class AmogusUI {
 		drones[0].setId(0);
 		drones[0].setName("Drone 01");
 		drones[0].setHomeX(50);
-		drones[0].setHomeY(55);
+		drones[0].setHomeY(70);
 		drones[0].setX(drones[0].getHomeX());
 		drones[0].setY(drones[0].getHomeY());
 		drones[0].getBattery().setId(0);
@@ -158,7 +158,7 @@ public class AmogusUI {
 		drones[1].setY(drones[1].getHomeY());
 		drones[1].getBattery().setId(1);
 		drones[1].getBattery().setName("Small");
-		drones[1].getBattery().setAvailable(0.7);
+		drones[1].getBattery().setAvailable(0.6);
 		drones[1].getBattery().setMaxCapacity(1);
 		drones[1].getGps().setId(1);
 		drones[1].getGps().setName("Standard GPS");
@@ -176,7 +176,7 @@ public class AmogusUI {
 		drones[2].setY(drones[2].getHomeY());
 		drones[2].getBattery().setId(2);
 		drones[2].getBattery().setName("Large");
-		drones[2].getBattery().setAvailable(8);
+		drones[2].getBattery().setAvailable(6);
 		drones[2].getBattery().setMaxCapacity(8);
 		drones[2].getGps().setId(2);
 		drones[2].getGps().setName("Advanced GPS");
@@ -219,8 +219,8 @@ public class AmogusUI {
 		chargers[0].setChargeRate(300);
 		chargers[1].setId(1);
 		chargers[1].setName("Slow Remote Charger");
-		chargers[1].setX(40);
-		chargers[1].setY(30);
+		chargers[1].setX(20);
+		chargers[1].setY(50);
 		chargers[1].setChargeRate(200);
 		
 		packages[0].setId(0);
