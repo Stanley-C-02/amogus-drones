@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_z4xUsJ6-Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;in event turnOn&#xA;&#x9;in event turnOff&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var power: real = 0&#xA;&#x9;var x: real = -1&#xA;&#x9;var y: real = -1&#xA;//&#x9;var heading: real = -1" name="Gps">
+  <sgraph:Statechart xmi:id="_z4xUsJ6-Ee-Q_sfPrdmAZA" specification="@EventDriven&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;in event turnOn&#xA;&#x9;in event turnOff&#xA;&#x9;&#xA;&#x9;var id: integer = -1&#xA;&#x9;var name: string = &quot;Unknown&quot;&#xA;&#x9;var power: real = 1&#xA;&#x9;var x: real = -1&#xA;&#x9;var y: real = -1&#xA;//&#x9;var heading: real = -1" name="Gps">
     <regions xmi:id="_z4x7w56-Ee-Q_sfPrdmAZA" name="active gps status">
       <vertices xsi:type="sgraph:Entry" xmi:id="_z4x7xJ6-Ee-Q_sfPrdmAZA">
         <outgoingTransitions xmi:id="_z4x7xZ6-Ee-Q_sfPrdmAZA" target="_z4x7xp6-Ee-Q_sfPrdmAZA"/>
