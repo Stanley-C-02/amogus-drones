@@ -2,20 +2,17 @@
   <testcase name="testTurnOnDrone" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.testTurnOnDrone" time="">
   </testcase>
   <testcase name="checkMovement" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.checkMovement" time="">
-  </testcase>
-  <testcase name="checkArrival" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.checkArrival" time="">
-    <failure>Assertion failed: "assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)" (Line 41)
-    	Expected: Requesting Destination, actual: [Moving, On, OK, On, Unattached, On, Not Connected, On, Safe, On]
+    <failure>Assertion failed: "assert Routing.moving" (Line 21)
+    	name: Routing.moving, value: 
     </failure>
   </testcase>
+  <testcase name="checkArrival" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.checkArrival" time="">
+  </testcase>
   <testcase name="checkLowBattery" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.checkLowBattery" time="">
-    <failure>Assertion failed: "assert active (active_drone_status.Off)" (Line 51)
-    	Expected: Off, actual: [Requesting Destination, On, OK, On, Unattached, On, Not Connected, On, Safe, On]
+    <failure>Assertion failed: "assert batteryLow" (Line 51)
+    	name: batteryLow, value: 
     </failure>
   </testcase>
   <testcase name="checkNoBattery" classname="platform:/resource/amogus_drones/tests/AmadroneTest.sctunit#AmadroneTest.checkNoBattery" time="">
-    <failure>Assertion failed: "assert active (active_drone_status.Off)" (Line 60)
-    	Expected: Off, actual: [Requesting Destination, On, OK, On, Unattached, On, Not Connected, On, Safe, On]
-    </failure>
   </testcase>
 </testsuite>

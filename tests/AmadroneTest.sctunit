@@ -21,44 +21,43 @@ testclass AmadroneTest for statechart Amadrone {
 		exit
 	}
 	
-	
+	//Test arrival of drone
 	@Test
 	operation checkArrival(){
 		enter
 			raise turnOn
 			assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
 			raise Routing.assign_destination
-			x = 0.0
-			y = 0.0
-			homeX = 0.0
-			homeY = 0.0
-			destY = 0.0
 			destX = 20.0
-			assert destX == 20.0
+			destY = 10.0
 			assert active (active_drone_status.On.drone_routing_status.Moving)
 			x = 20.0
-			y = 0.0
+			y = 10.0
+			proceed 5 s
 			assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
 		exit
 		
 	}
 	
+	//Testing low battery state when charge is < 30%
 	@Test
 	operation checkLowBattery(){
 		enter 
 			raise turnOn
 			battery.available = 20
-			assert active (active_drone_status.Off)
+			proceed 5 s
+			assert active (active_drone_status.On.drone_battery_status.Low)
 		exit
 	}
 	
+	//Testing Drone ShutOff after battery 0%
 	@Test
 	operation checkNoBattery(){
 		enter 
 			raise turnOn
 			battery.available = 0
+			proceed 5 s
 			assert active (active_drone_status.Off)
 		exit
-	}
-	
+	}	
 }
