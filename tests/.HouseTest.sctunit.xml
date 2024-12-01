@@ -1,0 +1,7 @@
+<testsuite name="HouseTest" time="">
+  <testcase name="testOrdered" classname="platform:/resource/amogus_drones/tests/HouseTest.sctunit#HouseTest.testOrdered" time="">
+    <failure>Assertion failed: "assert active (house_ordering_status.Ordered)" (Line 10)
+    	Expected: Ordered, actual: [No Order]
+    </failure>
+  </testcase>
+</testsuite>

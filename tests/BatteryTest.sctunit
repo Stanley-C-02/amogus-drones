@@ -1,0 +1,81 @@
+testclass BatteryTest for statechart Battery {
+	
+	// Test battery 50% is safe
+	@Test
+	operation testBatterySafe() {
+		enter
+		available = 50
+		raise updateCharge
+		proceed 5 s
+		assert active (battery.Battery.battery_capacity.Safe)
+		assert !active (battery.Battery.battery_capacity.Critical)
+		assert !active (battery.Battery.battery_capacity.Low)
+		
+		exit
+	}
+	
+	//Test battery 20% is Low 
+	@Test
+	operation test() {
+		enter
+		available = 20
+		raise updateCharge
+		proceed 5 s
+		assert !active (battery.Battery.battery_capacity.Safe)
+		assert !active (battery.Battery.battery_capacity.Critical)
+		assert active (battery.Battery.battery_capacity.Low)
+		exit
+	}
+	
+	
+	
+	//Test battery 0% or less is critical
+	@Test
+	operation testBatteryCritical() {
+		enter
+		available = 0
+		raise updateCharge
+		proceed 5 s
+		assert !active (battery.Battery.battery_capacity.Safe)
+		assert active (battery.Battery.battery_capacity.Critical)
+		assert !active (battery.Battery.battery_capacity.Low)
+		
+		available = -10
+		raise updateCharge
+		proceed 5 s
+		assert !active (battery.Battery.battery_capacity.Safe)
+		assert active (battery.Battery.battery_capacity.Critical)
+		assert !active (battery.Battery.battery_capacity.Low)
+		
+		exit
+	}
+	
+	
+	
+	//Test battery charging with event start and stop
+	@Test
+	operation testBatteryCharging() {
+		enter
+		assert active (battery.Battery.battery_usage_status.Discharging)
+		raise Charging.start
+		assert active (battery.Battery.battery_usage_status.Charging)
+		raise Charging.stop
+		assert active (battery.Battery.battery_usage_status.Discharging)
+		exit
+	}
+	
+	//Test battery to stop charging at 100% battery
+	@Test
+	operation testAutomaticStopCharging(){
+		enter 
+		available = 10
+		proceed 5 s
+		
+		raise Charging.start
+		available = 100
+		raise charged
+		proceed 5 s
+		
+		assert active (battery.Battery.battery_usage_status.Discharging)
+	}
+}

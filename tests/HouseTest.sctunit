@@ -1,0 +1,16 @@
+testclass HouseTest for statechart House {
+	
+	// Test ordered state when order is made
+	@Test
+	operation testOrdered() {
+		var MedKit: Package
+		MedKit.id = 1
+		MedKit.name = "MedKit"
+		MedKit.weight = 19.2
+		enter
+			package = MedKit
+			raise order
+			assert active (house_ordering_status.Ordered)
+		exit
+	}
+}
