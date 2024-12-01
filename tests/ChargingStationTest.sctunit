@@ -1,0 +1,39 @@
+testclass ChargingStationTest for statechart ChargingStation {
+	
+	// Testing availability only when turned on
+	@Test
+	operation testAvailable() {
+		enter
+			assert !active (active_charging_station_status.On.charging_station_availability.Available)
+			raise turnOn
+			assert active (active_charging_station_status.On.charging_station_availability.Available)
+			raise turnOff
+			assert !active (active_charging_station_status.On.charging_station_availability.Available)
+		exit
+	}
+	
+	// Testing Reserve
+	@Test
+	operation testReservation() {
+		enter
+			raise turnOn 
+			raise reserve
+			assert active (active_charging_station_status.On.charging_station_availability.Reserved)
+			assert !active (active_charging_station_status.On.charging_station_availability.Available)
+		exit			
+	}
+	
+	//Test charging only when reserved
+	@Test
+	operation testChargingWhenReserved() {
+		enter
+			raise turnOn
+			raise startCharging
+			assert !active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Charging)
+			raise reserve
+			assert !active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Charging)
+			raise startCharging
+			assert active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Charging)
+		exit
+	}
+}
