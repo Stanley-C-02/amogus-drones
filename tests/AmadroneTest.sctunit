@@ -1,0 +1,64 @@
+testclass AmadroneTest for statechart Amadrone {
+	
+	// When drone turns on, it is requesting package
+	@Test
+	operation testTurnOnDrone() {
+		enter
+            raise turnOn
+            assert active (active_drone_status.On)
+            assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
+		exit
+	}
+	
+	//Test drone movement after assigning destination
+	@Test
+	operation checkMovement(){
+		enter 
+			raise turnOn
+			assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
+			raise Routing.assign_destination
+			assert active (active_drone_status.On.drone_routing_status.Moving)
+		exit
+	}
+	
+	
+	@Test
+	operation checkArrival(){
+		enter
+			raise turnOn
+			assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
+			raise Routing.assign_destination
+			x = 0.0
+			y = 0.0
+			homeX = 0.0
+			homeY = 0.0
+			destY = 0.0
+			destX = 20.0
+			assert destX == 20.0
+			assert active (active_drone_status.On.drone_routing_status.Moving)
+			x = 20.0
+			y = 0.0
+			assert active (active_drone_status.On.drone_routing_status.Requesting_Destination)
+		exit
+		
+	}
+	
+	@Test
+	operation checkLowBattery(){
+		enter 
+			raise turnOn
+			battery.available = 20
+			assert active (active_drone_status.Off)
+		exit
+	}
+	
+	@Test
+	operation checkNoBattery(){
+		enter 
+			raise turnOn
+			battery.available = 0
+			assert active (active_drone_status.Off)
+		exit
+	}
+	
+}
