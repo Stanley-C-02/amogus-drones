@@ -1,7 +1,10 @@
 <testsuite name="HouseTest" time="">
   <testcase name="testOrdered" classname="platform:/resource/amogus_drones/tests/HouseTest.sctunit#HouseTest.testOrdered" time="">
-    <failure>Assertion failed: "assert active (house_ordering_status.Ordered)" (Line 10)
-    	Expected: Ordered, actual: [No Order]
-    </failure>
+  </testcase>
+  <testcase name="testOrderedNoPackage" classname="platform:/resource/amogus_drones/tests/HouseTest.sctunit#HouseTest.testOrderedNoPackage" time="">
+  </testcase>
+  <testcase name="testOrderInTransit" classname="platform:/resource/amogus_drones/tests/HouseTest.sctunit#HouseTest.testOrderInTransit" time="">
+  </testcase>
+  <testcase name="testOrderCompletion" classname="platform:/resource/amogus_drones/tests/HouseTest.sctunit#HouseTest.testOrderCompletion" time="">
   </testcase>
 </testsuite>

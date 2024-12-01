@@ -70,10 +70,10 @@ class HousePanel extends JPanel {
 		name.setText("House Name: " + house.getName());
 		
 		String orderStatus;
-		if (house.getPackage() == null) {
+		if (house.getOrderedPackage() == null) {
 			orderStatus = "None";
 		} else {
-			orderStatus = "#" + house.getPackage().getId() + ": " + house.getPackage().getName() + " (" + house.getPackage().getWeight() + "g)";
+			orderStatus = "#" + house.getOrderedPackage().getId() + ": " + house.getOrderedPackage().getName() + " (" + house.getOrderedPackage().getWeight() + "g)";
 		}
 		status.setText("Order Status: " + orderStatus);
 		
@@ -87,7 +87,7 @@ class HousePanel extends JPanel {
 	}
 	
 	void setBgDefault() {
-		setBackground(house.getPackage() == null ? colorBgDefault : colorBgMoving);
+		setBackground(house.getOrderedPackage() == null ? colorBgDefault : colorBgMoving);
 	}
 
     private class HousePanelMouseListener implements MouseListener {

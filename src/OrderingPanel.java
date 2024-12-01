@@ -60,7 +60,7 @@ public class OrderingPanel extends JPanel {
             int packageIndex = packageDropdown.getSelectedIndex();
             int houseIndex = houseDropdown.getSelectedIndex();
             
-            if (this.houses[houseIndex].getPackage() == null) {
+            if (this.houses[houseIndex].getOrderedPackage() == null) {
             	this.orderPackage(packageIndex, houseIndex);
             	
                 JOptionPane.showMessageDialog(

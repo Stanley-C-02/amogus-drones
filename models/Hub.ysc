@@ -35,11 +35,11 @@
                         <outgoingTransitions xmi:id="_DtUoMK2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.arrived /&#xD;&#xA;&#x9;raise drone.d0.Package.attach" target="_DtTaGa2JEe-PgfjN8jBtNQ"/>
                       </vertices>
                       <vertices xsi:type="sgraph:State" xmi:id="_DtUoW62JEe-PgfjN8jBtNQ" specification="entry /&#xD;&#xA;&#x9;drone.d0.destX = drone.d0.homeX;&#xD;&#xA;&#x9;drone.d0.destY = drone.d0.homeY;&#xD;&#xA;&#x9;raise drone.d0.Routing.assign_destination" name="To Home" incomingTransitions="_DtTaGK2JEe-PgfjN8jBtNQ _DtTaNK2JEe-PgfjN8jBtNQ">
-                        <outgoingTransitions xmi:id="_DtUoXa2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h0.package.weight] / drone.d0.house = houses.h0" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
-                        <outgoingTransitions xmi:id="_DtVPQK2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h1.package.weight] / drone.d0.house = houses.h1" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
-                        <outgoingTransitions xmi:id="_DtVPWq2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h2.package.weight] / drone.d0.house = houses.h2" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
-                        <outgoingTransitions xmi:id="_DtVPdK2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h3.package.weight] / drone.d0.house = houses.h3" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
-                        <outgoingTransitions xmi:id="_DtV2aa2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h4.package.weight] / drone.d0.house = houses.h4" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
+                        <outgoingTransitions xmi:id="_DtUoXa2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h0.orderedPackage.weight] / drone.d0.house = houses.h0" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
+                        <outgoingTransitions xmi:id="_DtVPQK2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h1.orderedPackage.weight] / drone.d0.house = houses.h1" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
+                        <outgoingTransitions xmi:id="_DtVPWq2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h2.orderedPackage.weight] / drone.d0.house = houses.h2" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
+                        <outgoingTransitions xmi:id="_DtVPdK2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h3.orderedPackage.weight] / drone.d0.house = houses.h3" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
+                        <outgoingTransitions xmi:id="_DtV2aa2JEe-PgfjN8jBtNQ" specification="drone.d0.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d0.motor.max_payload >= houses.h4.orderedPackage.weight] / drone.d0.house = houses.h4" target="_DtUBNq2JEe-PgfjN8jBtNQ"/>
                       </vertices>
                     </regions>
                   </vertices>
@@ -116,11 +116,11 @@
                         <outgoingTransitions xmi:id="_FhcnsK3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.arrived /&#xD;&#xA;&#x9;raise drone.d1.Package.attach" target="_FhcAu63KEe-NGrAl5u6jbg"/>
                       </vertices>
                       <vertices xsi:type="sgraph:State" xmi:id="_Fhcnva3KEe-NGrAl5u6jbg" specification="entry /&#xD;&#xA;&#x9;drone.d1.destX = drone.d1.homeX;&#xD;&#xA;&#x9;drone.d1.destY = drone.d1.homeY;&#xD;&#xA;&#x9;raise drone.d1.Routing.assign_destination" name="To Home" incomingTransitions="_FhcAuq3KEe-NGrAl5u6jbg _FhcA1q3KEe-NGrAl5u6jbg">
-                        <outgoingTransitions xmi:id="_Fhcn1q3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h0.package.weight] / drone.d1.house = houses.h0" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_Fhcn8K3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h1.package.weight] / drone.d1.house = houses.h1" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_FhdOwK3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h2.package.weight] / drone.d1.house = houses.h2" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_FhdO2q3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h3.package.weight] / drone.d1.house = houses.h3" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_FhdO9K3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h4.package.weight] / drone.d1.house = houses.h4" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_Fhcn1q3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h0.orderedPackage.weight] / drone.d1.house = houses.h0" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_Fhcn8K3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h1.orderedPackage.weight] / drone.d1.house = houses.h1" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_FhdOwK3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h2.orderedPackage.weight] / drone.d1.house = houses.h2" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_FhdO2q3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h3.orderedPackage.weight] / drone.d1.house = houses.h3" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_FhdO9K3KEe-NGrAl5u6jbg" specification="drone.d1.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d1.motor.max_payload >= houses.h4.orderedPackage.weight] / drone.d1.house = houses.h4" target="_FhcA6K3KEe-NGrAl5u6jbg"/>
                       </vertices>
                     </regions>
                   </vertices>
@@ -197,11 +197,11 @@
                         <outgoingTransitions xmi:id="_MW9cKq3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.arrived /&#xD;&#xA;&#x9;raise drone.d2.Package.attach" target="_MW81SK3MEe-NGrAl5u6jbg"/>
                       </vertices>
                       <vertices xsi:type="sgraph:State" xmi:id="_MW9cN63MEe-NGrAl5u6jbg" specification="entry /&#xD;&#xA;&#x9;drone.d2.destX = drone.d2.homeX;&#xD;&#xA;&#x9;drone.d2.destY = drone.d2.homeY;&#xD;&#xA;&#x9;raise drone.d2.Routing.assign_destination" name="To Home" incomingTransitions="_MW81R63MEe-NGrAl5u6jbg _MW81Y63MEe-NGrAl5u6jbg">
-                        <outgoingTransitions xmi:id="_MW9cUK3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h0.package.weight] / drone.d2.house = houses.h0" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_MW9caq3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h1.package.weight] / drone.d2.house = houses.h1" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_MW9chK3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h2.package.weight] / drone.d2.house = houses.h2" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_MW9cnq3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h3.package.weight] / drone.d2.house = houses.h3" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
-                        <outgoingTransitions xmi:id="_MW-DOa3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h4.package.weight] / drone.d2.house = houses.h4" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_MW9cUK3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_0_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h0.orderedPackage.weight] / drone.d2.house = houses.h0" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_MW9caq3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_1_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h1.orderedPackage.weight] / drone.d2.house = houses.h1" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_MW9chK3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_2_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h2.orderedPackage.weight] / drone.d2.house = houses.h2" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_MW9cnq3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_3_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h3.orderedPackage.weight] / drone.d2.house = houses.h3" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
+                        <outgoingTransitions xmi:id="_MW-DOa3MEe-NGrAl5u6jbg" specification="drone.d2.Routing.requesting_destination [&#xD;&#xA;&#x9;active(houses_managed_in_system.Houses.house_4_order_status.Ordered) &amp;&amp;&#xD;&#xA;&#x9;drone.d2.motor.max_payload >= houses.h4.orderedPackage.weight] / drone.d2.house = houses.h4" target="_MW9cEK3MEe-NGrAl5u6jbg"/>
                       </vertices>
                     </regions>
                   </vertices>
@@ -263,10 +263,10 @@
                 <outgoingTransitions xmi:id="_X4f9NaoJEe-1rfYxrUuMJQ" specification="" target="_X4bEz6oJEe-1rfYxrUuMJQ"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_X4bEz6oJEe-1rfYxrUuMJQ" name="No Order" incomingTransitions="_X4f9NaoJEe-1rfYxrUuMJQ _X4bEsKoJEe-1rfYxrUuMJQ">
-                <outgoingTransitions xmi:id="_X4eIGKoJEe-1rfYxrUuMJQ" specification="houses.order_p0_to_h0 / houses.h0.package = package.p0" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4dg96oJEe-1rfYxrUuMJQ" specification="houses.order_p1_to_h0 / houses.h0.package = package.p1" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4cS46oJEe-1rfYxrUuMJQ" specification="houses.order_p2_to_h0 / houses.h0.package = package.p2" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
-                <outgoingTransitions xmi:id="_X4brxKoJEe-1rfYxrUuMJQ" specification="houses.order_p3_to_h0 / houses.h0.package = package.p3" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4eIGKoJEe-1rfYxrUuMJQ" specification="houses.order_p0_to_h0 / houses.h0.orderedPackage = package.p0" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4dg96oJEe-1rfYxrUuMJQ" specification="houses.order_p1_to_h0 / houses.h0.orderedPackage = package.p1" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4cS46oJEe-1rfYxrUuMJQ" specification="houses.order_p2_to_h0 / houses.h0.orderedPackage = package.p2" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
+                <outgoingTransitions xmi:id="_X4brxKoJEe-1rfYxrUuMJQ" specification="houses.order_p3_to_h0 / houses.h0.orderedPackage = package.p3" target="_X4ZPn6oJEe-1rfYxrUuMJQ"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_X4ZPn6oJEe-1rfYxrUuMJQ" specification="entry /&#xD;&#xA;&#x9;raise houses.h0.order" name="Ordered" incomingTransitions="_X4eIGKoJEe-1rfYxrUuMJQ _X4dg96oJEe-1rfYxrUuMJQ _X4cS46oJEe-1rfYxrUuMJQ _X4brxKoJEe-1rfYxrUuMJQ">
                 <outgoingTransitions xmi:id="_YmOTQq2VEe-rNZvQk01IWQ" specification="houses.h0.assigned" target="_WV-u8K2VEe-rNZvQk01IWQ"/>
@@ -280,10 +280,10 @@
                 <outgoingTransitions xmi:id="_bEWD8azDEe-LE8XLODnQEw" specification="" target="_bEWrAKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_bEWrAKzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_bEWD8azDEe-LE8XLODnQEw _bEf08qzDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_bEWrA6zDEe-LE8XLODnQEw" specification="houses.order_p0_to_h1 / houses.h1.package = package.p0" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEX5IKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h1 / houses.h1.package = package.p1" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEYgMKzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h1 / houses.h1.package = package.p2" target="_bEcKkKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_bEZuUKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h1 / houses.h1.package = package.p3" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEWrA6zDEe-LE8XLODnQEw" specification="houses.order_p0_to_h1 / houses.h1.orderedPackage = package.p0" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEX5IKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h1 / houses.h1.orderedPackage = package.p1" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEYgMKzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h1 / houses.h1.orderedPackage = package.p2" target="_bEcKkKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_bEZuUKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h1 / houses.h1.orderedPackage = package.p3" target="_bEcKkKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_bEcKkKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h1.order" name="Ordered" incomingTransitions="_bEWrA6zDEe-LE8XLODnQEw _bEX5IKzDEe-LE8XLODnQEw _bEYgMKzDEe-LE8XLODnQEw _bEZuUKzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_o4EKEK2VEe-rNZvQk01IWQ" specification="houses.h1.assigned" target="_kaS-QK2VEe-rNZvQk01IWQ"/>
@@ -297,10 +297,10 @@
                 <outgoingTransitions xmi:id="_cH_SQazDEe-LE8XLODnQEw" specification="" target="_cH_SQqzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cH_SQqzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_cH_SQazDEe-LE8XLODnQEw _cICVk6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_cH_SRazDEe-LE8XLODnQEw" specification="houses.order_p0_to_h2 / houses.h2.package = package.p0" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_SWKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h2 / houses.h2.package = package.p1" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_Sa6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h2 / houses.h2.package = package.p2" target="_cIAgYKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cH_5UKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h2 / houses.h2.package = package.p3" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_SRazDEe-LE8XLODnQEw" specification="houses.order_p0_to_h2 / houses.h2.orderedPackage = package.p0" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_SWKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h2 / houses.h2.orderedPackage = package.p1" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_Sa6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h2 / houses.h2.orderedPackage = package.p2" target="_cIAgYKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cH_5UKzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h2 / houses.h2.orderedPackage = package.p3" target="_cIAgYKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cIAgYKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h2.order" name="Ordered" incomingTransitions="_cH_SRazDEe-LE8XLODnQEw _cH_SWKzDEe-LE8XLODnQEw _cH_Sa6zDEe-LE8XLODnQEw _cH_5UKzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_qWvHgK2VEe-rNZvQk01IWQ" specification="houses.h2.assigned" target="_kuBLjK2VEe-rNZvQk01IWQ"/>
@@ -314,10 +314,10 @@
                 <outgoingTransitions xmi:id="_cxap2azDEe-LE8XLODnQEw" specification="" target="_cxap2qzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cxap2qzDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_cxap2azDEe-LE8XLODnQEw _cxdtE6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_cxap3azDEe-LE8XLODnQEw" specification="houses.order_p0_to_h3 / houses.h3.package = package.p0" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxbQ36zDEe-LE8XLODnQEw" specification="houses.order_p1_to_h3 / houses.h3.package = package.p1" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxbQ8qzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h3 / houses.h3.package = package.p2" target="_cxce8KzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_cxb34KzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h3 / houses.h3.package = package.p3" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxap3azDEe-LE8XLODnQEw" specification="houses.order_p0_to_h3 / houses.h3.orderedPackage = package.p0" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxbQ36zDEe-LE8XLODnQEw" specification="houses.order_p1_to_h3 / houses.h3.orderedPackage = package.p1" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxbQ8qzDEe-LE8XLODnQEw" specification="houses.order_p2_to_h3 / houses.h3.orderedPackage = package.p2" target="_cxce8KzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_cxb34KzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h3 / houses.h3.orderedPackage = package.p3" target="_cxce8KzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_cxce8KzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h3.order" name="Ordered" incomingTransitions="_cxap3azDEe-LE8XLODnQEw _cxbQ36zDEe-LE8XLODnQEw _cxbQ8qzDEe-LE8XLODnQEw _cxb34KzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_uOQysK2VEe-rNZvQk01IWQ" specification="houses.h3.assigned" target="_lCltXa2VEe-rNZvQk01IWQ"/>
@@ -331,10 +331,10 @@
                 <outgoingTransitions xmi:id="_dLZ3PqzDEe-LE8XLODnQEw" specification="" target="_dLZ3P6zDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_dLZ3P6zDEe-LE8XLODnQEw" name="No Order" incomingTransitions="_dLZ3PqzDEe-LE8XLODnQEw _dLc6Y6zDEe-LE8XLODnQEw">
-                <outgoingTransitions xmi:id="_dLZ3QqzDEe-LE8XLODnQEw" specification="houses.order_p0_to_h4 / houses.h4.package = package.p0" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeIKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h4 / houses.h4.package = package.p1" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeM6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h4 / houses.h4.package = package.p2" target="_dLbFMKzDEe-LE8XLODnQEw"/>
-                <outgoingTransitions xmi:id="_dLaeRqzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h4 / houses.h4.package = package.p3" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLZ3QqzDEe-LE8XLODnQEw" specification="houses.order_p0_to_h4 / houses.h4.orderedPackage = package.p0" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeIKzDEe-LE8XLODnQEw" specification="houses.order_p1_to_h4 / houses.h4.orderedPackage = package.p1" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeM6zDEe-LE8XLODnQEw" specification="houses.order_p2_to_h4 / houses.h4.orderedPackage = package.p2" target="_dLbFMKzDEe-LE8XLODnQEw"/>
+                <outgoingTransitions xmi:id="_dLaeRqzDEe-LE8XLODnQEw" specification="houses.order_p3_to_h4 / houses.h4.orderedPackage = package.p3" target="_dLbFMKzDEe-LE8XLODnQEw"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_dLbFMKzDEe-LE8XLODnQEw" specification="entry /&#xD;&#xA;&#x9;raise houses.h4.order" name="Ordered" incomingTransitions="_dLZ3QqzDEe-LE8XLODnQEw _dLaeIKzDEe-LE8XLODnQEw _dLaeM6zDEe-LE8XLODnQEw _dLaeRqzDEe-LE8XLODnQEw">
                 <outgoingTransitions xmi:id="_rhecUK2VEe-rNZvQk01IWQ" specification="houses.h4.assigned" target="_lP2GPK2VEe-rNZvQk01IWQ"/>

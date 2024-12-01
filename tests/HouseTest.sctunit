@@ -1,16 +1,61 @@
 testclass HouseTest for statechart House {
 	
-	// Test ordered state when order is made
+	// Test ordered state only when order is made
 	@Test
 	operation testOrdered() {
-		var MedKit: Package
-		MedKit.id = 1
-		MedKit.name = "MedKit"
-		MedKit.weight = 19.2
 		enter
-			package = MedKit
+			proceed 1 s
+			orderedPackage = medkit
+			proceed 5 s
 			raise order
 			assert active (house_ordering_status.Ordered)
 		exit
 	}
+	
+	// Test no order state when orderedPackage not selected
+	@Test
+	operation testOrderedNoPackage() {
+		enter
+			proceed 1 s
+			raise order
+			assert !active (house_ordering_status.Ordered)
+			assert active (house_ordering_status.No_Order)
+		exit
+	}
+	
+	// Test In Transit when order has been made and assigned
+	@Test
+	operation testOrderInTransit() {
+		enter
+			proceed 1 s
+			orderedPackage = medkit
+			proceed 5 s
+			raise order
+			assert !active (house_ordering_status.In_Transit)
+			
+			raise assign
+			assert active (house_ordering_status.In_Transit)
+		exit
+	}
+	
+	
+	// Test completion of order
+	@Test
+	operation testOrderCompletion() {
+		enter
+			proceed 1 s
+			orderedPackage = medkit
+			proceed 5 s
+			
+			raise order
+			assert active (house_ordering_status.Ordered)
+			
+			raise assign
+			assert active (house_ordering_status.In_Transit)
+			
+			raise completeOrder
+			assert active (house_ordering_status.No_Order)
+		exit
+	}
+
 }
