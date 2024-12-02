@@ -1,0 +1,16 @@
+<testsuite name="HubTest" time="">
+  <testcase name="testAssignAvailablePackages" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testAssignAvailablePackages" time="">
+  </testcase>
+  <testcase name="testSingleChargingStationReservation" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testSingleChargingStationReservation" time="">
+  </testcase>
+  <testcase name="testTwoDroneChargingStationReservation" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testTwoDroneChargingStationReservation" time="">
+  </testcase>
+  <testcase name="testDroneGoesBackToOrginalOperationAfterCharge" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testDroneGoesBackToOrginalOperationAfterCharge" time="">
+  </testcase>
+  <testcase name="testDroneCollision" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testDroneCollision" time="">
+  </testcase>
+  <testcase name="testMultipleOrders" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testMultipleOrders" time="">
+  </testcase>
+  <testcase name="testMultipleOrderWithMultipleHouse" classname="platform:/resource/amogus_drones/tests/HubTest.sctunit#HubTest.testMultipleOrderWithMultipleHouse" time="">
+  </testcase>
+</testsuite>

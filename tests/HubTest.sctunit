@@ -1,0 +1,149 @@
+testclass HubTest for statechart Hub {
+	
+	//Test if drones are automatically assigned available packages
+	@Test
+	operation testAssignAvailablePackages() {
+		enter
+			raise houses.order_p0_to_h0
+			assert active ( hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered )
+			raise drone.start_2	
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)
+		exit
+	}
+	
+	//Test charging station reservation when drone battery less than 20%
+	@Test
+	operation testSingleChargingStationReservation(){
+		enter
+			raise drone.start_2
+			drone.d2.battery.available = 20
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Requesting)
+			
+			raise charger.start_all
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Reserved_Charging_Station_0)
+			assert active (hub_controller.Hub.chargers_managed_in_system.Chargers.charger_0_active_status.On.availability.Reserved)
+			
+			drone.d2.x = 60
+			drone.d2.y = 55
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Connected_to_0)	
+		exit
+	}
+	
+	//Testing two drones reserving charging station should get their own  
+	@Test
+	operation testTwoDroneChargingStationReservation() {
+		enter
+			raise charger.start_all
+			raise drone.start_2
+			raise drone.start_1
+			drone.d2.battery.available = 20
+			drone.d1.battery.available = 10
+			proceed 5 s
+			
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Reserved_Charging_Station_0)
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_1_active_status.On.destination_router.Charging.charging_status.Reserved_Charging_Station_1)
+		exit
+	}
+	
+	//Testing drone remembers its original operation after finishing to charge
+	@Test
+	operation testDroneGoesBackToOrginalOperationAfterCharge() {
+		enter
+			raise charger.start_all
+			raise houses.order_p0_to_h0
+			raise drone.start_2
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)
+			
+			
+			drone.d2.battery.available = 20
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Reserved_Charging_Station_0)
+			
+			drone.d2.x = 60
+			drone.d2.y = 55
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Charging.charging_status.Connected_to_0)
+			
+			drone.d2.battery.available = 500
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+		exit
+	}
+	
+	//Testing Collision of two drones
+	@Test
+	operation testDroneCollision(){
+		enter
+			raise drone.start_2
+			raise drone.start_1
+			raise houses.order_p0_to_h0
+			raise houses.order_p0_to_h2
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.collision.Detecting)
+			
+			drone.d1.x = 50
+			drone.d1.y = 50			
+			drone.d2.x = 50
+			drone.d2.y = 50
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.collision.Detected)
+			
+			
+			drone.d1.x = 100
+			drone.d1.y = 100
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.collision.Detecting)
+			 
+		exit
+	}
+	
+	//Testing multiple orders on same house
+	@Test
+	operation testMultipleOrders(){
+		enter
+			raise drone.start_2
+			raise houses.order_p0_to_h0
+			proceed 5 s
+			drone.d2.x = 50
+			drone.d2.y = 50
+			proceed 5 s
+			drone.d2.x = 40
+			drone.d2.y = 90
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.To_Home)		
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.No_Order)
+			
+			raise houses.order_p0_to_h0
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered)
+			
+			
+		exit
+	}
+	
+	//Testing drones taking multiple orders
+	@Test
+	operation testMultipleOrderWithMultipleHouse(){
+		enter
+			raise drone.start_0
+			raise drone.start_1
+			raise drone.start_2
+			assert !active (hub_controller.Hub.drones_managed_in_system.Drones.drone_0_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			assert !active (hub_controller.Hub.drones_managed_in_system.Drones.drone_1_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			assert !active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			
+			raise houses.order_p0_to_h0
+			raise houses.order_p0_to_h1
+			raise houses.order_p0_to_h2
+			proceed 5 s
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_0_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_1_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			assert active (hub_controller.Hub.drones_managed_in_system.Drones.drone_2_active_status.On.destination_router.Delivery.delivery_status.Moving_to_Hub)		
+			
+			
+		exit
+	}
+	
+	
+}
