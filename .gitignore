@@ -28,3 +28,6 @@ src-gen/
 
 # Compiled .class files
 bin/
+
+# Test case coverage files, generated when running test cases
+tests/.*.cov
