@@ -26,7 +26,9 @@ Once this is cloned we will import this project into itemis CREATE:
 4. Click Directory button and select the cloned project
 
 ![image](https://github.com/user-attachments/assets/d6f6a2de-c8fd-40f0-b820-55b2fdba6067)
+
 5. Now unselect amogus-drones\models as this is part of the amogus-drones project and not seperate
 
 ![image](https://github.com/user-attachments/assets/3b1c9ded-477f-45b1-aefd-5084e3a5cb45)
+
 6. Select Finish and you have the project loaded and ready to be used!
