@@ -1,0 +1,7 @@
+testsuite AmogusTestSuite {
+	AmadroneTest,
+	BatteryTest,
+	ChargingStationTest,
+	HouseTest,
+	HubTest
+}

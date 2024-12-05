@@ -10,6 +10,18 @@ testclass AmadroneTest for statechart Amadrone {
 		exit
 	}
 	
+	//Test drone turning off
+	@Test
+	operation testTurnOffDrone() {
+		enter
+			assert active (active_drone_status.Off)
+            raise turnOn
+            assert active (active_drone_status.On)
+            raise turnOff
+            assert active (active_drone_status.Off)
+		exit
+	}
+	
 	//Test drone movement after assigning destination
 	@Test
 	operation checkMovement(){
@@ -56,8 +68,68 @@ testclass AmadroneTest for statechart Amadrone {
 		enter 
 			raise turnOn
 			battery.available = 0
+			raise battery.updateCharge
+			raise battery.updateCharge
 			proceed 5 s
 			assert active (active_drone_status.Off)
 		exit
-	}	
+	}
+	
+	//Test Charging after low battery
+	@Test
+	operation checkChargingLow(){
+		enter 
+			raise turnOn
+			raise Routing.assign_destination
+			battery.available = 20
+			proceed 5 s
+			assert active (active_drone_status.On.drone_battery_status.Low)
+			raise battery.Charging.start
+			battery.available = battery.maxCapacity
+			raise battery.charged
+			proceed 5 s
+			assert active (active_drone_status.On.drone_battery_status.Safe)
+		exit
+	}
+	
+	//Test collision states
+	@Test
+	operation testCollision(){
+		enter 
+			raise turnOn
+			assert active (active_drone_status.On.drone_collision_status.OK)
+			raise Collision.detect
+			assert active (active_drone_status.On.drone_collision_status.Yield)
+			raise Collision.^proceed
+			assert active (active_drone_status.On.drone_collision_status.Proceed)
+			raise Collision.resume
+			assert active (active_drone_status.On.drone_collision_status.OK)
+		exit
+	}
+	
+	//Test package attachment states
+	@Test
+	operation testPackage(){
+		enter 
+			raise turnOn
+			assert active (active_drone_status.On.drone_package_attachment_status.Unattached)
+			raise Package.attach
+			assert active (active_drone_status.On.drone_package_attachment_status.Attached)
+			raise Package.detach
+			assert active (active_drone_status.On.drone_package_attachment_status.Unattached)
+		exit
+	}
+	
+	//Test charger connection states
+	@Test
+	operation testCharger(){
+		enter 
+			raise turnOn
+			assert active (active_drone_status.On.drone_charger_connection_status.Not_Connected)
+			raise Charger.connect
+			assert active (active_drone_status.On.drone_charger_connection_status.Connected)
+			raise Charger.disconnect
+			assert active (active_drone_status.On.drone_charger_connection_status.Not_Connected)
+		exit
+	}
 }

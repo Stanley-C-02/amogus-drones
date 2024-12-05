@@ -36,4 +36,32 @@ testclass ChargingStationTest for statechart ChargingStation {
 			assert active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Charging)
 		exit
 	}
+	
+	//Test releasing only when idle (not connected)
+	@Test
+	operation testReleaseWhenIdle() {
+		enter
+			raise turnOn
+			assert active (active_charging_station_status.On.charging_station_availability.Available)
+			raise reserve
+			assert active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Idle)
+			raise release
+			assert active (active_charging_station_status.On.charging_station_availability.Available)
+		exit
+	}
+	
+	//Test releasing when charging (connected)
+	@Test
+	operation testReleaseWhenCharging() {
+		enter
+			raise turnOn
+			assert active (active_charging_station_status.On.charging_station_availability.Available)
+			raise reserve
+			assert active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Idle)
+			raise startCharging
+			assert active (active_charging_station_status.On.charging_station_availability.Reserved.charging_status.Charging)
+			raise release
+			assert active (active_charging_station_status.On.charging_station_availability.Available)
+		exit
+	}
 }

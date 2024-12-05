@@ -1,8 +1,0 @@
-<testsuite name="ChargingStationTest" time="">
-  <testcase name="testAvailable" classname="platform:/resource/amogus_drones/tests/ChargingStationTest.sctunit#ChargingStationTest.testAvailable" time="">
-  </testcase>
-  <testcase name="testReservation" classname="platform:/resource/amogus_drones/tests/ChargingStationTest.sctunit#ChargingStationTest.testReservation" time="">
-  </testcase>
-  <testcase name="testChargingWhenReserved" classname="platform:/resource/amogus_drones/tests/ChargingStationTest.sctunit#ChargingStationTest.testChargingWhenReserved" time="">
-  </testcase>
-</testsuite>

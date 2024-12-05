@@ -24,6 +24,8 @@ testclass BatteryTest for statechart Battery {
 		assert !active (battery.Battery.battery_capacity.Safe)
 		assert !active (battery.Battery.battery_capacity.Critical)
 		assert active (battery.Battery.battery_capacity.Low)
+		raise updateCharge
+		assert active (battery.Battery.battery_capacity.Low)
 		exit
 	}
 	
