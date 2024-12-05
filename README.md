@@ -21,6 +21,7 @@ Once this is cloned we will import this project into itemis CREATE:
 2. Navigate to import using File -> Import
 
 ![image](https://github.com/user-attachments/assets/19a1d7f4-550f-4947-8022-55f7f92fb709)
+
 3. Select Projects from Folder or Archive and click next
 4. Click Directory button and select the cloned project
 
