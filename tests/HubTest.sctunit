@@ -145,5 +145,99 @@ testclass HubTest for statechart Hub {
 		exit
 	}
 	
+	//Testing ordering package 0
+	@Test
+	operation testOrderPackage0(){
+		enter
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.No_Order)
+			
+			raise houses.order_p0_to_h0
+			raise houses.order_p0_to_h1
+			raise houses.order_p0_to_h2
+			raise houses.order_p0_to_h3
+			raise houses.order_p0_to_h4
+			
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.Ordered)
+		exit
+	}
 	
+	//Testing ordering package 1
+	@Test
+	operation testOrderPackage1(){
+		enter
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.No_Order)
+			
+			raise houses.order_p1_to_h0
+			raise houses.order_p1_to_h1
+			raise houses.order_p1_to_h2
+			raise houses.order_p1_to_h3
+			raise houses.order_p1_to_h4
+			
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.Ordered)
+		exit
+	}
+	
+	//Testing ordering package 2
+	@Test
+	operation testOrderPackage2(){
+		enter
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.No_Order)
+			
+			raise houses.order_p2_to_h0
+			raise houses.order_p2_to_h1
+			raise houses.order_p2_to_h2
+			raise houses.order_p2_to_h3
+			raise houses.order_p2_to_h4
+			
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.Ordered)
+		exit
+	}
+	
+	//Testing ordering package 3
+	@Test
+	operation testOrderPackage3(){
+		enter
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.No_Order)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.No_Order)
+			
+			raise houses.order_p3_to_h0
+			raise houses.order_p3_to_h1
+			raise houses.order_p3_to_h2
+			raise houses.order_p3_to_h3
+			raise houses.order_p3_to_h4
+			
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_0_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_1_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_2_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_3_order_status.Ordered)
+			assert active (hub_controller.Hub.houses_managed_in_system.Houses.house_4_order_status.Ordered)
+		exit
+	}
 }
